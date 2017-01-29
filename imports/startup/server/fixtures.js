@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Accounts } from 'meteor/accounts-base';
+// Custom Collections
+import { Clients } from '../../api/clients/clients.js';
 
 if (!Meteor.isProduction) {
   const users = [{
@@ -20,4 +22,38 @@ if (!Meteor.isProduction) {
       Roles.addUsersToRoles(userId, roles);
     }
   });
+
+
+  /* Clients fixtures */
+  const clients = [{
+    title: 'Ghostbusters',
+    year: '1984',
+    rated: 'PG',
+    plot: 'Three former parapsychology professors set up shop as a unique ghost removal service.',
+    poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMjYyNzgwMl5BMl5BanBnXkFtZTgwMTE3MjYyMTE@._V1_SX300.jpg',
+  }, {
+    title: 'The Matrix',
+    year: '1999',
+    rated: 'R',
+    plot: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+    poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMDMyMmQ5YzgtYWMxOC00OTU0LWIwZjEtZWUwYTY5MjVkZjhhXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg',
+  }, {
+    title: 'Whiplash',
+    year: '2014',
+    rated: 'R',
+    plot: 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.',
+    poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU4OTQ3MDUyMV5BMl5BanBnXkFtZTgwOTA2MjU0MjE@._V1_SX300.jpg',
+  }, {
+    title: 'Almost Famous',
+    year: '2000',
+    rated: 'R',
+    plot: 'A high-school boy is given the chance to write a story for Rolling Stone Magazine about an up-and-coming rock band as he accompanies it on their concert tour.',
+    poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzY1ZjMwMGEtYTY1ZS00ZDllLTk0ZmUtYzA3ZTA4NmYwNGNkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg',
+  }];
+
+  clients.forEach((client) => {
+    const clientExists = Clients.findOne({ title: client.title });
+    if (!clientExists) Clients.insert(client);
+  });
+
 }
