@@ -42,8 +42,8 @@ Meteor.startup(() => {
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
         <Route name="signup" path="/signup" component={ Signup } />
-        <Route name="signup-client" path="/signup/client" component={ SignupClient } />
-        <Route name="signup-supplier" path="/signup/trainer" component={ SignupTrainer } />
+        <Route name="signup-client" path="/signup/client" component={ Signup } />
+        <Route name="signup-trainer" path="/signup/trainer" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
         <Route name="getStarted" path="/getstarted" component={ GetStarted } />
         <Route path="*" component={ NotFound } />

@@ -16,9 +16,9 @@ const getUserData = () => ({
       first: document.querySelector('[name="firstName"]').value,
       last: document.querySelector('[name="lastName"]').value,
     },
-
+    roles: ['client'],
+    groups: ['client']
   },
-  roles: ['client']
 });
 
 const signup = () => {
@@ -32,17 +32,8 @@ const signup = () => {
       Bert.alert('Welcome!', 'success');
     }
   });
-  Roles.addUsersToRoles(3, user.roles);
+  //Roles.addUsersToRoles(userId, user.roles);
   console.log(Roles);
-  /*
-  user.forEach(({ email, password, profile, roles }) => {
-    //const userExists = Meteor.users.findOne({ 'emails.address': email });
-    //if (!userExists) {
-      Roles.addUsersToRoles(userId, roles);
-    //}
-  });
-  */
-
 };
 
 const validate = () => {

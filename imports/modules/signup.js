@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
+//import { browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
 import './validation.js';
@@ -14,18 +16,22 @@ const getUserData = () => ({
     name: {
       first: document.querySelector('[name="firstName"]').value,
       last: document.querySelector('[name="lastName"]').value,
-    }
+    },
   },
 });
 
 const signup = () => {
   const user = getUserData();
+  console.dir(component.props.route.name);
+  component.props.route.name == 'signup-client' ? user.profile.roles = ['client']: '';
+  component.props.route.name == 'signup-trainer' ? user.profile.roles = ['supplier']: '';
+
 
   Accounts.createUser(user, (error) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      browserHistory.push('/');
+      //browserHistory.push('/');
       Bert.alert('Welcome!', 'success');
     }
   });
