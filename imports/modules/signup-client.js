@@ -3,6 +3,7 @@
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { Roles } from 'meteor/alanning:roles';
 import './validation.js';
 
 let component;
@@ -14,21 +15,34 @@ const getUserData = () => ({
     name: {
       first: document.querySelector('[name="firstName"]').value,
       last: document.querySelector('[name="lastName"]').value,
-    }
+    },
+
   },
+  roles: ['client']
 });
 
 const signup = () => {
   const user = getUserData();
 
-  Accounts.createUser(user, (error) => {
+  const userId = Accounts.createUser(user, (error) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      browserHistory.push('/');
+      browserHistory.push('/clients');
       Bert.alert('Welcome!', 'success');
     }
   });
+  Roles.addUsersToRoles(3, user.roles);
+  console.log(Roles);
+  /*
+  user.forEach(({ email, password, profile, roles }) => {
+    //const userExists = Meteor.users.findOne({ 'emails.address': email });
+    //if (!userExists) {
+      Roles.addUsersToRoles(userId, roles);
+    //}
+  });
+  */
+
 };
 
 const validate = () => {

@@ -15,6 +15,7 @@ import NotFound from '../../ui/pages/NotFound.js';
 import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
+import SignupClient from '../../ui/pages/SignupClient.js';
 import Clients from '../../ui/pages/Clients.js';
 
 const authenticate = (nextState, replace) => {
@@ -39,6 +40,8 @@ Meteor.startup(() => {
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
         <Route name="signup" path="/signup" component={ Signup } />
+        <Route name="signup-client" path="/signup/client" component={ SignupClient } />
+        <Route name="signup-supplier" path="/signup/supplier" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
         <Route path="*" component={ NotFound } />
       </Route>
