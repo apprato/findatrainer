@@ -1,11 +1,17 @@
 import React from 'react';
-import { Alert, Row, Col, Panel, FormControl, Image } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+import { Alert, Row, Col, Panel, FormControl, Image, ListGroupItem } from 'react-bootstrap';
+
+const handleNavigation = (_id) => {
+  browserHistory.push(`/clients/${_id}`);
+}
 
 class Clients extends React.Component {
   constructor(props) {
     super(props);
     this.state = { searchTerm: null };
     this.handleSearch = this.handleSearch.bind(this);
+    // this.handleNav = this.handleNav.bind(this);
   }
 
   handleSearch(event) {
@@ -27,15 +33,20 @@ class Clients extends React.Component {
         />
       </div>
       <div className="Clients-list">
-        { clients.length > 0 ? clients.map(({ title, year, rated, plot, poster }) => (
-          <Panel header={`${title} - ${year}`}>
+        { clients.length > 0 ? clients.map(({ _id, title, description, height, weight, sex, image }) => (
+          <Panel header={`${title} - ${sex}`}>
             <Row>
               <Col xs={ 12 } sm={ 3 }>
-                <Image src={ poster } alt={ title } responsive />
+                <Image src={ image } alt={ title } responsive />
               </Col>
               <Col xs={ 12 } sm={ 9 }>
-                <p><strong>Rated:</strong> { rated }</p>
-                <p>{ plot }</p>
+                <p><strong>Description:</strong> { description }</p>
+                <p>{ height }</p>
+                <p>{ weight }</p>
+                <p>{ sex }</p>
+                <a key={ _id } onClick={ () => handleNavigation (_id) }>
+                  View Profile
+                </a>
               </Col>
             </Row>
           </Panel>

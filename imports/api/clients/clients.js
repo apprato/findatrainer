@@ -19,23 +19,27 @@ Clients.deny({
 const ClientsSchema = new SimpleSchema({
   title: {
     type: String,
-    label: 'The title of the movie.',
+    label: 'What you want achieved.',
   },
-  year: {
+  description: {
     type: String,
-    label: 'The year the movie was released.',
+    label: 'More detail on history and goals.',
   },
-  rated: {
+  height: {
     type: String,
-    label: 'The rating for the movie.',
+    label: 'Height of individual.',
   },
-  plot: {
+  weight: {
     type: String,
-    label: 'The plot of the movie.',
+    label: 'Weight of individual.',
   },
-  poster: {
+  sex: {
     type: String,
-    label: 'The poster image for the movie.',
+    label: 'Sex of individual.',
+  },
+  image: {
+    type: String,
+    label: 'Sex of individual.',
   },
 });
 
