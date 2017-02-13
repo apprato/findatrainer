@@ -1,7 +1,9 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Factory } from 'meteor/dburles:factory';
 
 export const Clients = new Mongo.Collection('Clients');
+export default Clients;
 
 // Security measure to stops the client browser calling Disabling Allow and Deny Rules like Movies.insert() or Movies.remove()
 Clients.allow({

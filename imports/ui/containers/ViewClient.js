@@ -1,16 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { composeWithTracker } from 'react-komposer';
-import Documents from '../../api/documents/documents.js';
-import viewClient from '../pages/viewClient.js';
+import Clients from '../../api/clients/clients.js';
+import ViewClient from '../pages/ViewClient.js';
 import Loading from '../components/Loading.js';
 
 const composer = ({ params }, onData) => {
-  const subscription = Meteor.subscribe('documents.view', params._id);
+  const subscription = Meteor.subscribe('clients.view', params._id);
 
   if (subscription.ready()) {
-    const doc = Clients.findOne();
-    onData(null, { doc });
+    const clients = Clients.findOne();
+    onData(null, { clients });
   }
 };
 
-export default composeWithTracker(composer, Loading)(ViewDocument);
+export default composeWithTracker(composer, Loading)(ViewClient);
