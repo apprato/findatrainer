@@ -4,7 +4,7 @@ module.exports = {
       host: '13.54.237.153',
       username: 'root',
       username: "ubuntu",
-      pem: "/home/ubuntu/agquoteio.pem"
+      pem: "/home/ubuntu/magescale.pem"
       // pem:
       // password:
       // or leave blank for authenticate from ssh-agent
@@ -13,7 +13,7 @@ module.exports = {
 
   meteor: {
     name: 'agquote',
-    path: '/home/ubuntu/agquote.io',
+    path: '/home/ubuntu/findatrainer',
     servers: {
       one: {},
     },
@@ -21,14 +21,14 @@ module.exports = {
       serverOnly: true,
     },
     env: {
-      ROOT_URL: 'http://stage.agquote.com.au',
+      ROOT_URL: 'http://fit4all.appscalejs.com',
       MONGO_URL: 'mongodb://localhost/meteor',
     },
 
     // change to 'kadirahq/meteord' if your app is not using Meteor 1.4
     dockerImage: 'abernix/meteord:base',
     deployCheckWaitTime: 600,
-    
+
     // Show progress bar while uploading bundle to server
     // You might need to disable it on CI servers
     enableUploadProgressBar: true
