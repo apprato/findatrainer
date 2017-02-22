@@ -1,8 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '13.54.237.153',
-      username: 'root',
+      host: '13.55.200.242',
       username: "ubuntu",
       pem: "/home/ubuntu/magescale.pem"
       // pem:
@@ -12,7 +11,7 @@ module.exports = {
   },
 
   meteor: {
-    name: 'agquote',
+    name: 'findatrainer',
     path: '/home/ubuntu/findatrainer',
     servers: {
       one: {},

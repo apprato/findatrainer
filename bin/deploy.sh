@@ -35,12 +35,15 @@ installDeployLibraries () {
 }
 
 setupStaging() {
-  mup setup
-  mup deploy
-  mup reconfig
-  mup start
+  cd /home/ubuntu/findatrainer/.deploy
+  mup --config mup.js --settings settings-staging.json  setup
+  mup --config mup.js --settings settings-staging.json deploy
 }
 
+deployStaging() {
+  cd /home/ubuntu/findatrainer/.deploy
+  mup --config mup.js --settings settings-staging.json deploy
+}
 
 case "$1" in
   installDeployLibraries)
@@ -53,6 +56,11 @@ case "$1" in
     setupStaging
     echo 'Finished Setting up staging'
     ;;
+  deployStaging)
+    echo 'Deploy to Staging'
+    deployStaging
+    echo 'Finished deploying to staging'
+    ;;
   *)
 
 
@@ -61,15 +69,23 @@ SYNOPSIS
     sh deploy.sh
     sh deploy.sh [-- [OPTIONS...]]
 DESCRIPTION
-    Agquote Deploy
+    Findatrainer Deploy Script
 
 OPTIONS
     installDeployLibraries staging | production   -  Installs Deployment app and libraries
     setupStaging staging | production
+    deployStaging
 
 EXAMPLES
 sh bin/deploy.sh staging install installDeployLibraries
-sh bin/deploy.sh setupStaging
+cd /home/ubuntu/findatrainer/.deploy
+sh /home/ubuntu/findatrainer/bin/deploy.sh setupStaging
+
+NOTES
+With installing sometimes it gets stuck on the target
+If so start again on the host:
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+sudo rm -Rf /opt/findatrainer/ /opt/mongodb/
 "
     >&2
     exit 1
