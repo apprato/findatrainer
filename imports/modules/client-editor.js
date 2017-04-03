@@ -2,55 +2,59 @@
 
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertDocument } from '../api/documents/methods.js';
+import { upsertClient} from '../api/clients/methods.js';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
-  const { doc } = component.props;
-  const confirmation = doc && doc._id ? 'Document updated!' : 'Document added!';
+  const { client } = component.props;
+  const confirmation = client && client._id ? 'Client updated!' : 'Client added!';
   const upsert = {
-    title: document.querySelector('[name="title"]').value.trim(),
-    body: document.querySelector('[name="body"]').value.trim(),
+    title: document.querySelector('[name="title"]').value,
+    description: document.querySelector('[name="description"]').value,
+    height: document.querySelector('[name="height"]').value,
+    weight: document.querySelector('[name="weight"]').value,
+    sex: document.querySelector('[name="sex"]').value
   };
 
-  if (doc && doc._id) upsert._id = doc._id;
+  if (client && client._id) upsert._id = client._id;
 
-  upsertDocument.call(upsert, (error, response) => {
+  upsertClient.call(upsert, (error, response) => {
     if (error) {
+      console.dir(error);
       Bert.alert(error.reason, 'danger');
     } else {
-      component.documentEditorForm.reset();
+      component.clientEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
+      browserHistory.push(`/clients/${response.insertedId || client._id}`);
     }
   });
 };
 
 const validate = () => {
-  $(component.documentEditorForm).validate({
+  $(component.clientEditorForm).validate({
     rules: {
       title: {
         required: true,
       },
-      body: {
+      description: {
         required: true,
       },
     },
     messages: {
       title: {
-        required: 'Need a title in here, Seuss.',
+        required: 'This requires a title in here.',
       },
-      body: {
-        required: 'This thneeds a body, please.',
+      description: {
+        required: 'This requires a body, please.',
       },
     },
     submitHandler() { handleUpsert(); },
   });
 };
 
-export default function documentEditor(options) {
+export default function clientEditor(options) {
   component = options.component;
   validate();
 }

@@ -31,3 +31,6 @@ Meteor.publish('clients.view', (_id) => {
   check(_id, String);
   return Clients.find(_id);
 });
+
+Meteor.publish('clients.list', () => Clients.find());
+
