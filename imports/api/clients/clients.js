@@ -18,7 +18,7 @@ Clients.deny({
   remove: () => true,
 });
 
-const ClientsSchema = new SimpleSchema({
+Clients.schema = new SimpleSchema({
   title: {
     type: String,
     label: 'What you want achieved.',
@@ -42,7 +42,8 @@ const ClientsSchema = new SimpleSchema({
   image: {
     type: String,
     label: 'Sex of individual.',
-  },
+  }
 });
 
-Clients.attachSchema(ClientsSchema);
+Clients.attachSchema(Clients.schema);
+

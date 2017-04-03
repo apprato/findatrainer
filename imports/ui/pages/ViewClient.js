@@ -1,15 +1,22 @@
 import React from 'react';
-import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
+import { Alert, Row, Col, Panel, Image } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
-
 
 const ViewClient = ({ client }) => (
   <div className="ViewClient">
-    <div className="page-header clearfix">
-      <h4 className="pull-left">{ client.title }</h4>
-    </div>
-    { client.description }
+    <Panel header={ client.title + " - " + client.sex }>
+      <Row>
+        <Col xs={ 12 } sm={ 3 }>
+          <Image src={ "/" + client.image } alt={ client.title } responsive />
+        </Col>
+        <Col xs={ 12 } sm={ 9 }>
+          <p><strong>Description:</strong> { client.description }</p>
+          <p>{ client.height }</p>
+          <p>{ client.weight }</p>
+          <p>{ client.sex }</p>
+        </Col>
+      </Row>
+    </Panel>
   </div>
 );
 

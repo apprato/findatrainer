@@ -31,77 +31,77 @@ if (!Meteor.isProduction) {
     height: '190',
     weight: '80',
     sex: 'male',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring',
     description: 'Require weight training program',
     height: '190',
     weight: '60',
     sex: 'male',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Tabarta circtuit re-program required',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '180',
     weight: '50',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Skin fold appointment by a qualified practisioner',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'I had a motorbike accident and have lost substantial body muscle, can anyone assist me post physio therapy regain my preivous composure?',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'I just had a baby and I would like to imporve my fitness again and loose some weight post child birth ',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'I need to be able to increase my flexibility after working in a 9-5 office for 10 years without exercise.',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'help people to get fit and treat injuries all in the one place.',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Skin fold appointment by a qualified practisioner',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Kick PT offers a friendly environment where everyone can get fit while having fun participating in boxing',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }, {
     title: 'Toughen Up is a gym based in Altona focused on boxing and mixed martial arts.',
     description: "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the ",
     height: '170',
     weight: '60',
     sex: 'female',
-    image: 'https://cdn1.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-512.png'
+    image: 'person.png'
   }
   ];
 

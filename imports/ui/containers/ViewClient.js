@@ -8,8 +8,8 @@ const composer = ({ params }, onData) => {
   const subscription = Meteor.subscribe('clients.view', params._id);
 
   if (subscription.ready()) {
-    const clients = Clients.findOne();
-    onData(null, { clients });
+    const client = Clients.findOne();
+    onData(null, { client });
   }
 };
 

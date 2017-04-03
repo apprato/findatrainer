@@ -19,6 +19,7 @@ import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/pages/Clients.js';
 import ViewClient from '../../ui/containers/ViewClient.js';
 
+
 const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
     replace({

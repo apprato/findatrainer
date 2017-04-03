@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 import { Clients } from '../clients.js';
 
+/* This is where you list all your publications */
 Meteor.publish('clients.search', (searchTerm) => {
   check(searchTerm, Match.OneOf(String, null, undefined));
 
@@ -24,4 +25,9 @@ Meteor.publish('clients.search', (searchTerm) => {
   }
 
   return Clients.find(query, projection);
+});
+
+Meteor.publish('clients.view', (_id) => {
+  check(_id, String);
+  return Clients.find(_id);
 });

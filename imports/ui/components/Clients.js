@@ -28,7 +28,7 @@ class Clients extends React.Component {
         <FormControl
           type="search"
           onKeyUp={ this.handleSearch }
-          placeholder="Find you client to work with?"
+          placeholder="Find your client to work with?"
           className="Search"
         />
       </div>
