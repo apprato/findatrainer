@@ -4,6 +4,10 @@
 meteor npm install
 meteor npm start
 
+### Email
+This should be in package.json i think.
+meteor add email
+meteor add meteorhacks:ssr
 
 ## Staging
 TBC
