@@ -17,6 +17,13 @@ import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
 import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/pages/Clients.js';
+
+import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
+import EditClientExperience from '../../ui/pages/NewClient.js';
+import NewClientProfile from '../../ui/pages/NewClient.js';
+import EditClientProfile from '../../ui/pages/NewClient.js';
+
+
 import ViewClient from '../../ui/containers/ViewClient.js';
 import NewClient from '../../ui/pages/NewClient.js';
 
@@ -46,6 +53,7 @@ Meteor.startup(() => {
         <Route name="signup-client" path="/signup/client" component={ Signup } />
         <Route name="signup-trainer" path="/signup/trainer" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
+        <Route name="NewTrainerExperience" path="/trainer/new/experience" component={ NewTrainerExperience } onEnter={ authenticate } />
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />
         <Route name="getStarted" path="/getstarted" component={ GetStarted } />

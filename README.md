@@ -8,6 +8,8 @@ meteor npm start
 This should be in package.json i think.
 meteor add email
 meteor add meteorhacks:ssr
+meteor add ajduke:bootstrap-tagsinput # typeahead: enabled
+ meteor add bootstrp:tagsinpu
 
 ## Staging
 TBC
