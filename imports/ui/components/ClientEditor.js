@@ -1,7 +1,7 @@
 /* eslint-disable max-len, no-return-assign */
 
 import React from 'react';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button, Row, Col } from 'react-bootstrap';
 import clientEditor from '../../modules/client-editor.js';
 
 export default class ClientEditor extends React.Component {
@@ -15,6 +15,17 @@ export default class ClientEditor extends React.Component {
     return (<form
       ref={ form => (this.clientEditorForm = form) }
       onSubmit={ event => event.preventDefault() }>
+      <Row>
+        <Col xs={ 12 } sm={ 12 } md={ 12 }>
+          <p>When you submit a proposal, clients review your proposal to decide if your skills and experience match what they are looking for. It's time create a profile with the jobs you want in mind. This is your opportunity to market your freelance business to clients.</p>
+          <p>Note that your profile must be approved, so take time to fill it out accurately.</p>
+          <p>Looking for inspiration? Checkout out these strong profile examples from ... & ... & ...</p>
+        </Col>
+        <Col xs={ 12 } sm={ 12 } md={ 12 }>
+          <h3>Tell us more about you</h3>
+          <h4>Please upload a professional portrait that clearly shows your face</h4>
+        </Col>
+      </Row>
       <FormGroup>
         <ControlLabel>Title</ControlLabel>
         <FormControl
