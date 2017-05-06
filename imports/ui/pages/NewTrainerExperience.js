@@ -3,7 +3,7 @@ import NewTrainerExperienceEditor from '../components/NewTrainerExperienceEditor
 
 const NewTrainerExperience = () => (
   <div className="NewTrainerExperience">
-    <h4 className="page-header">Welcome to Findatrainer…</h4>
+    <h1 className="page-header">Welcome to Findatrainer…</h1>
     <NewTrainerExperienceEditor />
   </div>
 );

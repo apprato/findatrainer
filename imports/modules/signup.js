@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 //import { browserHistory } from 'react-router';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Redirect } from 'react-router';
 
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -25,7 +25,7 @@ const getUserData = () => ({
 
 const signup = () => {
   const user = getUserData();
-  console.dir(component.props.route.name);
+  //console.dir(component.props.route.name);
   component.props.route.name == 'signup-client' ? user.profile.roles = ['client']: '';
   component.props.route.name == 'signup-trainer' ? user.profile.roles = ['supplier']: '';
 
@@ -39,6 +39,7 @@ const signup = () => {
           Bert.alert( error.reason, 'danger' );
         } else {
           Bert.alert( 'Welcome!', 'success' );
+          browserHistory.push('/trainer/new/experience');
         }
 //      });
     }
