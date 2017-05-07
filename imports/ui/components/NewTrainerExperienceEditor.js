@@ -19,7 +19,7 @@ export default class ClientEditor extends React.Component {
   componentDidMount() {
     clientEditor({component: this});
     setTimeout(() => {
-      document.querySelector('[name="title"]').focus();
+      //document.querySelector('[name="title"]').focus();
     }, 0);
   }
 
@@ -30,15 +30,15 @@ export default class ClientEditor extends React.Component {
         ref={ form => (this.clientEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
+          <Col xs={ 12 } sm={ 12 } md={ 12 }>
+            <p>This will help us connect you with the right clients and help you grow your business through
+              findatrainer.<br />
+              We’ll ask you to select tasks of interest and complete a profile for review.<br /> Remember, you can always
+              come
+              back and edit this information later.</p>
+          </Col>
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <Row>
-              <Col xs={ 12 } sm={ 12 } md={ 12 }>
-                <p>This will help us connect you with the right clients and help you grow your business through
-                  findatrainer.
-                  We’ll ask you to select tasks of interest and complete a profile for review. Remember, you can always
-                  come
-                  back and edit this information later.</p>
-              </Col>
               <Col xs={ 12 } sm={ 12 } md={ 12 }>
                 <h3></h3>
                 <FormGroup controlId="category">
@@ -68,17 +68,22 @@ export default class ClientEditor extends React.Component {
                     <option value="other">None</option>
                   </FormControl>
                 </FormGroup>
+              </Col>
+              <Col xs={ 6 } sm={ 6 } md={ 6 }>
                 <FormGroup controlId="tags">
                   <ControlLabel>What specific skills do you offer clients?</ControlLabel>
                   <br />
-                  <p>Type keywords here that relates to your individual skill set. This will help you to come up in
-                    users
-                    searches and be more relevant to what they want. For example: _weight loss, muscle gain, crossfit,
-                    reformer pilates, boxing, running, etc.</p>
                   <FormControl componentClass="select" data-role="tagsinput" placeholder="Enter your tags here"
                                multiple>
                   </FormControl>
                 </FormGroup>
+              </Col>
+              <Col xs={ 6 } sm={ 6 } md={ 6 }>
+                <ButtonToolbar>
+                  <OverlayTrigger trigger="click" placement="right" overlay={popoverClick}>
+                    <Button>?</Button>
+                  </OverlayTrigger>
+                </ButtonToolbar>
               </Col>
             </Row>
             <Row>
@@ -99,11 +104,6 @@ export default class ClientEditor extends React.Component {
                 </FormGroup>
               </Col>
               <Col xs={ 6 } sm={ 6 } md={ 6 }>
-                <ButtonToolbar>
-                  <OverlayTrigger trigger="click" placement="right" overlay={popoverClick}>
-                    <Button>?</Button>
-                  </OverlayTrigger>
-                </ButtonToolbar>
               </Col>
             </Row>
           </Col>
@@ -117,9 +117,12 @@ export default class ClientEditor extends React.Component {
 }
 
 const popoverClick = (
-  <Popover id="popover-trigger-click" title="Popover bottom">
-    <h5>Why choose Entry Level?</h5>
-    <p>Starting to build experience in your field</p>
+  <Popover id="popover-trigger-click" title="Specific skills">
+    <p>Type keywords here that relates to your individual skill set. This will help you to come up in
+      users
+      searches and be more relevant to what they want. For example: _weight loss, muscle gain, crossfit,
+      reformer pilates, boxing, running, etc.
+    </p>
   </Popover>
 );
 
