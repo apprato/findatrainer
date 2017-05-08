@@ -16,11 +16,10 @@ const getUserData = () => ({
     name: {
       first: document.querySelector('[name="firstName"]').value,
       last: document.querySelector('[name="lastName"]').value,
-      last: document.querySelector('[name="lastName"]').value,
     },
     country: document.querySelector('[id="country"]').value,
     hearAbout: document.querySelector('[id="hearAbout"]').value
-  },
+  }
 });
 
 const signup = () => {
@@ -63,6 +62,12 @@ const validate = () => {
         required: true,
         minlength: 6,
       },
+      hearAbout: {
+        required: true
+      },
+      country: {
+        required: true
+      }
     },
     messages: {
       firstName: {
@@ -72,13 +77,20 @@ const validate = () => {
         required: 'Last name?',
       },
       emailAddress: {
-        required: 'Need an email address here.',
+        required: 'Please enter an email address here.',
         email: 'Is this email address legit?',
       },
       password: {
-        required: 'Need a password here.',
+        required: 'Please enter a password here.',
         minlength: 'Use at least six characters, please.',
       },
+      hearAbout: {
+        required: 'Please select how you heard about us.',
+      },
+      country: {
+        required: 'Please select you country.',
+      },
+
     },
     submitHandler() { signup(); },
   });

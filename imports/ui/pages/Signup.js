@@ -57,7 +57,7 @@ export default class Signup extends React.Component {
               </FormGroup>
               <FormGroup controlId="country">
                 <ControlLabel>Select a Country</ControlLabel>
-                <FormControl componentClass="select" placeholder="select">
+                <FormControl componentClass="select" placeholder="select" ref="country" name="country">
                   <option value=""></option>
                   <option value="AF">Afghanistan</option>
                   <option value="AX">Åland Islands</option>
@@ -318,7 +318,7 @@ export default class Signup extends React.Component {
               </FormGroup>
               <FormGroup controlId="hearAbout">
                 <ControlLabel>How did you hear about findatrainer?</ControlLabel>
-                <FormControl componentClass="select" placeholder="select">
+                <FormControl componentClass="select" placeholder="select" ref="hearAbout" name="hearAbout">
                   <option value=""></option>
                   <option value="Search Engine Ad">Search Engine Ad</option>
                   <option value="Search Engine Results">Search Engine Results</option>
