@@ -11,27 +11,97 @@ import {
   Popover,
   ButtonToolbar,
   OverlayTrigger,
-  Modal,
   Radio
 } from 'react-bootstrap';
-import NewTrainerProfileModal from './NewTrainerProfileModal.js';
-import clientEditor from '../../modules/client-editor.js';
+import Modal from '../components/modals/Modal';
+import modals from '../../modules/modals';
+import trainerEditor from '../../modules/trainer-editor.js';
 
-export default class ClientEditor extends React.Component {
+export default class TrainerEditor extends React.Component {
+
+
+  /* Education Modal */
+  constructor(props) {
+    super(props);
+    const component = this;
+
+    component.state = {
+      modalShow: false,
+      modalClasses: null,
+      modalTitle: null,
+      modalForm: null,
+      modalBody: null,
+      modalFooter: null,
+    };
+
+    component.modal = {
+      open(modal, modalProps) {
+        component.setModal({modal, show: true, props: modalProps});
+      },
+      close() {
+        component.setModal({show: false});
+      },
+    };
+
+    component.resetModal = component.resetModal.bind(component);
+    component.setModal = component.setModal.bind(component);
+  }
+
+  resetModal() {
+    this.setState({
+      modalClasses: null,
+      modalTitle: null,
+      modalForm: null,
+      modalBody: null,
+      modalFooter: null,
+    });
+  }
+
+  setModal({modal, show, props}) {
+    const modalToSet = modal ? modals[modal](props, this.modal) : {};
+    this.setState(Object.assign({modalShow: show}, modalToSet), () => {
+      if (!show) setTimeout(() => {
+        this.resetModal();
+      }, 300);
+    });
+  }
+
+
+  /* React Mounts */
   componentDidMount() {
-    clientEditor({component: this});
+    trainerEditor({component: this});
     setTimeout(() => {
       document.querySelector('[name="professionalTitle"]').focus();
     }, 0);
   }
 
 
+  /* Form Render */
   render() {
-    const {client} = this.props;
+    const {trainer} = this.props;
+    const {
+      modalShow,
+      modalClasses,
+      modalTitle,
+      modalForm,
+      modalBody,
+      modalFooter,
+    } = this.state;
+
+    console.log(this);
     return (<form
-        ref={ form => (this.clientEditorForm = form) }
+        ref={ form => (this.trainerProfileEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
+          <Modal
+            show={ modalShow }
+            className={ modalClasses }
+            title={ modalTitle }
+            form={ modalForm }
+            body={ modalBody }
+            footer={ modalFooter }
+            onHide={ this.modal.close }
+          />
           <Col xs={ 12 } sm={ 12 } md={ 12 }>
             <p>This will help us connect you with the right clients and help you grow your business through
               findatrainer.
@@ -70,11 +140,10 @@ If you’re looking to get started in either of these disciplines or have been d
             </ButtonToolbar>
             <Button
               bsStyle="primary"
-              bsSize="large"
-              onClick={educationModal}
-            >Launch
-            </Button>
-            <NewTrainerProfileModal />
+              onClick={() => {
+                this.modal.open('addDocument');
+              }}
+            >+</Button>
             <br />
             <h3>Education</h3>
             <p>Tell us about your education history.</p>
@@ -422,11 +491,12 @@ If you’re looking to get started in either of these disciplines or have been d
             </FormGroup>
           </Col>
         </Row>
-        <p>See what your profile will look like to prospective clients. <a href="/help/trainer/profile">learn more</a></p>
+        <p>See what your profile will look like to prospective clients. <a href="/help/trainer/profile">learn more</a>
+        </p>
         <br />
         <br />
         <Button type="submit" bsStyle="success">
-          { client && client._id ? 'Save Experience' : 'Save & Create Profile' }
+          { trainer && trainer._id ? 'Save Experience' : 'Save & Create Profile' }
         </Button>
       </form>
     );
@@ -434,31 +504,7 @@ If you’re looking to get started in either of these disciplines or have been d
 }
 
 
-const educationModal= (
-  <div className="static-modal">
-    <Modal.Dialog>
-      <Modal.Header>
-        <Modal.Title>Modal title</Modal.Title>
-      </Modal.Header>
-
-      <Modal.Body>
-        One fine body...
-      </Modal.Body>
-
-      <Modal.Footer>
-        <Button>Close</Button>
-        <Button bsStyle="primary">Save changes</Button>
-      </Modal.Footer>
-
-    </Modal.Dialog>
-  </div>
-);
-
-//const openEducationalModal = (
-  //NewTrainerProfileModal.props.show=true
-//);
-
-
+/* PopOver */
 const popoverClick = (
   <Popover id="popover-trigger-click" title="Popover bottom">
     <h5>Why choose Entry Level?</h5>
@@ -466,6 +512,7 @@ const popoverClick = (
   </Popover>
 );
 
-clientEditor.propTypes = {
-  client: React.PropTypes.object,
+
+TrainerEditor.propTypes = {
+  trainer: React.PropTypes.object,
 };
