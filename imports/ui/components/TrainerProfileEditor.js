@@ -15,10 +15,9 @@ import {
 } from 'react-bootstrap';
 import Modal from '../components/modals/Modal';
 import modals from '../../modules/modals';
-import trainerEditor from '../../modules/trainer-editor.js';
+import trainerProfileEditor from '../../modules/trainerProfile-editor.js';
 
-export default class TrainerEditor extends React.Component {
-
+export default class TrainerProfileEditor extends React.Component {
 
   /* Education Modal */
   constructor(props) {
@@ -69,7 +68,7 @@ export default class TrainerEditor extends React.Component {
 
   /* React Mounts */
   componentDidMount() {
-    trainerEditor({component: this});
+    trainerProfileEditor({component: this});
     setTimeout(() => {
       document.querySelector('[name="professionalTitle"]').focus();
     }, 0);
@@ -133,30 +132,26 @@ If you’re looking to get started in either of these disciplines or have been d
             </FormGroup>
             <h3>Education</h3>
             <p>Tell us about your education history.</p>
-            <ButtonToolbar>
-              <OverlayTrigger trigger="click" placement="right" bsStyle="primary" overlay={popoverClick}>
-                <Button>+</Button>
-              </OverlayTrigger>
-            </ButtonToolbar>
             <Button
               bsStyle="primary"
               onClick={() => {
                 this.modal.open('addDocument');
               }}
-            >+</Button>
+            >Add Education Details</Button>
             <br />
-            <h3>Education</h3>
+            <h3>Employment History</h3>
             <p>Tell us about your education history.</p>
-            <ButtonToolbar>
-              <OverlayTrigger trigger="click" placement="right" overlay={popoverClick}>
-                <Button>+</Button>
-              </OverlayTrigger>
-            </ButtonToolbar>
+            <Button
+              bsStyle="primary"
+              onClick={() => {
+                this.modal.open('addDocument');
+              }}
+            >Add Education Details</Button>
             <br />
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>What is your English proficiency?</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
-                <option value="select">Select your proficiency</option>
+              <FormControl componentClass="select" placeholder="select" ref="englishProficiency" name="englishProficiency">
+                <option value="">Select your proficiency</option>
                 <option value="1">Basic - I am only able to communicate in this language through written communication
                 </option>
                 <option value="2">Conversational - I know this language well enough to verbally discuss project details
@@ -190,7 +185,8 @@ If you’re looking to get started in either of these disciplines or have been d
             <h3>Add your availability and location</h3>
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>How many hours do you have available for work each week?</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
+              <FormControl componentClass="select" placeholder="select" ref="availability" name="availability">
+                <option value="">Please select your availability</option>
                 <option value=">_30">More than 30 hrs/week</option>
                 <option value="<_30"> than 30 hrs/week</option>
                 <option value="open">As Needed - Open to Offers</option>
@@ -223,7 +219,7 @@ If you’re looking to get started in either of these disciplines or have been d
             </FormGroup>
             <FormGroup controlId="formCountryText">
               <ControlLabel>Country</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
+              <FormControl componentClass="select" placeholder="select" ref="country" name="country">
                 <option value=""></option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Åland Islands</option>
@@ -478,7 +474,7 @@ If you’re looking to get started in either of these disciplines or have been d
               <FormControl
                 type="text"
                 ref="postCode"
-                name="fpostCode"
+                name="postCode"
               />
             </FormGroup>
             <FormGroup controlId="formPhoneNumberText">
@@ -498,21 +494,14 @@ If you’re looking to get started in either of these disciplines or have been d
         <Button type="submit" bsStyle="success">
           { trainer && trainer._id ? 'Save Experience' : 'Save & Create Profile' }
         </Button>
+        <br />
+        <br />
       </form>
     );
   }
 }
 
 
-/* PopOver */
-const popoverClick = (
-  <Popover id="popover-trigger-click" title="Popover bottom">
-    <h5>Why choose Entry Level?</h5>
-    <p>Starting to build experience in your field</p>
-  </Popover>
-);
-
-
-TrainerEditor.propTypes = {
+TrainerProfileEditor.propTypes = {
   trainer: React.PropTypes.object,
 };

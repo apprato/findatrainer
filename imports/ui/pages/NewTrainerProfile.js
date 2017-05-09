@@ -1,5 +1,5 @@
 import React from 'react';
-import NewTrainerProfileEditor from '../components/NewTrainerProfileEditor.js';
+import NewTrainerProfileEditor from '../components/TrainerProfileEditor.js';
 
 const NewTrainerProfile = () => (
   <div className="NewTrainerProfile">
