@@ -3,6 +3,7 @@ import {Roles} from 'meteor/alanning:roles';
 import {Accounts} from 'meteor/accounts-base';
 // Custom Collections
 import {Clients} from '../../api/clients/clients.js';
+import {Trainers} from '../../api/trainers/trainers.js';
 
 if (!Meteor.isProduction) {
   const users = [{
@@ -109,5 +110,19 @@ if (!Meteor.isProduction) {
     const clientExists = Clients.findOne({title: client.title});
     if (!clientExists) Clients.insert(client);
   });
+
+
+  /* Trainers fixtures */
+  const trainers = [{
+    category: 'yoga',
+    skillTags: 'pilates',
+    experienceLevel: 'expert'
+  }
+  ];
+  trainers.forEach((trainers) => {
+    const clientExists = Trainers.findOne({category: trainers.category});
+    if (!clientExists) Trainers.insert(trainers);
+  });
+
 
 }

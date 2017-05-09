@@ -1,10 +1,10 @@
 import React from 'react';
-import NewTrainerExperienceEditor from '../components/NewTrainerExperienceEditor.js';
+import TrainerExperienceEditor from '../components/TrainerExperienceEditor.js';
 
 const NewTrainerExperience = () => (
-  <div className="NewTrainerExperience">
+  <div className="trainerExperienceEditor">
     <h1 className="page-header">Welcome to Findatrainer…</h1>
-    <NewTrainerExperienceEditor />
+    <TrainerExperienceEditor />
   </div>
 );
 
