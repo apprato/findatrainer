@@ -31,46 +31,57 @@ Trainers.schema = new SimpleSchema({
   experienceLevel: {
     type: String,
     label: 'The experience level of the document.',
+    optional: true
   },
   professionalTitle: {
     type: String,
     label: 'The professional title of the document.',
+    optional: true
   },
   overview: {
     type: String,
     label: 'The overview of the document.',
+    optional: true
   },
   hourlyRate: {
     type: String,
     label: 'The hourly rate of the document.',
+    optional: true
   },
   paidRate: {
     type: String,
     label: 'The paid rate of the document.',
+    optional: true
   },
   address1: {
     type: String,
     label: 'The address line 1 of the document.',
+    optional: true
   },
   address2: {
     type: String,
     label: 'The address Line 2 of the document.',
+    optional: true
   },
   city: {
     type: String,
     label: 'The city of the document.',
+    optional: true
   },
   country: {
     type: String,
     label: 'The country of the document.',
+    optional: true
   },
   postCode: {
     type: String,
     label: 'The post code of the document.',
+    optional: true
   },
   phoneNumber: {
     type: String,
     label: 'The phone number of the document.',
+    optional: true
   }
 });
 

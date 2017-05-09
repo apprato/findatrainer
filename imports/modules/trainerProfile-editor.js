@@ -12,7 +12,7 @@ const handleUpsert = () => {
   const confirmation = trainer && trainer._id ? 'Trainer Profile updated!' : 'Trainer Profile added!';
   const upsert = {
     professionalTitle: document.querySelector('[name="professionalTitle"]').value,
-    overview: document.querySelector('[name="professionalTitle"]').value,
+    overview: document.querySelector('[name="overview"]').value,
     englishProficiency: document.querySelector('[name="englishProficiency"]').value,
     hourlyRate: document.querySelector('[name="hourlyRate"]').value,
     paidRate: document.querySelector('[name="paidRate"]').value,

@@ -46,7 +46,8 @@ export default class TrainerExperienceEditor extends React.Component {
                   <ControlLabel>What is the main category of health and fitness that you are trained/experienced
                     in?</ControlLabel>
                   <p>*If you are not professionally trained/experienced in any, please select “none”</p>
-                  <FormControl componentClass="select" ref="category" name="category" multiple>
+                  <FormControl componentClass="select" ref="category" name="category">
+                    <option value="">Please select category</option>
                     <option value="personal_trainer">Personal Training</option>
                     <option value="pilates">Pilates</option>
                     <option value="yoga">Yoga</option>
@@ -98,7 +99,7 @@ export default class TrainerExperienceEditor extends React.Component {
                   <ControlLabel>What is your work experience level?</ControlLabel>
                   <FormControl componentClass="select" placeholder="select" ref="experienceLevel"
                                name="experienceLevel">
-                    <option value=""></option>
+                    <option value="">Please select experience level</option>
                     <option value="entry_level">Entry Level</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="expert">Expert</option>
