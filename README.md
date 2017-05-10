@@ -23,11 +23,12 @@ cd ..
 sh /bin/install.sh
 npm install
 
-### Deploy from EC2 deploy node to staging
+### Deploy from EC2 deploy node to staging - see bin/deploy.sh for details
 
 mup setup
 mup deploy
 mup start
+cd /home/ubuntu/f indatrainer/.deploy
 
 
 ## Production

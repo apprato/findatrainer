@@ -41,7 +41,7 @@ setupStaging() {
 }
 
 deployStaging() {
-  cd /home/ubuntu/findatrainer/.deploy
+  cd /home/ubuntu/f indatrainer/.deploy
   mup --config mup.js --settings settings-staging.json deploy
 }
 
@@ -79,7 +79,10 @@ OPTIONS
 EXAMPLES
 sh bin/deploy.sh staging install installDeployLibraries
 cd /home/ubuntu/findatrainer/.deploy
+-> Setup Stagin
 sh /home/ubuntu/findatrainer/bin/deploy.sh setupStaging
+-> Deploy Staging
+sh /home/ubuntu/findatrainer/bin/deploy.sh deployStaging
 
 NOTES
 With installing sometimes it gets stuck on the target

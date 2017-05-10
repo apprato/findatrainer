@@ -40,11 +40,10 @@ export default class TrainerExperienceEditor extends React.Component {
           </Col>
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <Row>
-              <Col xs={ 12 } sm={ 12 } md={ 12 }>
+              <Col xs={ 10 } sm={ 10 } md={ 10 }>
                 <h3></h3>
                 <FormGroup controlId="category">
-                  <ControlLabel>What is the main category of health and fitness that you are trained/experienced
-                    in?</ControlLabel>
+                  <ControlLabel>What is the main category of health and fitness that you are trained/experienced in?</ControlLabel>
                   <p>*If you are not professionally trained/experienced in any, please select “none”</p>
                   <FormControl componentClass="select" ref="category" name="category">
                     <option value="">Please select category</option>
@@ -71,7 +70,7 @@ export default class TrainerExperienceEditor extends React.Component {
                   </FormControl>
                 </FormGroup>
               </Col>
-              <Col xs={ 8 } sm={ 8 } md={ 8 }>
+              <Col xs={ 6 } sm={ 6 } md={ 6 }>
                 <FormGroup controlId="skillTags">
                   <ControlLabel>What specific skills do you offer clients?</ControlLabel>
                   <br />

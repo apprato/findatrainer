@@ -130,6 +130,10 @@ Yoga and Pilates are the best exercises to help build core strength and flexibil
 If you’re looking to get started in either of these disciplines or have been doing them for a long time and want to work with a new trainer, I can help you achieve your goals."
               />
             </FormGroup>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={ 12 } sm={ 12 } md={ 12 }>
             <h3>Education</h3>
             <p>Tell us about your education history.</p>
             <Button
@@ -148,6 +152,8 @@ If you’re looking to get started in either of these disciplines or have been d
               }}
             >Add Education Details</Button>
             <br />
+            <br />
+
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>What is your English proficiency?</ControlLabel>
               <FormControl componentClass="select" placeholder="select" ref="englishProficiency" name="englishProficiency">
