@@ -87,7 +87,7 @@ export default class AddDocumentModalForm extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={ modal.close } bsStyle="default">Cancel</Button>
-          <Button type="submit" bsStyle="success">Add Education</Button>
+          <Button type="submit" bsStyle="success">Add Education Details</Button>
         </Modal.Footer>
       </form>
     );

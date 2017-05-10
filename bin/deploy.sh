@@ -41,7 +41,7 @@ setupStaging() {
 }
 
 deployStaging() {
-  cd /home/ubuntu/f indatrainer/.deploy
+  cd /home/ubuntu/findatrainer/.deploy
   mup --config mup.js --settings settings-staging.json deploy
 }
 
