@@ -139,7 +139,7 @@ If you’re looking to get started in either of these disciplines or have been d
             <Button
               bsStyle="primary"
               onClick={() => {
-                this.modal.open('addDocument');
+                this.modal.open('AddTrainerEducationModal');
               }}
             >Add Education Details</Button>
             <br />
@@ -148,7 +148,7 @@ If you’re looking to get started in either of these disciplines or have been d
             <Button
               bsStyle="primary"
               onClick={() => {
-                this.modal.open('addDocument');
+                this.modal.open('AddTrainerEmploymentModal');
               }}
             >Add Education Details</Button>
             <br />

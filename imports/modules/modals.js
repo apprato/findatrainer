@@ -1,6 +1,7 @@
 import React from 'react';
 import { TermsOfServiceModalBody, TermsOfServiceModalFooter } from '../ui/components/modals/TermsOfService';
-import AddDocumentModalForm from '../ui/components/modals/AddDocument';
+import AddTrainerEducationModalForm from '../ui/components/modals/AddTrainerEducation';
+import AddTrainerEmploymentModalForm from '../ui/components/modals/AddTrainerEmployment';
 
 export default {
   acceptTerms(props, modal) {
@@ -11,11 +12,19 @@ export default {
       modalFooter: <TermsOfServiceModalFooter { ...props } modal={ modal } />,
     };
   },
-  addDocument(props, modal) {
+  AddTrainerEducationModal(props, modal) {
     return {
       modalClasses: 'AddDocumentModal',
-      modalTitle: 'Add a Document',
-      modalForm: <AddDocumentModalForm { ...props } modal={ modal } />,
+      modalTitle: 'Add Educational Details',
+      modalForm: <AddTrainerEducationModalForm { ...props } modal={ modal } />,
+    };
+  },
+  AddTrainerEmploymentModal(props, modal) {
+    return {
+      modalClasses: 'AddDocumentModal',
+      modalTitle: 'Add Employment Details',
+      modalForm: <AddTrainerEmploymentModalForm { ...props } modal={ modal } />,
     };
   }
+
 };
