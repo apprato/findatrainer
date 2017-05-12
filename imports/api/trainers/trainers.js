@@ -22,6 +22,7 @@ Trainers.schema = new SimpleSchema({
   category: {
     type: String,
     label: 'The category of the document.',
+    optional: true
   },
   skills: {
     type: [String],

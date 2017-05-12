@@ -87,7 +87,6 @@ export default class TrainerProfileEditor extends React.Component {
       modalFooter,
     } = this.state;
 
-    console.log(this);
     return (<form
         ref={ form => (this.trainerProfileEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
@@ -150,10 +149,9 @@ If you’re looking to get started in either of these disciplines or have been d
               onClick={() => {
                 this.modal.open('AddTrainerEmploymentModal');
               }}
-            >Add Education Details</Button>
+            >Add Employment Details</Button>
             <br />
             <br />
-
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>What is your English proficiency?</ControlLabel>
               <FormControl componentClass="select" placeholder="select" ref="englishProficiency" name="englishProficiency">

@@ -16,7 +16,8 @@ export const upsertTrainer = new ValidatedMethod({
 
     // profile form - part 3
     professionalTitle: {type: String, optional: true},
-    overview: { type: [ String ], optional: true },
+    overview: { type: String, optional: true },
+    englishProficiency: { type: String, optional: true },
     hourlyRate: {type: String, optional: true},
     paidRate: {type: String, optional: true},
     address1: {type: String, optional: true},
