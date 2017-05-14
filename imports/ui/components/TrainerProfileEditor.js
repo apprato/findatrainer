@@ -152,15 +152,14 @@ If you’re looking to get started in either of these disciplines or have been d
             >Add Employment Details</Button>
             <br />
             <br />
-            <FormGroup controlId="formControlsSelect">
+            <FormGroup controlId="formEnglishProficiencyText">
               <ControlLabel>What is your English proficiency?</ControlLabel>
-              <FormControl componentClass="select" placeholder="select" ref="englishProficiency" name="englishProficiency">
+              <FormControl componentClass="select" placeholder="select"
+                           ref="englishProficiency"
+                           name="englishProficiency">
                 <option value="">Select your proficiency</option>
-                <option value="1">Basic - I am only able to communicate in this language through written communication
-                </option>
-                <option value="2">Conversational - I know this language well enough to verbally discuss project details
-                  with a client
-                </option>
+                <option value="1">Basic - I am only able to communicate in this language through written communication</option>
+                <option value="2">Conversational - I know this language well enough to verbally discuss project details with a client</option>
                 <option value="3">Fluent - I have complete command of this language with perfect grammar</option>
                 <option value="4">Native or Bilingual - I have complete command of this language, including breadth of
                   vocabulary, idioms, and colloquialisms

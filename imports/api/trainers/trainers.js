@@ -44,6 +44,49 @@ Trainers.schema = new SimpleSchema({
     label: 'The overview of the document.',
     optional: true
   },
+  // Add Education Modal
+  school: {
+    type: String,
+    label: 'The english proficiency of the document.',
+    optional: true
+  },
+  dateFrom: {
+    type: String,
+    label: 'The dateFrom of the document.',
+    optional: true
+  },
+  dateTo: {
+    type: String,
+    label: 'The dateTo of the document.',
+    optional: true
+  },
+  tertiaryEducation: {
+    type: String,
+    label: 'The tertiary education of the document.',
+    optional: true
+  },
+  areaOfStudy: {
+    type: String,
+    label: 'The areaOfStudy of the document.',
+    optional: true
+  },
+  description: {
+    type: String,
+    label: 'The description of the document.',
+    optional: true
+  },
+
+  // Employment Modal
+  englishProficiency: {
+  type: String,
+    label: 'The english proficiency of the document.',
+    optional: true
+  },
+  availability: {
+  type: String,
+    label: 'The availability of the document.',
+    optional: true
+  },
   hourlyRate: {
     type: String,
     label: 'The hourly rate of the document.',

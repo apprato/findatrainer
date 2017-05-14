@@ -13,16 +13,21 @@ export default class AddDocumentModalForm extends React.Component {
   }
 
   handleAddDocument() {
+    console.log(this);
     const doc = {
-      title: this.title.value,
-      body: this.body.value,
+      school: this.school.value,
+      //dateFrom: this.dateFrom.value,
+      //dateTo: this.dateTo.value,
+      tertiaryEducation: this.tertiaryEducation.value,
+      areaOfStudy: this.areaOfStudy.value,
+      description: this.description.value,
     };
 
-    Meteor.call('documents.upsert', doc, (error, response) => {
+    Meteor.call('trainers.upsert', doc, (error, response) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
+//        if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
         this.props.modal.close();
       }
     });
@@ -31,14 +36,18 @@ export default class AddDocumentModalForm extends React.Component {
   componentDidMount() {
     $(this.addDocumentForm).validate({
       rules: {
-        title: {required: true},
+        school: {required: true},
+        dateFrom: {required: true},
+        dateTo: {required: true},
         tertiaryEducation: {required: true},
-        areaOfStudy: {required: true},
+        areaOfStudy: {required: false},
         description: {required: false},
       },
       messages: {
-        title: {required: 'Please add a title.'},
-        tertiaryEducation: {required: 'Please add the education.'},
+        school: {required: 'Please add the school.'},
+        dateFrom: {required: 'Please add the Date attended from.'},
+        dateTo: {required: 'Please add the Date attended to.'},
+        tertiaryEducation: {required: 'Please add your tertiary education'},
         areaOfStudy: {required: 'Please add the area of study.'},
         description: {required: 'Please add a description.'},
       },
@@ -60,7 +69,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>School</ControlLabel>
                 <input
-                  ref={title => (this.title = title)}
+                  ref={school => (this.school = school)}
                   type="text"
                   name="school"
                   className="form-control"
@@ -335,7 +344,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>Tertiary Education (Degree, Diploma, Certification)</ControlLabel>
                 <input
-                  ref={title => (this.title = title)}
+                    ref={tertiaryEducation => (this.tertiaryEducation = tertiaryEducation)}
                   type="text"
                   name="tertiaryEducation"
                   className="form-control"
@@ -344,7 +353,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>Area of Study (optional)</ControlLabel>
                 <input
-                  ref={title => (this.title = title)}
+                  ref={areaOfStudy => (this.areaOfStudy = areaOfStudy)}
                   type="text"
                   name="areaOfStudy"
                   className="form-control"
@@ -352,7 +361,7 @@ export default class AddDocumentModalForm extends React.Component {
               </FormGroup>
               <ControlLabel>Description (optional)</ControlLabel>
               <textarea
-                ref={body => (this.body = body)}
+                ref={description => (this.description = description)}
                 name="description"
                 className="form-control"
               />
