@@ -13,6 +13,7 @@ export const upsertTrainer = new ValidatedMethod({
     category: {type: String, optional: true},
     skills: { type: [ String ], optional: true },
     experienceLevel: {type: String, optional: true},
+    idUser: {type: String, optional: true},
 
     // profile form - part 3
     professionalTitle: {type: String, optional: true},
@@ -35,7 +36,24 @@ export const upsertTrainer = new ValidatedMethod({
     phoneNumber: {type: String, optional: true}
   }).validator(),
   run(trainer) {
-    Trainers.upsert({_id: trainer._id}, {$set: trainer});
+    var userFound;
+    var userTrainer = Trainers.find( {"idUser": String (Meteor.userId())} ).fetch();
+
+    userTrainer.every(function(elem) {
+      if (typeof(elem) !== 'undefined') {
+        userFound = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (typeof(userFound) !== 'undefined') {
+      return true;
+    }
+    else {
+      Trainers.upsert({_id: trainer._id}, {$set: trainer});
+      return false
+    }
   },
 });
 

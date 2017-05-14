@@ -19,6 +19,11 @@ Trainers.deny({
 });
 
 Trainers.schema = new SimpleSchema({
+  idUser: {
+    type: String,
+    label: 'The userid of the document the training profile belongs to.',
+    optional: true
+  },
   category: {
     type: String,
     label: 'The category of the document.',

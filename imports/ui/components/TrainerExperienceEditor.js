@@ -19,7 +19,7 @@ export default class TrainerExperienceEditor extends React.Component {
   componentDidMount() {
     trainerExperienceEditor({component: this});
     setTimeout(() => {
-      //document.querySelector('[name="title"]').focus();
+      document.querySelector('[name="category"]').focus();
     }, 0);
   }
 

@@ -11,9 +11,10 @@ const handleUpsert = () => {
   const { trainer } = component.props;
   const confirmation = trainer && trainer._id ? 'Trainer Experience updated!' : 'Trainer Experience added!';
   const upsert = {
+    idUser: Meteor.userId(),
     category: document.querySelector('[name="category"]').value,
     //skills: tags, //$("select.skillTags").tagsinput('items'),
-    skills: $("select.skillTags").tagsinput('items'),  // [ 'array1', 'arrary2'],
+    //skills: $("select.skillTags").tagsinput('items'),  // [ 'array1', 'arrary2'],
     experienceLevel: document.querySelector('[name="experienceLevel"]').value
   };
 
@@ -24,8 +25,8 @@ const handleUpsert = () => {
       Bert.alert(error.reason, 'danger');
     } else {
       component.trainerExperienceEditorForm.reset();
-      Bert.alert(confirmation, 'success');
       browserHistory.push('/trainer/new/profile');
+      Bert.alert(confirmation, 'success');
     }
   });
 };
@@ -34,13 +35,13 @@ const validate = () => {
   $(component.trainerExperienceEditorForm).validate({
     rules: {
       category: {
-        required: true,
+        required: false,
       },
       skills: {
         required: false,
       },
       experienceLevel: {
-        required: true,
+        required: false,
       }
     },
     messages: {
