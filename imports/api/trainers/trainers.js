@@ -24,6 +24,11 @@ Trainers.schema = new SimpleSchema({
     label: 'The userid of the document the training profile belongs to.',
     optional: true
   },
+  wizardStep: {
+    type: String,
+    label: 'The wizardStep of the document the training profile belongs to.',
+    optional: true
+  },
   category: {
     type: String,
     label: 'The category of the document.',

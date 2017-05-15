@@ -167,12 +167,12 @@ If you’re looking to get started in either of these disciplines or have been d
               </FormControl>
             </FormGroup>
             <FormGroup>
-              <ControlLabel>Hourly Rate<br/>Total amount the client will see:</ControlLabel>
+              <ControlLabel>Hourly Rate<br/>Total amount the client will see:<br/>*You will be able to change your rate for individual jobs. This amount </ControlLabel>
               <FormControl
                 type="text"
                 ref="hourlyRate"
                 name="hourlyRate"
-                placeholder="$ 0.00"
+                placeholder="0.00"
               />
             </FormGroup>
             <FormGroup>
@@ -182,16 +182,16 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="paidRate"
                 name="paidRate"
-                placeholder="$ 0.00"
+                placeholder="0.00"
               />
             </FormGroup>
-            <h3>Add your availability and location</h3>
+            <h3>Add your availability</h3>
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>How many hours do you have available for work each week?</ControlLabel>
               <FormControl componentClass="select" placeholder="select" ref="availability" name="availability">
                 <option value="">Please select your availability</option>
                 <option value=">_30">More than 30 hrs/week</option>
-                <option value="<_30"> than 30 hrs/week</option>
+                <option value="<_30">Less than 30 hrs/week</option>
                 <option value="open">As Needed - Open to Offers</option>
               </FormControl>
             </FormGroup>

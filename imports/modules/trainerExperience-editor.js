@@ -35,13 +35,13 @@ const validate = () => {
   $(component.trainerExperienceEditorForm).validate({
     rules: {
       category: {
-        required: false,
+        required: true,
       },
       skills: {
         required: false,
       },
       experienceLevel: {
-        required: false,
+        required: true,
       }
     },
     messages: {

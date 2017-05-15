@@ -30,7 +30,7 @@ export default class Signup extends React.Component {
                       type="text"
                       ref="firstName"
                       name="firstName"
-                      placeholder="First Name"
+                      placeholder=""
                     />
                   </FormGroup>
                 </Col>
@@ -41,7 +41,7 @@ export default class Signup extends React.Component {
                       type="text"
                       ref="lastName"
                       name="lastName"
-                      placeholder="Last Name"
+                      placeholder=""
                     />
                   </FormGroup>
                 </Col>

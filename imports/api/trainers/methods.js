@@ -46,12 +46,13 @@ export const upsertTrainer = new ValidatedMethod({
       }
       return true;
     });
+    console.log(trainer);
 
     if (typeof(userFound) !== 'undefined') {
       return true;
     }
     else {
-      Trainers.upsert({_id: trainer._id}, {$set: trainer});
+      Trainers.upsert({_id: trainer._id}, {$set: trainer} );
       return false
     }
   },

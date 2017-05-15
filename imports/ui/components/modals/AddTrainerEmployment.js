@@ -86,25 +86,13 @@ export default class AddDocumentModalForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup>
-                <ControlLabel>Title</ControlLabel>
+                <ControlLabel>Job Title</ControlLabel>
                 <input
                   ref={title => (this.title = title)}
                   type="text"
                   name="title"
                   className="form-control"
                 />
-              </FormGroup>
-              <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Role</ControlLabel>
-                <FormControl componentClass="select" placeholder="select" ref="role" name="role">
-                  <option value="">Please Select.</option>
-                  <option value="intern">Intern</option>
-                  <option value="individual_contributor">Individual Contributor</option>
-                  <option value="lead">Lead</option>
-                  <option value="manager">Manager</option>
-                  <option value="executive">Executive</option>
-                  <option value="owner">Owner</option>
-                </FormControl>
               </FormGroup>
             </Col>
             <Col xs={ 6 } sm={ 6 } md={ 6 }>
