@@ -46,9 +46,9 @@ export const upsertTrainer = new ValidatedMethod({
       }
       return true;
     });
-    console.log(trainer);
 
     if (typeof(userFound) !== 'undefined') {
+      Trainers.update({idUser: Meteor.userId()}, {$set: trainer} );
       return true;
     }
     else {

@@ -13,13 +13,12 @@ export default class AddDocumentModalForm extends React.Component {
   }
 
   handleAddDocument() {
-    console.log(this);
     const doc = {
-      school: this.school.value,
-      //dateFrom: this.dateFrom.value,
-      //dateTo: this.dateTo.value,
-      tertiaryEducation: this.tertiaryEducation.value,
-      areaOfStudy: this.areaOfStudy.value,
+      school: document.querySelector('[name="school"]').value,
+      dateFrom: document.querySelector('[name="dateFrom"]').value,
+      dateTo: document.querySelector('[name="dateTo"]').value,
+      tertiaryEducation: document.querySelector('[name="tertiaryEducation"]').value,
+      areaOfStudy: document.querySelector('[name="areaOfStudy"]').value,
       description: this.description.value,
     };
 
@@ -77,7 +76,7 @@ export default class AddDocumentModalForm extends React.Component {
               </FormGroup>
             </Col>
             <Col xs={ 6 } sm={ 6 } md={ 6 }>
-              <FormGroup controlId="formControlsSelect">
+              <FormGroup controlId="dateFrom">
                 <ControlLabel>Dates Attended</ControlLabel>
                 <FormControl componentClass="select" placeholder="select" ref="dateFrom" name="dateFrom">
                   <option value="">From</option>
