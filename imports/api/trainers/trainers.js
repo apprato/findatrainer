@@ -87,6 +87,8 @@ Trainers.schema = new SimpleSchema({
   },
 
   // Employment Modal
+
+
   englishProficiency: {
   type: String,
     label: 'The english proficiency of the document.',

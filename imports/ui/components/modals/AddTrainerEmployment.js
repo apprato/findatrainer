@@ -14,15 +14,21 @@ export default class AddDocumentModalForm extends React.Component {
 
   handleAddDocument() {
     const doc = {
-      title: this.title.value,
-      body: this.body.value,
+      company: document.querySelector('[name="company"]').value,
+      location: document.querySelector('[name="location"]').value,
+      title: document.querySelector('[name="title"]').value,
+      fromMonth: document.querySelector('[name="fromMonth"]').value,
+      fromYear: document.querySelector('[name="fromYear"]').value,
+      toMonth: document.querySelector('[name="toMonth"]').value,
+      toYear: document.querySelector('[name="toYear"]').value,
+      description: this.description.value
     };
 
-    Meteor.call('documents.upsert', doc, (error, response) => {
+    Meteor.call('trainers.upsert', doc, (error, response) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
+        //if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
         this.props.modal.close();
       }
     });
@@ -34,7 +40,6 @@ export default class AddDocumentModalForm extends React.Component {
         company: {required: true},
         location: {required: true},
         title: {required: true},
-        role: {required: true},
         fromMonth: {required: true},
         fromYear: {required: true},
         toMonth: {required: true},
@@ -45,7 +50,6 @@ export default class AddDocumentModalForm extends React.Component {
         company: {required: 'Please add a company.'},
         location: {required: 'Please add a location.'},
         title: {required: 'Please add a title.'},
-        role: {required: 'Please add a role.'},
         fromMonth: {required: 'Please add a from Month.'},
         fromYear: {required: 'Please add a from Year.'},
         toMonth: {required: 'Please add a to Month.'},
@@ -70,7 +74,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>Company</ControlLabel>
                 <input
-                  ref={title => (this.title = title)}
+                  ref={company => (this.company = company)}
                   type="text"
                   name="company"
                   className="form-control"
@@ -79,7 +83,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>Location</ControlLabel>
                 <input
-                  ref={title => (this.title = title)}
+                  ref={location => (this.location = location)}
                   type="text"
                   name="location"
                   className="form-control"
@@ -389,17 +393,12 @@ export default class AddDocumentModalForm extends React.Component {
               </FormGroup>
             </Col>
             <Col xs={ 12 } sm={ 12 } md={ 12 }>
-              <FormGroup className="description">
-                <ControlLabel>Description (optional)</ControlLabel>
-                <FormControl
-                  className="description"
-                  componentClass="textarea"
-                  type="textarea"
-                  ref="description"
-                  name="description"
-                  placeholder=""
-                />
-              </FormGroup>
+              <ControlLabel>Description (optional)</ControlLabel>
+              <textarea
+                ref={description => (this.description = description)}
+                name="description"
+                className="form-control"
+              />
             </Col>
           </Row>
         </Modal.Body>

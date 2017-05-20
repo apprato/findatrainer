@@ -25,6 +25,18 @@ export const upsertTrainer = new ValidatedMethod({
     tertiaryEducation: { type: String, optional: true },
     areaOfStudy: { type: String, optional: true },
     description: { type: String, optional: true },
+
+    // Educational Modal
+    company: { type: String, optional: true },
+    location: { type: String, optional: true },
+    title: { type: String, optional: true },
+    fromMonth: { type: String, optional: true },
+    fromYear: { type: String, optional: true },
+    toMonth: { type: String, optional: true },
+    toYear: { type: String, optional: true },
+    //description: { type: String, optional: true },
+
+
     availability: { type: String, optional: true },
     hourlyRate: {type: String, optional: true},
     paidRate: {type: String, optional: true},
