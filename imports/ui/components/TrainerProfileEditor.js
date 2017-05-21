@@ -22,6 +22,7 @@ export default class TrainerProfileEditor extends React.Component {
   /* Education Modal */
   constructor(props) {
     super(props);
+    //this.state = {userInput: this.props.user.first_name};
     const component = this;
 
     component.state = {
@@ -69,7 +70,6 @@ export default class TrainerProfileEditor extends React.Component {
   /* React Mounts */
   componentDidMount() {
     trainerProfileEditor({component: this});
-    console.log(this);
     setTimeout(() => {
       document.querySelector('[name="professionalTitle"]').focus();
     }, 0);
@@ -159,6 +159,7 @@ If you’re looking to get started in either of these disciplines or have been d
               <ControlLabel>What is your English proficiency?</ControlLabel>
               <FormControl componentClass="select" placeholder="select"
                            ref="englishProficiency"
+                           defaultValue={ doc && doc.englishProficiency }
                            name="englishProficiency">
                 <option value="">Select your proficiency</option>
                 <option value="1">Basic - I am only able to communicate in this language through written communication</option>
@@ -193,7 +194,13 @@ If you’re looking to get started in either of these disciplines or have been d
             <h3>Add your availability</h3>
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>How many hours do you have available for work each week?</ControlLabel>
-              <FormControl componentClass="select" placeholder="select" ref="availability" name="availability">
+              <FormControl
+                componentClass="select"
+                placeholder="select"
+                ref="availability"
+                name="availability"
+                defaultValue={ doc && doc.availability }
+              >
                 <option value="">Please select your availability</option>
                 <option value=">_30">More than 30 hrs/week</option>
                 <option value="<_30">Less than 30 hrs/week</option>
@@ -230,7 +237,13 @@ If you’re looking to get started in either of these disciplines or have been d
             </FormGroup>
             <FormGroup controlId="formCountryText">
               <ControlLabel>Country</ControlLabel>
-              <FormControl componentClass="select" placeholder="select" ref="country" name="country">
+              <FormControl
+                componentClass="select"
+                placeholder="select"
+                ref="country"
+                name="country"
+                defaultValue={ doc && doc.country}
+              >
                 <option value=""></option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Åland Islands</option>
