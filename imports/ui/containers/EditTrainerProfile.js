@@ -15,9 +15,7 @@ const composer = ({params}, onData) => {
 
   if (subscription.ready()) {
     const trainer = Trainers.find({"idUser": String(Meteor.userId())}).fetch();
-    console.log('subscription.ready()');
     const doc = trainer[0];
-    console.log(doc);
     onData(null, { doc });
   }
 };
