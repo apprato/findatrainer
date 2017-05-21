@@ -25,7 +25,9 @@ export default class TrainerExperienceEditor extends React.Component {
 
 
   render() {
-    const {trainer} = this.props;
+    const {doc} = this.props;
+    console.log('....');
+    console.log(doc);
     return (<form
         ref={ form => (this.trainerExperienceEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
@@ -45,7 +47,12 @@ export default class TrainerExperienceEditor extends React.Component {
                 <FormGroup controlId="category">
                   <ControlLabel>What is the main category of health and fitness that you are trained/experienced in?</ControlLabel>
                   <p>*If you are not professionally trained/experienced in any, please select “none”</p>
-                  <FormControl componentClass="select" ref="category" name="category">
+                  <FormControl
+                    componentClass="select"
+                    ref="category"
+                    name="category"
+                    defaultValue={ doc && doc.category }
+                  >
                     <option value="">Please select category</option>
                     <option value="personal_trainer">Personal Training</option>
                     <option value="pilates">Pilates</option>
@@ -96,8 +103,13 @@ export default class TrainerExperienceEditor extends React.Component {
               <Col xs={ 10 } sm={ 10 } md={ 10 }>
                 <FormGroup controlId="experienceLevel">
                   <ControlLabel>What is your work experience level?</ControlLabel>
-                  <FormControl componentClass="select" placeholder="select" ref="experienceLevel"
-                               name="experienceLevel">
+                  <FormControl
+                    componentClass="select"
+                    placeholder="select"
+                    ref="experienceLevel"
+                    name="experienceLevel"
+                    defaultValue={ doc && doc.experienceLevel }
+                  >
                     <option value="">Please select experience level</option>
                     <option value="entry_level">Entry Level</option>
                     <option value="intermediate">Intermediate</option>
@@ -111,7 +123,7 @@ export default class TrainerExperienceEditor extends React.Component {
           </Col>
         </Row>
         <Button type="submit" bsStyle="success">
-          { trainer && trainer._id ? 'Update Training Experience' : 'Save Training Experience' }
+          { doc && doc._id ? 'Update Training Experience' : 'Save Training Experience' }
         </Button>
       </form>
     );

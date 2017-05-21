@@ -19,7 +19,7 @@ import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/pages/Clients.js';
 
 import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
-import EditTrainerExperience from '../../ui/containers/EditTrainerProfile.js';
+import EditTrainerExperience from '../../ui/containers/EditTrainerExperience.js';
 import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
 import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
 import EditClientExperience from '../../ui/pages/NewClient.js';
