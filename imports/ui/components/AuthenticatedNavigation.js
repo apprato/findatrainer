@@ -21,8 +21,8 @@ const AuthenticatedNavigation = () => (
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">
-        <MenuItem eventKey={ 3.1 } href="/trainer/new/experience">Edit Experience</MenuItem>
-        <MenuItem eventKey={ 3.1 } href="/trainer/new/profile">Edit Profile</MenuItem>
+        <MenuItem eventKey={ 3.1 } href="/trainer/edit/experience">Edit Experience</MenuItem>
+        <MenuItem eventKey={ 3.1 } href="/trainer/edit/profile">Edit Profile</MenuItem>
         <MenuItem eventKey={ 3.1 } onClick={ handleLogout }>Logout</MenuItem>
       </NavDropdown>
     </Nav>

@@ -32,7 +32,7 @@ const handleUpsert = () => {
     } else {
       component.trainerProfileEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push('/trainer/new/profile');
+      browserHistory.push('/trainer/edit/profile');
     }
   });
 };

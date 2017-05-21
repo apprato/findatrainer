@@ -69,6 +69,7 @@ export default class TrainerProfileEditor extends React.Component {
   /* React Mounts */
   componentDidMount() {
     trainerProfileEditor({component: this});
+    console.log(this);
     setTimeout(() => {
       document.querySelector('[name="professionalTitle"]').focus();
     }, 0);
@@ -77,7 +78,7 @@ export default class TrainerProfileEditor extends React.Component {
 
   /* Form Render */
   render() {
-    const {trainer} = this.props;
+    const {doc} = this.props;
     const {
       modalShow,
       modalClasses,
@@ -113,7 +114,8 @@ export default class TrainerProfileEditor extends React.Component {
                 type="text"
                 ref="professionalTitle"
                 name="professionalTitle"
-                placeholder="EXAMPLE: Yoga & Pilates Specialist”"
+                placeholder="EXAMPLE: Yoga & Pilates Specialist"
+                defaultValue={ doc && doc.professionalTitle }
               />
             </FormGroup>
             <FormGroup className="overview">
@@ -127,6 +129,7 @@ export default class TrainerProfileEditor extends React.Component {
                 placeholder="After 8 years of working as a full time Yoga and Pilates instructor, I have a thorough and in-depth knowledge of both disciplines. I have worked with all experience levels from beginners to experts, helping my clients with a vast array of results including strength gains, core stability improvement, injury recovery and pregnancy exercises.
 Yoga and Pilates are the best exercises to help build core strength and flexibility. They are also low impact workouts so are good for your joints and have a fast recovery time.
 If you’re looking to get started in either of these disciplines or have been doing them for a long time and want to work with a new trainer, I can help you achieve your goals."
+                defaultValue={ doc && doc.overview }
               />
             </FormGroup>
           </Col>
@@ -173,6 +176,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 ref="hourlyRate"
                 name="hourlyRate"
                 placeholder="0.00"
+                defaultValue={ doc && doc.hourlyRate }
               />
             </FormGroup>
             <FormGroup>
@@ -183,6 +187,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 ref="paidRate"
                 name="paidRate"
                 placeholder="0.00"
+                defaultValue={ doc && doc.paidRate }
               />
             </FormGroup>
             <h3>Add your availability</h3>
@@ -203,6 +208,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="address1"
                 name="address1"
+                defaultValue={ doc && doc.address1 }
               />
             </FormGroup>
             <FormGroup controlId="formAddress2Text">
@@ -210,6 +216,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="address2"
                 name="address2"
+                defaultValue={ doc && doc.address2 }
               />
             </FormGroup>
             <FormGroup controlId="formCityText">
@@ -218,6 +225,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="city"
                 name="city"
+                defaultValue={ doc && doc.city }
               />
             </FormGroup>
             <FormGroup controlId="formCountryText">
@@ -478,6 +486,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="postCode"
                 name="postCode"
+                defaultValue={ doc && doc.postCode }
               />
             </FormGroup>
             <FormGroup controlId="formPhoneNumberText">
@@ -486,6 +495,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="phoneNumber"
                 name="phoneNumber"
+                defaultValue={ doc && doc.phoneNumber }
               />
             </FormGroup>
           </Col>
@@ -495,7 +505,7 @@ If you’re looking to get started in either of these disciplines or have been d
         <br />
         <br />
         <Button type="submit" bsStyle="success">
-          { trainer && trainer._id ? 'Save Experience' : 'Save & Create Profile' }
+          { doc && doc._id ? 'Save Experience' : 'Save & Create Profile' }
         </Button>
         <br />
         <br />

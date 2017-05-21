@@ -12,6 +12,11 @@ export default class DocumentEditor extends React.Component {
 
   render() {
     const { doc } = this.props;
+    console.log('this.props');
+    console.log(this.props);
+    console.log('doc');
+    console.log(doc.body);
+
     return (<form
       ref={ form => (this.documentEditorForm = form) }
       onSubmit={ event => event.preventDefault() }
