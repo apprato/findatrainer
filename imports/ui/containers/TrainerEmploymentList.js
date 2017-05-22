@@ -24,12 +24,10 @@ const composer = ({params}, onData) => {
     }).fetch();
     var trainerEmployment= document[0];
     if (trainerEmployment== null) {
-      console.log(document);
       onData(null, {document});
     }
     else {
       const doc = trainerEmployment.employment;
-      console.log(document);
       onData(null, {doc});
     }
   }
