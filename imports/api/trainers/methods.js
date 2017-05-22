@@ -98,8 +98,8 @@ export const upsertEducationTrainer = new ValidatedMethod({
       return true;
     }
     else {
-      //Trainers.upsert({_id: trainer._id}, {$set: trainer} );
-      return false
+      browserHistory.push(`/trainer/edit/experience`);
+      return false;
     }
   },
 });
@@ -135,8 +135,8 @@ export const upsertEmploymentTrainer = new ValidatedMethod({
       return true;
     }
     else {
-      //Trainers.upsert({_id: trainer._id}, {$set: trainer} );
-      return false
+      browserHistory.push(`/trainer/edit/experience`);
+      return false;
     }
   },
 });
@@ -156,6 +156,7 @@ rateLimit({
   methods: [
     upsertTrainer,
     upsertEducationTrainer,
+    upsertEmploymentTrainer,
     removeTrainer,
   ],
   limit: 5,

@@ -7,9 +7,9 @@ const handleNav = (_id) => {
 }
 
 const TrainerEducationList = ({ doc }) => (
-  doc.length > 0 ? <ListGroup className="TrainerEducationList">
+  doc ? <ListGroup className="TrainerEducationList">
     {doc.map(({ _id, trainer, dateFrom, dateTo, description, school, tertiaryEducation }) => (
-      <ListGroupItem key={ _id } onClick={ () => handleNav(_id) }>
+      <ListGroupItem key={ school } onClick={ () => handleNav(_id) }>
         { dateFrom } - { dateTo }: { school } { tertiaryEducation }
       </ListGroupItem>
     ))}

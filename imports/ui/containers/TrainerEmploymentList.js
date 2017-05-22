@@ -1,7 +1,8 @@
+
 import {Meteor} from 'meteor/meteor';
 import {composeWithTracker} from 'react-komposer';
 import Trainers from '../../api/trainers/trainers.js';
-import TrainerEducationList from '../components/TrainerEducationList.js';
+import TrainerEmploymentList from '../components/TrainerEmploymentList.js';
 
 import Loading from '../components/Loading.js';
 
@@ -11,25 +12,27 @@ import Loading from '../components/Loading.js';
  */
 const composer = ({params}, onData) => {
 
-  const subscription = Meteor.subscribe('trainers.list.education');
+  const subscription = Meteor.subscribe('trainers.list.employment');
 
   if (subscription.ready()) {
     const document = Trainers.find( {
       $and:
         [
           { "idUser": String(Meteor.userId()) },
-          { education: { $exists: true } }
+          { employment: { $exists: true } }
         ]
     }).fetch();
-    var trainerEducation = document[0];
-    if (trainerEducation == null) {
+    var trainerEmployment= document[0];
+    if (trainerEmployment== null) {
+      console.log(document);
       onData(null, {document});
     }
     else {
-      const doc = trainerEducation.education;
+      const doc = trainerEmployment.employment;
+      console.log(document);
       onData(null, {doc});
     }
   }
 };
 
-export default composeWithTracker(composer, Loading)(TrainerEducationList);
+export default composeWithTracker(composer, Loading)(TrainerEmploymentList);
