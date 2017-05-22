@@ -33,7 +33,7 @@ export default class AddDocumentModalForm extends React.Component {
         Bert.alert(error.reason, 'danger');
       } else {
 //        if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
-        //this.props.modal.close();
+        this.props.modal.close();
       }
     });
   }

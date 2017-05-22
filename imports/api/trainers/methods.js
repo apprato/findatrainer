@@ -105,6 +105,43 @@ export const upsertEducationTrainer = new ValidatedMethod({
 });
 
 
+export const upsertEmploymentTrainer = new ValidatedMethod({
+  name: 'trainers.employment.upsert',
+  validate: new SimpleSchema({
+    // Educational Modal (Array of objects)
+    'employment.$.company': {type: String, optional: true},
+    'employment.$.location': {type: String, optional: true},
+    'employment.$.title': {type: String, optional: true},
+    'employment.$.fromMonth': {type: String, optional: true},
+    'employment.$.fromYear': {type: String, optional: true},
+    'employment.$.toMonth': {type: String, optional: true},
+    'employment.$.toYear': {type: String, optional: true},
+    'employment.$.description': {type: String, optional: true},
+  }).validator(),
+    run(trainer) {
+    var userFound;
+    var userTrainer = Trainers.find({"idUser": String(Meteor.userId())}).fetch();
+
+    userTrainer.every(function (elem) {
+      if (typeof(elem) !== 'undefined') {
+        userFound = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (typeof(userFound) !== 'undefined') {
+      Trainers.update({idUser: Meteor.userId()}, {$push: { employment: trainer.employment[0] } } );
+      return true;
+    }
+    else {
+      //Trainers.upsert({_id: trainer._id}, {$set: trainer} );
+      return false
+    }
+  },
+});
+
+
 export const removeTrainer = new ValidatedMethod({
   name: 'trainers.remove',
   validate: new SimpleSchema({

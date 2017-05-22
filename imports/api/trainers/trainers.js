@@ -61,40 +61,15 @@ Trainers.schema = new SimpleSchema({
   "education.$.tertiaryEducation": {  type: String, optional: true },
   "education.$.areaOfStudy": {  type: String, optional: true },
   "education.$.description": {  type: String, optional: true },
-  school: {
-    type: String,
-    label: 'The english proficiency of the document.',
-    optional: true
-  },
-  dateFrom: {
-    type: String,
-    label: 'The dateFrom of the document.',
-    optional: true
-  },
-  dateTo: {
-    type: String,
-    label: 'The dateTo of the document.',
-    optional: true
-  },
-  tertiaryEducation: {
-    type: String,
-    label: 'The tertiary education of the document.',
-    optional: true
-  },
-  areaOfStudy: {
-    type: String,
-    label: 'The areaOfStudy of the document.',
-    optional: true
-  },
-  description: {
-    type: String,
-    label: 'The description of the document.',
-    optional: true
-  },
-
-  // Employment Modal
-
-
+  // Add Employment Modal
+  "employment.$.company": {  type: String, optional: true },
+  "employment.$.location": {  type: String, optional: true },
+  "employment.$.title": {  type: String, optional: true },
+  "employment.$.fromMonth": {  type: String, optional: true },
+  "employment.$.fromYear": {  type: String, optional: true },
+  "employment.$.toMonth": {  type: String, optional: true },
+  "employment.$.toYear": {  type: String, optional: true },
+  "employment.$.description": {  type: String, optional: true },
   englishProficiency: {
   type: String,
     label: 'The english proficiency of the document.',

@@ -14,17 +14,21 @@ export default class AddDocumentModalForm extends React.Component {
 
   handleAddDocument() {
     const doc = {
-      company: document.querySelector('[name="company"]').value,
-      location: document.querySelector('[name="location"]').value,
-      title: document.querySelector('[name="title"]').value,
-      fromMonth: document.querySelector('[name="fromMonth"]').value,
-      fromYear: document.querySelector('[name="fromYear"]').value,
-      toMonth: document.querySelector('[name="toMonth"]').value,
-      toYear: document.querySelector('[name="toYear"]').value,
-      description: this.description.value
+      employment: [
+        {
+          company: document.querySelector('[name="company"]').value,
+          location: document.querySelector('[name="location"]').value,
+          title: document.querySelector('[name="title"]').value,
+          fromMonth: document.querySelector('[name="fromMonth"]').value,
+          fromYear: document.querySelector('[name="fromYear"]').value,
+          toMonth: document.querySelector('[name="toMonth"]').value,
+          toYear: document.querySelector('[name="toYear"]').value,
+          description: this.description.value
+        }
+      ]
     };
 
-    Meteor.call('trainers.upsert', doc, (error, response) => {
+    Meteor.call('trainers.employment.upsert', doc, (error, response) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
