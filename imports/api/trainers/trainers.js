@@ -55,6 +55,12 @@ Trainers.schema = new SimpleSchema({
     optional: true
   },
   // Add Education Modal
+  "education.$.school": {  type: String, optional: true },
+  "education.$.dateFrom": {  type: String, optional: true },
+  "education.$.dateTo": {  type: String, optional: true },
+  "education.$.tertiaryEducation": {  type: String, optional: true },
+  "education.$.areaOfStudy": {  type: String, optional: true },
+  "education.$.description": {  type: String, optional: true },
   school: {
     type: String,
     label: 'The english proficiency of the document.',

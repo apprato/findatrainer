@@ -13,21 +13,27 @@ export default class AddDocumentModalForm extends React.Component {
   }
 
   handleAddDocument() {
+
     const doc = {
-      school: document.querySelector('[name="school"]').value,
-      dateFrom: document.querySelector('[name="dateFrom"]').value,
-      dateTo: document.querySelector('[name="dateTo"]').value,
-      tertiaryEducation: document.querySelector('[name="tertiaryEducation"]').value,
-      areaOfStudy: document.querySelector('[name="areaOfStudy"]').value,
-      description: this.description.value,
+      education: [
+        {
+          school: document.querySelector('[name="school"]').value,
+          dateFrom: document.querySelector('[name="dateFrom"]').value,
+          dateTo: document.querySelector('[name="dateTo"]').value,
+          tertiaryEducation: document.querySelector('[name="tertiaryEducation"]').value,
+          areaOfStudy: document.querySelector('[name="areaOfStudy"]').value,
+          description: this.description.value
+        }
+      ]
     };
 
-    Meteor.call('trainers.upsert', doc, (error, response) => {
+
+    Meteor.call('trainers.education.upsert', doc, (error, response) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
 //        if (response.insertedId) browserHistory.push(`/documents/${response.insertedId}`);
-        this.props.modal.close();
+        //this.props.modal.close();
       }
     });
   }
@@ -39,7 +45,7 @@ export default class AddDocumentModalForm extends React.Component {
         dateFrom: {required: true},
         dateTo: {required: true},
         tertiaryEducation: {required: true},
-        areaOfStudy: {required: false},
+        areaOfStudy: {required: true},
         description: {required: false},
       },
       messages: {
@@ -343,7 +349,7 @@ export default class AddDocumentModalForm extends React.Component {
               <FormGroup>
                 <ControlLabel>Tertiary Education (Degree, Diploma, Certification)</ControlLabel>
                 <input
-                    ref={tertiaryEducation => (this.tertiaryEducation = tertiaryEducation)}
+                  ref={tertiaryEducation => (this.tertiaryEducation = tertiaryEducation)}
                   type="text"
                   name="tertiaryEducation"
                   className="form-control"

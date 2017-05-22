@@ -26,8 +26,6 @@ export default class TrainerExperienceEditor extends React.Component {
 
   render() {
     const {doc} = this.props;
-    console.log('....');
-    console.log(doc);
     return (<form
         ref={ form => (this.trainerExperienceEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
