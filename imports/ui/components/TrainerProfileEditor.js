@@ -16,6 +16,8 @@ import {
 import Modal from '../components/modals/Modal';
 import modals from '../../modules/modals';
 import trainerProfileEditor from '../../modules/trainerProfile-editor.js';
+import TrainerEducationList from '../containers/TrainerEducationList.js';
+
 
 export default class TrainerProfileEditor extends React.Component {
 
@@ -138,12 +140,14 @@ If you’re looking to get started in either of these disciplines or have been d
           <Col xs={ 12 } sm={ 12 } md={ 12 }>
             <h3>Education</h3>
             <p>Tell us about your education history.</p>
+            <TrainerEducationList />
             <Button
               bsStyle="primary"
               onClick={() => {
                 this.modal.open('AddTrainerEducationModal');
               }}
             >Add Education Details</Button>
+            <br />
             <br />
             <h3>Employment History</h3>
             <p>Tell us about your education history.</p>
