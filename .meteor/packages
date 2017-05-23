@@ -37,3 +37,4 @@ shell-server@0.2.1
 email
 meteorhacks:ssr
 bootstrp:tagsinput
+ajduke:bootstrap-tagsinput

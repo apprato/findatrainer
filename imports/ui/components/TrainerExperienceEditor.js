@@ -19,6 +19,7 @@ export default class TrainerExperienceEditor extends React.Component {
   componentDidMount() {
     trainerExperienceEditor({component: this});
     setTimeout(() => {
+      $("select.skillTags").tagsinput('items');
       document.querySelector('[name="category"]').focus();
     }, 0);
   }

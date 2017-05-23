@@ -13,8 +13,8 @@ const handleUpsert = () => {
   const upsert = {
     idUser: Meteor.userId(),
     category: document.querySelector('[name="category"]').value,
-    //skills: tags, //$("select.skillTags").tagsinput('items'),
-    //skills: $("select.skillTags").tagsinput('items'),  // [ 'array1', 'arrary2'],
+    //skillTags: tags, //$("select.skillTags").tagsinput('items'),
+    //skillTags: $("select.skillTags").tagsinput('items'),  // [ 'array1', 'arrary2'],
     experienceLevel: document.querySelector('[name="experienceLevel"]').value
   };
 
@@ -37,8 +37,8 @@ const validate = () => {
       category: {
         required: true,
       },
-      skills: {
-        required: false,
+      skillTags: {
+        required: true,
       },
       experienceLevel: {
         required: true,
