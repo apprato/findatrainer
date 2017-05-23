@@ -1,6 +1,8 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { ListGroup, ListGroupItem, Alert, ButtonToolbar, Button, ButtonGroup  } from 'react-bootstrap';
+import { removeTrainerEducation} from '../../api/trainers/methods.js';
+
 
 const handleNav = (_id) => {
   //browserHistory.push(`/documents/${_id}`);
@@ -10,14 +12,14 @@ const handleEdit = (_id) => {
   browserHistory.push(`/documents/${_id}/edit`);
 }
 
-const handleRemove = (_id) => {
+const removeTrainerEducaitonLineItem = (school) => {
+  const schoolToDelete = school.school;
   if (confirm('Are you sure? This is permanent!')) {
-    removeDocument.call({ _id }, (error) => {
+    removeTrainerEducation.call({ schoolToDelete }, (error) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert('Document deleted!', 'success');
-        browserHistory.push('/documents');
+        Bert.alert(schoolToDelete + 'deleted!', 'success');
       }
     });
   }
@@ -30,7 +32,7 @@ const TrainerEducationList = ({ doc }) => (
         { dateFrom } - { dateTo }: { school } { tertiaryEducation }
         <ButtonToolbar className="pull-right">
           <ButtonGroup bsSize="small">
-            <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
+            <Button onClick={ () => removeTrainerEducaitonLineItem( { school }) } className="text-danger">Delete</Button>
           </ButtonGroup>
         </ButtonToolbar>
       </ListGroupItem>
