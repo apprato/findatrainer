@@ -38,6 +38,7 @@ export const upsertTrainer = new ValidatedMethod({
     availability: {type: String, optional: true},
     hourlyRate: {type: String, optional: true},
     paidRate: {type: String, optional: true},
+    hourlyRate: {type: String, optional: true},
     address1: {type: String, optional: true},
     address2: {type: String, optional: true},
     city: {type: String, optional: true},

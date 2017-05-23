@@ -52,6 +52,9 @@ const validate = () => {
       hourlyRate: {
         required: true,
       },
+      paidRate: {
+        required: true,
+      },
       availability: {
         required: false
       },

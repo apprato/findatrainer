@@ -86,6 +86,7 @@ export default class TrainerExperienceEditor extends React.Component {
                                ref="skillTags"
                                name="skillTags"
                                className="skillTags"
+                               defaultValue={ doc && doc.experienceLevel }
                                multiple>
                   </FormControl>
                 </FormGroup>

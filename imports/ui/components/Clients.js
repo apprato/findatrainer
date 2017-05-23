@@ -11,7 +11,6 @@ class Clients extends React.Component {
     super(props);
     this.state = { searchTerm: null };
     this.handleSearch = this.handleSearch.bind(this);
-    // this.handleNav = this.handleNav.bind(this);
   }
 
   handleSearch(event) {

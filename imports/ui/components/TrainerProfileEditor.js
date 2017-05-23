@@ -25,7 +25,8 @@ export default class TrainerProfileEditor extends React.Component {
   /* Education Modal */
   constructor(props) {
     super(props);
-    //this.state = {userInput: this.props.user.first_name};
+    this.state = { hourlyRate: null };
+    this.handleHourlyRate = this.handleHourlyRate.bind(this);
     const component = this;
 
     component.state = {
@@ -69,6 +70,16 @@ export default class TrainerProfileEditor extends React.Component {
     });
   }
 
+  handleHourlyRate (event) {
+    /*
+    First $500	20%
+    $500.01 - $10,000	10%
+    Over $10,000	5%
+    */
+    const hourlyRate = event.target.value;
+    this.setState({ hourlyRate });
+    document.querySelector('[name="paidRate"]').value = hourlyRate * 0.8;
+  }
 
   /* React Mounts */
   componentDidMount() {
@@ -143,7 +154,7 @@ If you’re looking to get started in either of these disciplines or have been d
             <p>Tell us about your education history.</p>
             <div>
               <TrainerEducationList />
-             </div>
+            </div>
             <Button
               bsStyle="primary"
               onClick={() => {
@@ -188,6 +199,7 @@ If you’re looking to get started in either of these disciplines or have been d
                 name="hourlyRate"
                 placeholder="0.00"
                 defaultValue={ doc && doc.hourlyRate }
+                onKeyUp={ this.handleHourlyRate }
               />
             </FormGroup>
             <FormGroup>
@@ -197,8 +209,8 @@ If you’re looking to get started in either of these disciplines or have been d
                 type="text"
                 ref="paidRate"
                 name="paidRate"
-                placeholder="0.00"
                 defaultValue={ doc && doc.paidRate }
+                placeholder="0.00"
               />
             </FormGroup>
             <h3>Add your availability</h3>
@@ -540,4 +552,6 @@ If you’re looking to get started in either of these disciplines or have been d
 
 TrainerProfileEditor.propTypes = {
   trainer: React.PropTypes.object,
+  hourlyRateProp: React.PropTypes.object,
+
 };
