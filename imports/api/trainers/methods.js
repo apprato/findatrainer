@@ -152,12 +152,45 @@ export const removeTrainer = new ValidatedMethod({
   },
 });
 
+export const removeTrainerEducation = new ValidatedMethod({
+  name: 'trainers.education.remove',
+  validate: new SimpleSchema({
+    school: {type: String},
+  }).validator(),
+  run({school}) {
+    Trainers.remove(school);
+  },
+});
+
+export const removeTrainerEmployment = new ValidatedMethod({
+  name: 'trainers.employment.remove',
+  validate: new SimpleSchema({
+    companyToDelete: {type: String},
+  }).validator(),
+  run({company}) {
+    Trainers.remove(company);
+    Trainers.find( {
+      $and:
+        [
+          { "idUser": String(Meteor.userId()) },
+          { employment: { $exists: true } }
+        ]
+    }).fetch();
+
+
+
+  }
+});
+
+
 rateLimit({
   methods: [
     upsertTrainer,
     upsertEducationTrainer,
     upsertEmploymentTrainer,
     removeTrainer,
+    removeTrainerEducation,
+    removeTrainerEmployment
   ],
   limit: 5,
   timeRange: 1000,

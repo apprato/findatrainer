@@ -1,6 +1,8 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { ListGroup, ListGroupItem, Alert, ButtonToolbar, Button, ButtonGroup } from 'react-bootstrap';
+import { removeTrainerEmployment } from '../../api/trainers/methods.js';
+
 
 const handleNav = (_id) => {
   //browserHistory.push(`/documents/${_id}`);
@@ -10,14 +12,16 @@ const handleEdit = (_id) => {
   browserHistory.push(`/documents/${_id}/edit`);
 }
 
-const handleRemove = (_id) => {
+const removeTrainerEmploymentLineItem = (company) => {
+  const companyToDelete = company.company;
+  console.log(companyToDelete);
   if (confirm('Are you sure? This is permanent!')) {
-    removeDocument.call({ _id }, (error) => {
+    removeTrainerEmployment.call({ companyToDelete }, (error) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert('Document deleted!', 'success');
-        browserHistory.push('/documents');
+        Bert.alert(companyToDelete + 'deleted!', 'success');
+        //browserHistory.push('/documents');
       }
     });
   }
@@ -30,8 +34,7 @@ const TrainerEmploymentList = ({ doc }) => (
         { fromMonth } / { fromYear } - { toMonth } / { toYear }: { company } { location }
         <ButtonToolbar className="pull-right">
           <ButtonGroup bsSize="small">
-            <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
-            <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
+            <Button onClick={ () => removeTrainerEmploymentLineItem( { company } ) } className="text-danger">Delete</Button>
           </ButtonGroup>
         </ButtonToolbar>
       </ListGroupItem>

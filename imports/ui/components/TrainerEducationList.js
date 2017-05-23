@@ -30,7 +30,6 @@ const TrainerEducationList = ({ doc }) => (
         { dateFrom } - { dateTo }: { school } { tertiaryEducation }
         <ButtonToolbar className="pull-right">
           <ButtonGroup bsSize="small">
-            <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
             <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
           </ButtonGroup>
         </ButtonToolbar>
