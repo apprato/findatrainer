@@ -40,6 +40,7 @@ export default class ClientMeasurementEditor extends React.Component {
 
   render() {
     const {doc} = this.props;
+    console.log(doc);
     return (<form
         ref={ form => (this.clientMeasurementEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
@@ -65,6 +66,7 @@ export default class ClientMeasurementEditor extends React.Component {
                     showMonthDropdown
                     showYearDropdown
                     dropdownMode="select"
+                    defaultValue={ doc && doc.dob }
                   />
                 </FormGroup>
                 <FormGroup controlId="gender">
@@ -73,7 +75,7 @@ export default class ClientMeasurementEditor extends React.Component {
                     componentClass="select"
                     ref="gender"
                     name="gender"
-                    defaultValue=""
+                    defaultValue={ doc && doc.gender }
                   >
                     <option value=""></option>
                     <option value="male">Male</option>
@@ -87,7 +89,7 @@ export default class ClientMeasurementEditor extends React.Component {
                     ref="weight"
                     name="weight"
                     placeholder=""
-                    defaultValue=""
+                    defaultValue={ doc && doc.weight }
                   />
                 </FormGroup>
                 <FormGroup>
@@ -97,7 +99,7 @@ export default class ClientMeasurementEditor extends React.Component {
                     ref="height"
                     name="height"
                     placeholder=""
-                    defaultValue=""
+                    defaultValue={ doc && doc.height }
                   />
                 </FormGroup>
                 <FormGroup controlId="skillTags">

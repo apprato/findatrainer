@@ -18,14 +18,11 @@ import Signup from '../../ui/pages/Signup.js';
 import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/pages/Clients.js';
 import NewClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
-import EditClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
+import EditClientMeasurement from '../../ui/containers/EditClientMeasurement.js';
 import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
 import EditTrainerExperience from '../../ui/containers/EditTrainerExperience.js';
 import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
 import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
-import EditClientExperience from '../../ui/pages/NewClient.js';
-import NewClientProfile from '../../ui/pages/NewClient.js';
-import EditClientProfile from '../../ui/pages/NewClient.js';
 
 
 import ViewClient from '../../ui/containers/ViewClient.js';

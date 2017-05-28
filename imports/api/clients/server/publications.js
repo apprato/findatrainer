@@ -33,4 +33,7 @@ Meteor.publish('clients.view', (_id) => {
 });
 
 Meteor.publish('clients.list', () => Clients.find());
+Meteor.publish('clients.edit.measurement', () => Clients.find());
+Meteor.publish('clients.edit.profile', () => Clients.find());
+
 

@@ -105,14 +105,13 @@ if (!Meteor.isProduction) {
     image: 'person.png'
   }
   ];
-
+/*
   clients.forEach((client) => {
     const clientExists = Clients.findOne({title: client.title});
     if (!clientExists) Clients.insert(client);
   });
 
 
-  /* Trainers fixtures */
   const trainers = [{
     category: 'yoga',
     skillTags: 'pilates',
@@ -123,6 +122,6 @@ if (!Meteor.isProduction) {
     const clientExists = Trainers.findOne({category: trainers.category});
     if (!clientExists) Trainers.insert(trainers);
   });
-
+*/
 
 }

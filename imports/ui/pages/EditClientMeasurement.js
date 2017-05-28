@@ -1,11 +1,16 @@
 import React from 'react';
 import ClientMeasurementEditor from '../components/ClientMeasurementEditor.js';
 
-const NewClientMeasurement = () => (
+const EditClientMeasurement = ({ doc }) => (
   <div className="clientMeasurementEditor">
     <h1 className="page-header">Welcome to Findatrainer…</h1>
-    <ClientMeasurementEditor />
+    <ClientMeasurementEditor doc={ doc }  />
   </div>
 );
 
-export default NewClientMeasurement;
+EditClientMeasurement.propTypes = {
+  doc: React.PropTypes.object,
+};
+
+export default EditClientMeasurement;
+
