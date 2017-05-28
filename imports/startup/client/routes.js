@@ -17,7 +17,8 @@ import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
 import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/pages/Clients.js';
-
+import NewClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
+import EditClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
 import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
 import EditTrainerExperience from '../../ui/containers/EditTrainerExperience.js';
 import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
@@ -56,6 +57,8 @@ Meteor.startup(() => {
         <Route name="signup-client" path="/signup/client" component={ Signup } />
         <Route name="signup-trainer" path="/signup/trainer" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
+        <Route name="NewClientMeasurement" path="/client/new/measurement" component={ NewClientMeasurement } onEnter={ authenticate } />
+        <Route name="EditClientMeasurement" path="/client/edit/measurement" component={ EditClientMeasurement } onEnter={ authenticate } />
         <Route name="NewTrainerExperience" path="/trainer/new/experience" component={ NewTrainerExperience } onEnter={ authenticate } />
         <Route name="EditTrainerExperience" path="/trainer/edit/experience" component={ EditTrainerExperience } onEnter={ authenticate } />
         <Route name="NewTrainerProfile" path="/trainer/new/profile" component={ NewTrainerProfile } onEnter={ authenticate } />

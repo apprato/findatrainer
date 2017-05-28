@@ -25,8 +25,18 @@ const getUserData = () => ({
 const signup = () => {
   const user = getUserData();
   //console.dir(component.props.route.name);
-  component.props.route.name == 'signup-client' ? user.profile.roles = ['client']: '';
-  component.props.route.name == 'signup-trainer' ? user.profile.roles = ['supplier']: '';
+  var redirect
+  if (component.props.route.name == 'signup-client') {
+    user.profile.roles = ['client']
+    redirect = '/client/new/measurement';
+  }
+  else if (component.props.route.name == 'signup-trainer') {
+    user.profile.roles = ['trainer'];
+    redirect = '/trainer/new/experience';
+  }
+  else {
+    redirect = '';
+  }
 
 
   Accounts.createUser(user, (error) => {
@@ -38,7 +48,8 @@ const signup = () => {
           Bert.alert( error.reason, 'danger' );
         } else {
           Bert.alert( 'Welcome!', 'success' );
-          browserHistory.push('/trainer/new/experience');
+
+          browserHistory.push(redirect);
         }
 //      });
     }
