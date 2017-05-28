@@ -7,47 +7,64 @@ import {
   FormControl,
   Button,
   Row,
-  Col,
-  Popover,
-  ButtonToolbar,
-  OverlayTrigger,
-  Radio
+  Col
 } from 'react-bootstrap';
-import trainerExperienceEditor from '../../modules/trainerExperience-editor.js';
+import clientMeasurementEditor from '../../modules/clientMeasurement-editor';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export default class TrainerExperienceEditor extends React.Component {
+export default class ClientMeasurementEditor extends React.Component {
   componentDidMount() {
-    trainerExperienceEditor({component: this});
+    clientMeasurementEditor({component: this});
     setTimeout(() => {
       $("select.skillTags").tagsinput('items');
-      document.querySelector('[name="category"]').focus();
+      //document.querySelector('[name="dob"]').focus();
     }, 0);
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      startDate: moment()
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
 
   render() {
     const {doc} = this.props;
     return (<form
-        ref={ form => (this.trainerExperienceEditorForm = form) }
+        ref={ form => (this.clientMeasurementEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
-          <Col xs={ 12 } sm={ 12 } md={ 12 }>
+          <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <p>In order to track your health and fitness levels, we have provided a number of measurements below for you to complete. These are totally optional and you can complete these at any time in your profile settings.</p>
             <p>We take your privacy extremely seriously and your personal information will never be shown to anyone without your permission.</p>
             <p>You have an option within findatrainer to give your trainers access to this information so they can help you achieve your goals and view your progress. You can remove this permission at any time.</p>
           </Col>
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <Row>
-              <Col xs={ 6 } sm={ 6 } md={ 6 }>
+              <Col xs={ 6 } sm={ 12 } md={ 6 }>
                 <h3></h3>
                 <FormGroup>
                   <ControlLabel>Date of Birth</ControlLabel>
-                  <FormControl
-                    type="text"
+                  <br />
+                  <DatePicker
                     ref="dob"
                     name="dob"
-                    placeholder=""
-                    defaultValue={ doc && doc.professionalTitle }
+                    selected={this.state.startDate}
+                    onChange={this.handleChange}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
                   />
                 </FormGroup>
                 <FormGroup controlId="gender">
@@ -70,7 +87,7 @@ export default class TrainerExperienceEditor extends React.Component {
                     ref="weight"
                     name="weight"
                     placeholder=""
-                    defaultValue={ doc && doc.professionalTitle }
+                    defaultValue=""
                   />
                 </FormGroup>
                 <FormGroup>
@@ -80,7 +97,7 @@ export default class TrainerExperienceEditor extends React.Component {
                     ref="height"
                     name="height"
                     placeholder=""
-                    defaultValue={ doc && doc.professionalTitle }
+                    defaultValue=""
                   />
                 </FormGroup>
                 <FormGroup controlId="skillTags">
@@ -92,7 +109,6 @@ export default class TrainerExperienceEditor extends React.Component {
                                ref="skillTags"
                                name="skillTags"
                                className="skillTags"
-                               defaultValue={ doc && doc.experienceLevel }
                                multiple>
                   </FormControl>
                 </FormGroup>
@@ -108,16 +124,6 @@ export default class TrainerExperienceEditor extends React.Component {
   }
 }
 
-const popoverClick = (
-  <Popover id="popover-trigger-click" title="Specific skills">
-    <p>Type keywords here that relates to your individual skill set. This will help you to come up in
-      users
-      searches and be more relevant to what they want. For example: _weight loss, muscle gain, crossfit,
-      reformer pilates, boxing, running, etc.
-    </p>
-  </Popover>
-);
-
-TrainerExperienceEditor.propTypes = {
-  trainer: React.PropTypes.object,
+ClientMeasurementEditor.propTypes = {
+  client: React.PropTypes.object,
 };

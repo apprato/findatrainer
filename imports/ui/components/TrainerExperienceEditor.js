@@ -15,9 +15,9 @@ import {
 } from 'react-bootstrap';
 import trainerExperienceEditor from '../../modules/trainerExperience-editor.js';
 
-export default class ClientMeasurementsEditor extends React.Component {
+export default class TrainerExperienceEditor extends React.Component {
   componentDidMount() {
-    ClientMeasurementsEditor({component: this});
+    trainerExperienceEditor({component: this});
     setTimeout(() => {
       $("select.skillTags").tagsinput('items');
       document.querySelector('[name="category"]').focus();
@@ -28,7 +28,7 @@ export default class ClientMeasurementsEditor extends React.Component {
   render() {
     const {doc} = this.props;
     return (<form
-        ref={ form => (this.ClientMeasurementsEditor = form) }
+        ref={ form => (this.trainerExperienceEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
           <Col xs={ 12 } sm={ 12 } md={ 12 }>
@@ -140,6 +140,6 @@ const popoverClick = (
   </Popover>
 );
 
-ClientMeasurementsEditor.propTypes = {
+TrainerExperienceEditor.propTypes = {
   trainer: React.PropTypes.object,
 };

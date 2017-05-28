@@ -2,64 +2,71 @@
 
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertTrainer} from '../api/trainers/methods';
+import { upsertClient} from '../api/clients/methods';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
-  const { trainer } = component.props;
-  const confirmation = trainer && trainer._id ? 'Trainer Experience updated!' : 'Trainer Experience added!';
+  const { client } = component.props;
+  const confirmation = client && client._id ? 'Client Measurements updated!' : 'Client Measurement added!';
   const upsert = {
     idUser: Meteor.userId(),
-    category: document.querySelector('[name="category"]').value,
-    //skillTags: tags, //$("select.skillTags").tagsinput('items'),
-    //skillTags: $("select.skillTags").tagsinput('items'),  // [ 'array1', 'arrary2'],
-    experienceLevel: document.querySelector('[name="experienceLevel"]').value
+    dob: document.querySelector('[name="dob"]').value,
+    gender: document.querySelector('[name="gender"]').value,
+    weight: document.querySelector('[name="weight"]').value,
+    height: document.querySelector('[name="height"]').value,
+    //skillTags: document.querySelector('[name="skillTags"]').value,
   };
 
-  if (trainer && trainer._id) upsert._id = trainer._id;
+  if (client && client._id) upsert._id = client._id;
 
-  upsertTrainer.call(upsert, (error, response) => {
+  upsertClient.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      component.trainerExperienceEditorForm.reset();
-      browserHistory.push('/trainer/new/profile');
+      component.clientMeasurementEditorForm.reset();
+      browserHistory.push('/');
       Bert.alert(confirmation, 'success');
     }
   });
 };
 
 const validate = () => {
-  $(component.trainerExperienceEditorForm).validate({
+  $(component.clientMeasurementEditorForm).validate({
     rules: {
-      category: {
-        required: true,
+      dob: {
+        required: false,
       },
-      skillTags: {
-        required: true,
+      gender: {
+        required: false,
       },
-      experienceLevel: {
-        required: true,
+      weight: {
+        required: false,
+      },
+      height: {
+        required: false,
       }
     },
     messages: {
-      category: {
-        required: 'Please select a category.',
+      dob: {
+        required: 'Please select a dob.',
       },
-      skillTags: {
+      gender: {
         required: 'Please add a skill tag.',
       },
-      experienceLevel: {
-        required: 'Please select an experience level.',
-      }
+      weight: {
+        required: 'Please select weight.',
+      },
+      height: {
+        required: 'Please select height.',
+      },
     },
     submitHandler() { handleUpsert(); },
   });
 };
 
-export default function trainerExperienceEditor(options) {
+export default function clientMeasurementEditor(options) {
   component = options.component;
   validate();
 }

@@ -10,7 +10,7 @@ meteor add email
 meteor add meteorhacks:ssr
 meteor add ajduke:bootstrap-tagsinput # typeahead: enabled
 meteor add bootstrp:tagsinput
-
+meteor npm install react-datepicker --save # datepicker
 ## Staging
 TBC
 
