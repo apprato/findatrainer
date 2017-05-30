@@ -122,7 +122,7 @@ export default class ClientMeasurementEditor extends React.Component {
                         type="text"
                         ref="height"
                         name="height"
-                        defaultValue={ doc && doc.weightMetric }
+                        defaultValue={ doc && doc.height }
                         placeholder=""
                       />
                     </FormGroup>
@@ -134,6 +134,7 @@ export default class ClientMeasurementEditor extends React.Component {
                         componentClass="select"
                         ref="heightMetric"
                         name="heightMetric"
+                        defaultValue={ doc && doc.heightMetric }
                       >
                         <option value=""></option>
                         <option value="imperial">Imperial</option>
