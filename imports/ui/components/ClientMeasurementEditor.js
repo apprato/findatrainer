@@ -18,12 +18,12 @@ export default class ClientMeasurementEditor extends React.Component {
   componentDidMount() {
     clientMeasurementEditor({component: this});
     setTimeout(() => {
-      $("select.skillTags").tagsinput('items');
+      $("select.skills").tagsinput('items');
       //document.querySelector('[name="dob"]').focus();
     }, 0);
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       startDate: moment()
@@ -40,19 +40,22 @@ export default class ClientMeasurementEditor extends React.Component {
 
   render() {
     const {doc} = this.props;
-    console.log(doc);
     return (<form
         ref={ form => (this.clientMeasurementEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
-            <p>In order to track your health and fitness levels, we have provided a number of measurements below for you to complete. These are totally optional and you can complete these at any time in your profile settings.</p>
-            <p>We take your privacy extremely seriously and your personal information will never be shown to anyone without your permission.</p>
-            <p>You have an option within findatrainer to give your trainers access to this information so they can help you achieve your goals and view your progress. You can remove this permission at any time.</p>
+            <p>In order to track your health and fitness levels, we have provided a number of measurements below for you
+              to complete. These are totally optional and you can complete these at any time in your profile
+              settings.</p>
+            <p>We take your privacy extremely seriously and your personal information will never be shown to anyone
+              without your permission.</p>
+            <p>You have an option within findatrainer to give your trainers access to this information so they can help
+              you achieve your goals and view your progress. You can remove this permission at any time.</p>
           </Col>
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <Row>
-              <Col xs={ 6 } sm={ 12 } md={ 6 }>
+              <Col xs={ 6 } sm={ 8 } md={ 6 }>
                 <h3></h3>
                 <FormGroup>
                   <ControlLabel>Date of Birth</ControlLabel>
@@ -82,35 +85,72 @@ export default class ClientMeasurementEditor extends React.Component {
                     <option value="female">Female</option>
                   </FormControl>
                 </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Weight</ControlLabel>
-                  <FormControl
-                    type="text"
-                    ref="weight"
-                    name="weight"
-                    placeholder=""
-                    defaultValue={ doc && doc.weight }
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Height</ControlLabel>
-                  <FormControl
-                    type="text"
-                    ref="height"
-                    name="height"
-                    placeholder=""
-                    defaultValue={ doc && doc.height }
-                  />
-                </FormGroup>
-                <FormGroup controlId="skillTags">
+                <Row>
+                  <Col xs={ 6 } sm={ 6 } md={ 6 }>
+                    <FormGroup>
+                      <ControlLabel>Weight</ControlLabel>
+                      <FormControl
+                        type="text"
+                        ref="weight"
+                        name="weight"
+                        placeholder=""
+                        defaultValue={ doc && doc.weight }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs={ 6 } sm={ 6 } md={ 6 }>
+                    <FormGroup controlId="weightMetric">
+                      <ControlLabel>Measurement System</ControlLabel>
+                      <FormControl
+                        componentClass="select"
+                        ref="weightMetric"
+                        name="weightMetric"
+                        defaultValue={ doc && doc.weightMetric }
+                      >
+                        <option value=""></option>
+                        <option value="kg">Kg</option>
+                        <option value="female">Pounds</option>
+                      </FormControl>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={ 6 } sm={ 6 } md={ 6 }>
+                    <FormGroup>
+                      <ControlLabel>Height</ControlLabel>
+                      <FormControl
+                        type="text"
+                        ref="height"
+                        name="height"
+                        defaultValue={ doc && doc.weightMetric }
+                        placeholder=""
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs={ 6 } sm={ 6 } md={ 6 }>
+                    <FormGroup controlId="heightMetric">
+                      <ControlLabel>Measurement System</ControlLabel>
+                      <FormControl
+                        componentClass="select"
+                        ref="heightMetric"
+                        name="heightMetric"
+                      >
+                        <option value=""></option>
+                        <option value="imperial">Imperial</option>
+                        <option value="pounds">Pounds</option>
+                      </FormControl>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <FormGroup controlId="skills">
                   <ControlLabel>What specific skills do you offer clients?</ControlLabel>
                   <br />
                   <FormControl componentClass="select"
                                data-role="tagsinput"
                                placeholder="Enter your skill tags"
-                               ref="skillTags"
-                               name="skillTags"
-                               className="skillTags"
+                               ref="skills"
+                               name="skills"
+                               className="skills"
                                multiple>
                   </FormControl>
                 </FormGroup>

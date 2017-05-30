@@ -12,8 +12,11 @@ export const upsertClient = new ValidatedMethod({
     description: { type: String, optional: true},
     dob: { type: String, optional: true },
     height: { type: String, optional: true },
+    heightMetric: { type: String, optional: true },
     weight: { type: String, optional: true },
+    weightMetric: { type: String, optional: true },
     gender: { type: String, optional: true },
+    skills: {type: [String], optional: true},
   }).validator(),
   run(client) {
     var userFound;

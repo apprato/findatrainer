@@ -39,9 +39,24 @@ Clients.schema = new SimpleSchema({
     label: 'Height of individual.',
     optional: true
   },
+  heightMetric: {
+    type: String,
+    label: 'heightMetric of individual.',
+    optional: true
+  },
+  dob: {
+    type: String,
+    label: 'D.O.B. of individual.',
+    optional: true
+  },
   weight: {
     type: String,
     label: 'Weight of individual.',
+    optional: true
+  },
+  weightMetric: {
+    type: String,
+    label: 'weightMetric of individual.',
     optional: true
   },
   sex: {
@@ -52,6 +67,11 @@ Clients.schema = new SimpleSchema({
   gender: {
     type: String,
     label: 'Gender of individual.',
+    optional: true
+  },
+  skills: {
+    type: [String],
+    label: 'The skills of the document.',
     optional: true
   },
   image: {

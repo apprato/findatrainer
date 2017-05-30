@@ -15,8 +15,10 @@ const handleUpsert = () => {
     dob: document.querySelector('[name="dob"]').value,
     gender: document.querySelector('[name="gender"]').value,
     weight: document.querySelector('[name="weight"]').value,
+    weightMetric: document.querySelector('[name="weightMetric"]').value,
     height: document.querySelector('[name="height"]').value,
-    //skillTags: document.querySelector('[name="skillTags"]').value,
+    heightMetric: document.querySelector('[name="heightMetric"]').value,
+    skills: $("select.skills").tagsinput('items')
   };
 
   if (client && client._id) upsert._id = client._id;
