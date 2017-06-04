@@ -43,7 +43,7 @@ const signup = () => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-//      Meteor.call( 'sendVerificationLink', ( error, response ) => {
+      Meteor.call( 'sendVerificationLink', ( error, response ) => {
         if ( error ) {
           Bert.alert( error.reason, 'danger' );
         } else {
@@ -51,7 +51,7 @@ const signup = () => {
 
           browserHistory.push(redirect);
         }
-//      });
+      });
     }
   });
 };

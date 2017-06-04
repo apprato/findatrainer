@@ -10,6 +10,7 @@ import NewDocument from '../../ui/pages/NewDocument.js';
 import EditDocument from '../../ui/containers/EditDocument.js';
 import ViewDocument from '../../ui/containers/ViewDocument.js';
 import Index from '../../ui/pages/Index.js';
+import ContactUs from '../../ui/pages/ContactUs.js';
 import Login from '../../ui/pages/Login.js';
 import NotFound from '../../ui/pages/NotFound.js';
 import RecoverPassword from '../../ui/pages/RecoverPassword.js';
@@ -63,6 +64,7 @@ Meteor.startup(() => {
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />
         <Route name="getStarted" path="/getstarted" component={ GetStarted } />
+        <Route name="contactUs" path="/contactus" component={ ContactUs } />
         <Route path="*" component={ NotFound } />
       </Route>
     </Router>,

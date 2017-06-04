@@ -7,3 +7,5 @@ import '../../api/documents/server/publications.js';
 import '../../api/trainers/methods.js';
 import '../../api/trainers/server/publications.js';
 
+import '../../api/messages/methods.js';
+
