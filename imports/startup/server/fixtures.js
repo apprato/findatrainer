@@ -105,7 +105,7 @@ if (!Meteor.isProduction) {
     image: 'person.png'
   }
   ];
-/*
+
   clients.forEach((client) => {
     const clientExists = Clients.findOne({title: client.title});
     if (!clientExists) Clients.insert(client);
@@ -116,12 +116,12 @@ if (!Meteor.isProduction) {
     category: 'yoga',
     skillTags: 'pilates',
     experienceLevel: 'expert'
-  }
-  ];
+  }];
+
   trainers.forEach((trainers) => {
     const clientExists = Trainers.findOne({category: trainers.category});
     if (!clientExists) Trainers.insert(trainers);
   });
-*/
+
 
 }
