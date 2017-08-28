@@ -51,6 +51,23 @@ export const removeClient= new ValidatedMethod({
   },
 });
 
+Meteor.methods({
+  getClientsCount() {
+    return Clients.find().count();
+  },
+  getClientsAreaCount() {
+    const query = {
+      $and: [
+        {
+          state: area.toUpperCase()
+        },
+      ],
+    };
+    return Clients.find(query).count();
+  },
+});
+
+
 rateLimit({
   methods: [
     upsertClient,

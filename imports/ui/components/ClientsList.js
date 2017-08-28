@@ -7,11 +7,11 @@ import 'react-select/dist/react-select.css';
 
 
 const handleNavigation = (_id) => {
-  browserHistory.push(`/directory/${_id}`);
+  browserHistory.push(`/clients/${_id}`);
 }
 
 const handleNavigationPager = (selected) => {
-  window.location.href = '/directory/page/' + selected;
+  window.location.href = '/clients/page/' + selected;
 }
 
 class ClientsList extends React.Component {
@@ -108,61 +108,22 @@ class ClientsList extends React.Component {
 
     return (<div className="Clients">
       <div className="ClientSearch">
-        <Row>
-          <Col xs={ 12 } sm={ 4 }>
-            <i className="fa fa-search"/>
-            <FormControl
-              type="search"
-              onKeyUp={ this.handleSearch }
-              placeholder="Find Health & Fitness"
-              className="Search"
-            />
-          </Col>
-          <Col xs={ 12 } sm={ 3 }>
-            <div>
-              <Select
-                name="state"
-                value={this.state.stateTerm}
-                options={stateSelectValues}
-                onChange={this.handleStateChange.bind(this)}
-              />
-            </div>
-          </Col>
-          <Col xs={ 12 } sm={ 3 }>
-            <div>
-              <Select
-                name="category"
-                value={this.state.categoryTerm}
-                options={categorySelectValues}
-                onChange={this.handleCategoryChange.bind(this)}
-              />
-            </div>
-          </Col>
-          <Col xs={ 12 } sm={ 2 }>
-            <ButtonToolbar>
-              <Button
-                bsStyle="primary"
-                bsSize="large"
-                onClick={this.handleSearchClick}
-                active> SEARCH </Button>
-            </ButtonToolbar>
-          </Col>
-        </Row>
+
       </div>
       <div className="Clients-list">
-        { clients.length > 0 ? clients.map(({_id, logo, businessName, overview, category, state, suburb, image}) => (
+        { clients.length > 0 ? clients.map(({_id, dob, gender, weight, weightMetric, height, heightMetric}) => (
           <Panel>
             <Row>
               <Col xs={ 8 } sm={ 10 }>
-                <a href={ "/directory/" + _id } key={ _id } onClick={ () => handleNavigation(_id) }>
-                  <h2>{businessName}</h2>
+                <a href={ "/clients/" + _id } key={ _id } onClick={ () => handleNavigation(_id) }>
+                  <h2></h2>
                 </a>
-                <p>{ category }</p>
-                <p>{ overview }</p>
+                <p>{ gender }</p>
+                <p>{ weight }</p>
+
               </Col>
               <Col xs={ 12 } sm={ 2 }>
-                <p>{ state } > { suburb }</p>
-                {logo ? <Image src={ '/' + 'logos' + '/' + logo } alt={ businessName } responsive/> : ''}
+                <p>{ height } > { heightMetric }</p>
               </Col>
             </Row>
           </Panel>
@@ -194,4 +155,4 @@ ClientsList.propTypes = {
   searchQuery: React.PropTypes.object,
 };
 
-export default TrainersList;
+export default ClientsList;

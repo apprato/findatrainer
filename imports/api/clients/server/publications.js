@@ -2,7 +2,26 @@ import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 import { Clients } from '../clients.js';
 
-/* This is where you list all your publications */
+
+Meteor.publish('clients.list', (skipCount, _id) => {
+
+  check(skipCount, Number);
+  check(_id, Number);
+
+  const query = {};
+  const clientsTotal = Clients.find().count();
+  var clientsQuery = Clients.find(
+    query,
+    {
+      limit: 5,
+      skip: skipCount,
+    }
+  );
+
+  return clientsQuery;
+});
+
+
 Meteor.publish('clients.search', (searchTerm) => {
   check(searchTerm, Match.OneOf(String, null, undefined));
 
@@ -32,7 +51,6 @@ Meteor.publish('clients.view', (_id) => {
   return Clients.find(_id);
 });
 
-Meteor.publish('clients.list', () => Clients.find());
 Meteor.publish('clients.edit.measurement', () => Clients.find());
 Meteor.publish('clients.edit.profile', () => Clients.find());
 
