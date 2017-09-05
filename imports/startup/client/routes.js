@@ -17,8 +17,8 @@ import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
 import GetStarted from '../../ui/pages/GetStarted.js';
-//import Clients from '../../ui/pages/Clients.js';
 import Clients from '../../ui/containers/ClientsList.js';
+import Trainers from '../../ui/containers/TrainersList.js';
 import NewClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
 import EditClientMeasurement from '../../ui/containers/EditClientMeasurement.js';
 import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
@@ -56,6 +56,8 @@ Meteor.startup(() => {
         <Route name="signup-client" path="/signup/client" component={ Signup } />
         <Route name="signup-trainer" path="/signup/trainer" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
+        <Route name="trainers" path="/trainers" component={ Trainers } />
+        <Route name="listTrainersPagination" path="/directory/page/:_id" component={ Trainers } />
         <Route name="listClientsPagination" path="/clients/page/:_id" component={ Clients } />
         <Route name="NewClientMeasurement" path="/client/new/measurement" component={ NewClientMeasurement } onEnter={ authenticate } />
         <Route name="EditClientMeasurement" path="/client/edit/measurement" component={ EditClientMeasurement } onEnter={ authenticate } />
