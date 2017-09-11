@@ -17,8 +17,15 @@ Meteor.publish('clients.list', (skipCount, _id) => {
       skip: skipCount,
     }
   );
-
   return clientsQuery;
+});
+
+
+Meteor.publish('clients.list.user', (idUser) => {
+  check(idUser, String);
+  var usersQuery = Meteor.users.find( { _id: idUser}  );
+
+  return usersQuery;
 });
 
 

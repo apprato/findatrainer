@@ -33,14 +33,9 @@ class ClientsList extends React.Component {
   }
 
   handleSearchClick(event) {
-
     console.log(this.getState({}));
     console.log('this.state.stateTerm' + this.state.stateTerm);
     console.log('this.state.searchTerm' + this.state.searchTerm);
-
-    //const searchTerm = event.target.value;
-    //this.setState({searchTerm});
-    //this.props.searchQuery.set(searchTerm);
   }
 
   handlePageClick(data) {
@@ -65,6 +60,7 @@ class ClientsList extends React.Component {
 
   render() {
     const {clients} = this.props;
+    console.log(clients);
     // Listing based switch
     const area = this.props.area;
     const page = this.props.page
@@ -111,19 +107,19 @@ class ClientsList extends React.Component {
 
       </div>
       <div className="Clients-list">
-        { clients.length > 0 ? clients.map(({_id, dob, gender, weight, weightMetric, height, heightMetric}) => (
+        { clients.length > 0 ? clients.map(({_id, dob, title, sex, weight, weightMetric, height, heightMetric, firstName, lastName}) => (
           <Panel>
             <Row>
               <Col xs={ 8 } sm={ 10 }>
                 <a href={ "/clients/" + _id } key={ _id } onClick={ () => handleNavigation(_id) }>
-                  <h2></h2>
+                  <h2>{ firstName } { lastName }</h2>
                 </a>
-                <p>{ gender }</p>
-                <p>{ weight }</p>
-
+                <p>{ title }</p>
               </Col>
               <Col xs={ 12 } sm={ 2 }>
-                <p>{ height } > { heightMetric }</p>
+                <p>Gender: { sex }</p>
+                <p>Weight: { weight } { weightMetric }</p>
+                <p>Height: { height } { heightMetric }</p>
               </Col>
             </Row>
           </Panel>

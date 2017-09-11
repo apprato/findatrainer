@@ -143,18 +143,6 @@ export default class ClientMeasurementEditor extends React.Component {
                     </FormGroup>
                   </Col>
                 </Row>
-                <FormGroup controlId="skills">
-                  <ControlLabel>What specific skills do you offer clients?</ControlLabel>
-                  <br />
-                  <FormControl componentClass="select"
-                               data-role="tagsinput"
-                               placeholder="Enter your skill tags"
-                               ref="skills"
-                               name="skills"
-                               className="skills"
-                               multiple>
-                  </FormControl>
-                </FormGroup>
               </Col>
             </Row>
           </Col>
