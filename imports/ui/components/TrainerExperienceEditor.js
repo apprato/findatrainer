@@ -53,7 +53,7 @@ export default class TrainerExperienceEditor extends React.Component {
                     defaultValue={ doc && doc.category }
                   >
                     <option value="">Please select category</option>
-                    <option value="personal_trainer">Personal Training</option>
+                    <option value="personal_training">Personal Training</option>
                     <option value="pilates">Pilates</option>
                     <option value="yoga">Yoga</option>
                     <option value="zumba">Zumba</option>

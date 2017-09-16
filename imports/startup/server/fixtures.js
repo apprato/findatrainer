@@ -136,6 +136,9 @@ if (!Meteor.isProduction) {
     category: 'yoga',
     skillTags: 'pilates',
     experienceLevel: 'expert'
+
+
+
   }];
 
   trainers.forEach((trainers) => {

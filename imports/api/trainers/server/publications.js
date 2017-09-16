@@ -20,6 +20,13 @@ Meteor.publish('trainers.list', (skipCount, _id) => {
   return trainersQuery;
 });
 
+Meteor.publish('trainers.list.user', (idUser) => {
+  check(idUser, String);
+  var usersQuery = Meteor.users.find( { _id: idUser}  );
+
+  return usersQuery;
+});
+
 
 Meteor.publish('trainers.list.area', (skipCount, _id, area) => {
 

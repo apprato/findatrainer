@@ -43,6 +43,31 @@ class TrainersList extends React.Component {
     //this.props.searchQuery.set(searchTerm);
   }
 
+  getCategoryName(categoryValue) {
+    var categorySelectValues = [
+      { value: 'health_fitness_centre',     label: 'Health Fitness Centre',     clearableValue: false },
+      { value: 'personal_training',         label: 'Personal Training',         clearableValue: false },
+      { value: 'martial_arts',              label: 'Martial Arts',              clearableValue: false },
+      { value: 'wellbeing_centre',          label: 'Wellbeing Centre',          clearableValue: false },
+      { value: 'yoga',                      label: 'Yoga',                      clearableValue: false },
+      { value: 'exercise_equipment',        label: 'Exercise Equipment',        clearableValue: false },
+      { value: 'massage_therapy',           label: 'Massage Therapy',           clearableValue: false },
+      { value: 'holistic_health',           label: 'Holistic Health',           clearableValue: false },
+      { value: 'corporate_health_fitness',  label: 'Corporate Health Fitness',  clearableValue: false },
+      { value: 'pilates',                   label: 'Pilates',                   clearableValue: false },
+      { value: 'nutritional_supplements',   label: 'Nutritional Supplements',   clearableValue: false },
+      { value: 'life_coaching',             label: 'Life Coaching',             clearableValue: false },
+      { value: 'weight_Loss',               label: 'Weight Loss',               clearableValue: false },
+      { value: 'employment_and_careers',    label: 'Employment and Careers',    clearableValue: false },
+      { value: 'group_health_fitness',      label: 'Group Health Fitness',      clearableValue: false }
+    ];
+    category = categorySelectValues.find(category => category.value === categoryValue);
+    if(category != null) {
+      return category.label;
+    }
+   }
+
+
   handlePageClick(data) {
     let selected = Number(data.selected + 1);
     handleNavigationPager(selected)
@@ -65,6 +90,7 @@ class TrainersList extends React.Component {
 
   render() {
     const {trainers} = this.props;
+    console.log(trainers);
     // Listing based switch
     const area = this.props.area;
     const page = this.props.page
@@ -150,19 +176,21 @@ class TrainersList extends React.Component {
         </Row>
       </div>
       <div className="Trainers-list">
-        { trainers.length > 0 ? trainers.map(({_id, logo, businessName, overview, category, state, suburb, image}) => (
+        { trainers.length > 0 ? trainers.map(({_id, logo, businessName, overview, category, country, city, phoneNumber, image, firstName, lastName}) => (
           <Panel>
             <Row>
-              <Col xs={ 8 } sm={ 10 }>
-                <a href={ "/directory/" + _id } key={ _id } onClick={ () => handleNavigation(_id) }>
-                  <h2>{businessName}</h2>
+              <Col xs={ 8 } sm={ 9 }>
+                <a href={ "/trainers/" + _id } key={ _id } onClick={ () => handleNavigation(_id) }>
+                  <h2>{ firstName } { lastName }</h2>
                 </a>
-                <p>{ category }</p>
                 <p>{ overview }</p>
               </Col>
-              <Col xs={ 12 } sm={ 2 }>
-                <p>{ state } > { suburb }</p>
+              <Col xs={ 12 } sm={ 3 }>
+                <br />
+                <p>{ this.getCategoryName(category) }</p>
+                <p>{ country } > { city}</p>
                 {logo ? <Image src={ '/' + 'logos' + '/' + logo } alt={ businessName } responsive/> : ''}
+                <p><a class="phone" href="tel:{ phoneNumber }">{ phoneNumber }</a></p>
               </Col>
             </Row>
           </Panel>
