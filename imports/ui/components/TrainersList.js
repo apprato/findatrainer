@@ -90,7 +90,6 @@ class TrainersList extends React.Component {
 
   render() {
     const {trainers} = this.props;
-    console.log(trainers);
     // Listing based switch
     const area = this.props.area;
     const page = this.props.page
@@ -190,7 +189,7 @@ class TrainersList extends React.Component {
                 <p>{ this.getCategoryName(category) }</p>
                 <p>{ country } > { city}</p>
                 {logo ? <Image src={ '/' + 'logos' + '/' + logo } alt={ businessName } responsive/> : ''}
-                <p><a class="phone" href="tel:{ phoneNumber }">{ phoneNumber }</a></p>
+                <p>{ phoneNumber }</p>
               </Col>
             </Row>
           </Panel>

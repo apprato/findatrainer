@@ -25,8 +25,7 @@ import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
 import EditTrainerExperience from '../../ui/containers/EditTrainerExperience.js';
 import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
 import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
-
-
+import ViewTrainer from '../../ui/containers/ViewTrainer.js';
 import ViewClient from '../../ui/containers/ViewClient.js';
 import NewClient from '../../ui/pages/NewClient.js';
 
@@ -57,7 +56,7 @@ Meteor.startup(() => {
         <Route name="signup-trainer" path="/signup/trainer" component={ Signup } />
         <Route name="clients" path="/clients" component={ Clients } onEnter={ authenticate } />
         <Route name="trainers" path="/trainers" component={ Trainers } />
-        <Route name="listTrainersPagination" path="/directory/page/:_id" component={ Trainers } />
+        <Route name="listTrainersPagination" path="/trainers/page/:_id" component={ Trainers } />
         <Route name="listClientsPagination" path="/clients/page/:_id" component={ Clients } />
         <Route name="NewClientMeasurement" path="/client/new/measurement" component={ NewClientMeasurement } onEnter={ authenticate } />
         <Route name="EditClientMeasurement" path="/client/edit/measurement" component={ EditClientMeasurement } onEnter={ authenticate } />
@@ -67,6 +66,7 @@ Meteor.startup(() => {
         <Route name="EditTrainerProfile" path="/trainer/edit/profile" component={ EditTrainerProfile } onEnter={ authenticate } />
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />
+        <Route name="viewTrainer" path="/trainers/:_id" component={ ViewTrainer } onEnter={ authenticate } />
         <Route name="getStarted" path="/getstarted" component={ GetStarted } />
         <Route name="contactUs" path="/contactus" component={ ContactUs } />
         <Route path="*" component={ NotFound } />
