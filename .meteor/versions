@@ -1,5 +1,6 @@
 accounts-base@1.2.14
 accounts-password@1.3.3
+adain:meteor-ses-email@1.0.0
 ajduke:bootstrap-tagsinput@0.7.1
 alanning:roles@1.2.15
 aldeed:collection2@2.10.0
@@ -39,6 +40,7 @@ ecmascript@0.6.1
 ecmascript-runtime@0.3.15
 ejson@1.0.13
 email@1.1.18
+epaminond:nodemailer@1.4.0
 es5-shim@4.6.15
 fastclick@1.0.13
 fortawesome:fontawesome@4.7.0
