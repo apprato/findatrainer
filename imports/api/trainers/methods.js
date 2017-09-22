@@ -188,6 +188,23 @@ export const removeTrainerEmployment = new ValidatedMethod({
 });
 
 
+Meteor.methods({
+  getTrainersCount() {
+    return Trainers.find().count();
+  },
+  getTrainersAreaCount() {
+    const query = {
+      $and: [
+        {
+          state: area.toUpperCase()
+        },
+      ],
+    };
+    return Trainers.find(query).count();
+  },
+});
+
+
 rateLimit({
   methods: [
     upsertTrainer,

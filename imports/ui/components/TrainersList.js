@@ -7,11 +7,11 @@ import 'react-select/dist/react-select.css';
 
 
 const handleNavigation = (_id) => {
-  browserHistory.push(`/directory/${_id}`);
+  browserHistory.push(`/trainers/${_id}`);
 }
 
 const handleNavigationPager = (selected) => {
-  window.location.href = '/directory/page/' + selected;
+  window.location.href = '/trainers/page/' + selected;
 }
 
 class TrainersList extends React.Component {
@@ -139,7 +139,7 @@ class TrainersList extends React.Component {
             <FormControl
               type="search"
               onKeyUp={ this.handleSearch }
-              placeholder="Find Health & Fitness"
+              placeholder="Find Trainers"
               className="Search"
             />
           </Col>

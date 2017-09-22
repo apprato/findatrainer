@@ -12,7 +12,7 @@ Meteor.publish('trainers.list', (skipCount, _id) => {
   var trainersQuery = Trainers.find(
     query,
     {
-      limit: 10,
+      limit: 5,
       skip: skipCount,
     }
   );

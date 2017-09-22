@@ -16,8 +16,8 @@ const composer = ({ params }, onData) => {
   // Fliters
   const currentPage = parseInt(params._id) || 1;
   const search = params.search;
-  const skipCount = ( currentPage - 1)   * 10;
-  const pageCount = Math.ceil(Session.get('trainerCount') / 10);
+  const skipCount = ( currentPage - 1)   * 5;
+  const pageCount = Math.ceil(Session.get('trainerCount') / 5);
 
   const subscription = Meteor.subscribe('trainers.list', skipCount, parseInt(currentPage));
   if (subscription.ready()) {
