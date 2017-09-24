@@ -1,2 +1,9 @@
 //import '../../methods/send-verification-link';
-import '../../methods';
+
+
+// General Utility Global methods
+Meteor.methods({
+  getUser() {
+    return Meteor.user();
+  },
+});

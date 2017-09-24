@@ -2,6 +2,7 @@ import './accounts/email-templates';
 import './browser-policy';
 import './fixtures';
 import './api';
+import './methods';
 
 
 // Environmental Variables which should be in the hosting providers configuration or settings-development.json
@@ -9,7 +10,7 @@ import './api';
 var AWSScretUserSes ="AKIAI3VWXELJBD5USHXA";
 var AWSScretPassSes =  "Ak8D5vUhOkxcknJkkqJokk/k5DXxyZe5/302LnmYm62r";
 process.env.MAIL_URL = 'smtp://'+ encodeURIComponent(AWSScretUserSes) +':'+ encodeURIComponent(AWSScretPassSes) +'@email-smtp.us-west-2.amazonaws.com:587 ';
-Accounts.emailTemplates.from = "Fit4all Accounts <support@magescale.com>";
+//Accounts.emailTemplates.from = "Fit4all Accounts <support@magescale.com>";
 
 
 /*
