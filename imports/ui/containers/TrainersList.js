@@ -30,6 +30,7 @@ const composer = ({ params }, onData) => {
         var user = Meteor.users.find({ "_id" : item.idUser }).fetch();
         item.firstName = user[0].profile.name.first;
         item.lastName= user[0].profile.name.last;
+        console.log(user);
       }
     });
     onData(null, { trainers, searchQuery, pageCount, currentPage });

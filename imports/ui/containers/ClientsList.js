@@ -28,6 +28,8 @@ const composer = ({ params }, onData) => {
       var userSubscription = Meteor.subscribe('clients.list.user', item.idUser);
       if (userSubscription.ready()) {
         var user = Meteor.users.find({ "_id" : item.idUser }).fetch();
+        console.log(user);
+
         item.firstName = user[0].profile.name.first;
         item.lastName= user[0].profile.name.last;
       }

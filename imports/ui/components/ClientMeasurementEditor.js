@@ -108,8 +108,8 @@ export default class ClientMeasurementEditor extends React.Component {
                         defaultValue={ doc && doc.weightMetric }
                       >
                         <option value=""></option>
-                        <option value="kg">Kg</option>
-                        <option value="female">Pounds</option>
+                        <option value="metric">Metric (Kg)</option>
+                        <option value="imperial">Imperial (Pound)</option>
                       </FormControl>
                     </FormGroup>
                   </Col>
@@ -137,8 +137,8 @@ export default class ClientMeasurementEditor extends React.Component {
                         defaultValue={ doc && doc.heightMetric }
                       >
                         <option value=""></option>
-                        <option value="imperial">Kg</option>
-                        <option value="pounds">Pounds</option>
+                        <option value="metric">Metric (Cm)</option>
+                        <option value="imperial">Imperial (Feet)</option>
                       </FormControl>
                     </FormGroup>
                   </Col>
