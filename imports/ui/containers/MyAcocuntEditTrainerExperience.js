@@ -1,7 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 import {composeWithTracker} from 'react-komposer';
 import Trainers from '../../api/trainers/trainers.js';
-import TrainerExperienceEditor from '../pages/EditTrainerExperience.js';
+import MyAccountEditTrainerExperience from '../pages/MyAccountEditTrainerExperience.js';
 
 import Loading from '../components/Loading.js';
 
@@ -20,4 +20,4 @@ const composer = ({params}, onData) => {
   }
 };
 
-export default composeWithTracker(composer, Loading)(TrainerExperienceEditor);
+export default composeWithTracker(composer, Loading)(MyAccountEditTrainerExperience);

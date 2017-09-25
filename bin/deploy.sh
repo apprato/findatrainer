@@ -45,6 +45,11 @@ deployStaging() {
   mup --config mup.js --settings settings-staging.json deploy
 }
 
+deployLocalToStaging() {
+  cd /Users/stephengoudie/Sites/meteor/fitmatch.com/.deploy
+  mup --config mup.js.local --settings settings-staging.json deploy
+}
+
 case "$1" in
   installDeployLibraries)
     echo 'Installing Mup'
@@ -57,6 +62,11 @@ case "$1" in
     echo 'Finished Setting up staging'
     ;;
   deployStaging)
+    echo 'Deploy to Staging'
+    deployStaging
+    echo 'Finished deploying to staging'
+    ;;
+  deployLocalToStaging)
     echo 'Deploy to Staging'
     deployStaging
     echo 'Finished deploying to staging'
@@ -83,12 +93,14 @@ cd /home/ubuntu/findatrainer/.deploy
 sh /home/ubuntu/findatrainer/bin/deploy.sh setupStaging
 -> Deploy Staging
 sh /home/ubuntu/findatrainer/bin/deploy.sh deployStaging
+sh /home/ubuntu/findatrainer/bin/deploy.sh deployLocalToStaging
 
 NOTES
 With installing sometimes it gets stuck on the target
 If so start again on the host:
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 sudo rm -Rf /opt/findatrainer/ /opt/mongodb/
+Deploying form local to staing use mup.js.local
 "
     >&2
     exit 1
