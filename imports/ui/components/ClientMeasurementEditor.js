@@ -137,7 +137,7 @@ export default class ClientMeasurementEditor extends React.Component {
                         defaultValue={ doc && doc.heightMetric }
                       >
                         <option value=""></option>
-                        <option value="imperial">Imperial</option>
+                        <option value="imperial">Kg</option>
                         <option value="pounds">Pounds</option>
                       </FormControl>
                     </FormGroup>

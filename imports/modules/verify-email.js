@@ -11,23 +11,39 @@ let token;
 const handleVerify = (options) => {
   const match = options;
   console.log('handleVerify');
-  return (
-    {
-      callback: 'asdfsd'
-    }
-  );
-  /*
+
   Accounts.verifyEmail(match.token, (error) => {
+    Bert.defaults.hideDelay = 10000;
+    var message, redirect;
     if (error) {
-      Bert.defaults.hideDelay = 10000;
-      Bert.alert(error.reason + ', Please re-send to activate your account', 'danger');
+      message = `${error.reason}, Please open the email link again or re-send to activate your account`;
+      Bert.alert(message, 'danger');
+      match.component.accountVerificationNotice = message;
+      match.component.accountVerificationStatus = false;
     } else {
-      setTimeout(() => {
-        Bert.alert('Your account is verified, weclome to Findatrainer', 'success');
-      }, 2000);
+      message = 'Your account is verified.'
+      match.component.accountVerificationNotice = message;
+      Bert.alert(message, 'success');
+      match.component.accountVerificationNotice= message;
+      match.component.accountVerificationStatus = true;
     }
+    // Redirect to first page of sign-up after confirming
+    const user = Meteor.user();
+    var redirect;
+    if (user) {
+      if (typeof(user) !== 'undefined' && user.profile.roles[0] !== 'undefined' && user.profile.roles[0] == 'client') {
+        redirect = '/client/new/measurement';
+      }
+      else if (typeof(user) !== 'undefined' && user.profile.roles[0] == 'trainer') {
+        redirect = '/trainer/new/experience';
+      }
+    }
+    else {
+          // This should be a page detailing how to open account
+          redirect = '/';
+    }
+    browserHistory.push(redirect);
   });
-  */
 
 };
 

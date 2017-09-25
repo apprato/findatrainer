@@ -47,8 +47,7 @@ const signup = () => {
         if ( error ) {
           Bert.alert( error.reason, 'danger' );
         } else {
-          Bert.alert( 'Welcome!', 'success' );
-
+          //Bert.alert( 'Welcome!', 'success' );
           browserHistory.push(redirect);
         }
       });

@@ -46,7 +46,7 @@ const App = ({children, loading, userId, name, emailAddress, emailVerified}) => 
       {
         userId && !emailVerified ?
           <Row>
-            <h2>Verify your email to address all of Findatrainer</h2>
+            <h2>Verify your email to address to access all of Findatrainer</h2>
             <p>
               <strong>We've sent your an email to your address: {emailAddress}</strong><br /><br />
               Please check your email and click on the link provided to verify your adderess.<br /><br />
