@@ -25,6 +25,8 @@ import EditClientMeasurement from '../../ui/containers/EditClientMeasurement.js'
 import NewTrainerExperience from '../../ui/pages/NewTrainerExperience.js';
 import EditTrainerExperience from '../../ui/containers/EditTrainerExperience.js';
 import MyAccountEditTrainerExperience from '../../ui/containers/MyAcocuntEditTrainerExperience.js'
+import MyAccountEditTrainerProfile from '../../ui/containers/MyAcocuntEditTrainerExperience.js'
+import NewClientJob from '../../ui/pages/NewClientJob.js';
 import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
 import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
 import ViewTrainer from '../../ui/containers/ViewTrainer.js';
@@ -68,7 +70,8 @@ Meteor.startup(() => {
         <Route name="NewTrainerProfile" path="/trainer/new/profile" component={ NewTrainerProfile } onEnter={ authenticate } />
         <Route name="EditTrainerProfile" path="/trainer/edit/profile" component={ EditTrainerProfile } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerExperience" path="/myaccount/trainer/edit/experience" component={ MyAccountEditTrainerExperience } onEnter={ authenticate } />
-        <Route name="MyAccountEditTrainerProfile" path="/myaccount/trainer/edit/profile" component={ EditTrainerProfile } onEnter={ authenticate } />
+        <Route name="MyAccountEditTrainerProfile" path="/myaccount/trainer/edit/profile" component={ MyAccountEditTrainerProfile } onEnter={ authenticate } />
+        <Route name="newClientJob" path="/client/new/job" component={ NewClientJob } onEnter={ authenticate } />
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />
         <Route name="viewTrainer" path="/trainers/:_id" component={ ViewTrainer } onEnter={ authenticate } />
