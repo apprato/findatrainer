@@ -5,6 +5,8 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import App from '../../ui/layouts/App.js';
+import Jobs from '../../ui/pages/Jobs.js';
+import EditJob from '../../ui/containers/EditJob.js';
 import Documents from '../../ui/pages/Documents.js';
 import NewDocument from '../../ui/pages/NewDocument.js';
 import EditDocument from '../../ui/containers/EditDocument.js';
@@ -71,6 +73,8 @@ Meteor.startup(() => {
         <Route name="EditTrainerProfile" path="/trainer/edit/profile" component={ EditTrainerProfile } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerExperience" path="/myaccount/trainer/edit/experience" component={ MyAccountEditTrainerExperience } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerProfile" path="/myaccount/trainer/edit/profile" component={ MyAccountEditTrainerProfile } onEnter={ authenticate } />
+        <Route name="jobs" path="/client/jobs" component={ Jobs } onEnter={ authenticate } />
+        <Route name="editJob" path="/client/jobs/:_id/edit" component={ EditJob } onEnter={ authenticate } />
         <Route name="newClientJob" path="/client/new/job" component={ NewClientJob } onEnter={ authenticate } />
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />

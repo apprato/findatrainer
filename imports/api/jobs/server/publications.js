@@ -2,23 +2,16 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Jobs from '../jobs';
 
-Meteor.publish('jobs.list', (skipCount, _id) => {
+Meteor.publish('jobs.list', () => Jobs.find());
+/*
+Meteor.publish('jobs.list', () => {
+  var jobsQuery  = Jobs.find({"idUser": String(Meteor.userId())}).fetch();
 
-  check(skipCount, Number);
-  check(_id, Number);
-
-  const query = {};
-  const jobsTotal = Jobs.find().count();
-  var jobsQuery = Jobs.find(
-    query,
-    {
-      limit: 5,
-      skip: skipCount,
-    }
-  );
+  //var jobsQuery = Meteor.users.find( { _id: idUser}  );
 
   return jobsQuery;
 });
+*/
 
 Meteor.publish('jobs.list.user', (idUser) => {
   check(idUser, String);

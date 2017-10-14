@@ -14,12 +14,15 @@ const userName = () => {
 
 const AuthenticatedNavigation = () => (
   <div>
+    <Nav pullLeft>
+      <NavDropdown eventKey={ 1 } title="Jobs" id="basic-nav-dropdown">
+        <MenuItem eventKey={ 1.1 } href="/client/jobs">My Jobs</MenuItem>
+        <MenuItem eventKey={ 2.2 } href="/client/new/job">Post a Job</MenuItem>
+      </NavDropdown>
+    </Nav>
     <Nav>
       <LinkContainer to="/clients">
         <NavItem eventKey={ 2.1 } href="/clients">Clients</NavItem>
-      </LinkContainer>
-      <LinkContainer to="/client/new/job">
-        <NavItem eventKey={ 2.2 } href="/client/new/job">Post a Job</NavItem>
       </LinkContainer>
       <LinkContainer to="/trainers">
       <NavItem eventKey={ 2.2 } href="/trainers">Trainers</NavItem>
