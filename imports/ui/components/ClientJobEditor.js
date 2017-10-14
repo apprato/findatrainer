@@ -8,11 +8,10 @@ import {
   Button,
   Row,
   Col,
-  Radio
 } from 'react-bootstrap';
 import Modal from '../components/modals/Modal';
 import modals from '../../modules/modals';
-import trainerProfileEditor from '../../modules/trainerProfile-editor.js';
+import clientJobEditor from '../../modules/clientJob-editor.js';
 
 
 export default class NewClientJobEditor extends React.Component {
@@ -78,7 +77,7 @@ export default class NewClientJobEditor extends React.Component {
 
   /* React Mounts */
   componentDidMount() {
-    trainerProfileEditor({component: this});
+    clientJobEditor({component: this});
     setTimeout(() => {
       document.querySelector('[name="professionalTitle"]').focus();
     }, 0);
@@ -98,7 +97,7 @@ export default class NewClientJobEditor extends React.Component {
     } = this.state;
 
     return (<form
-        ref={ form => (this.trainerProfileEditorForm = form) }
+        ref={ form => (this.clientJobEditorForm = form) }
         onSubmit={ event => event.preventDefault() }>
         <Row>
           <Modal
