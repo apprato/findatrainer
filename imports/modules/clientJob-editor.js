@@ -2,15 +2,16 @@
 
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertTrainer} from '../api/trainers/methods';
+import { upsertJob} from '../api/jobs/methods';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
-  const { trainer } = component.props;
-  const confirmation = trainer && trainer._id ? 'Trainer Profile updated!' : 'Trainer Profile added!';
+  const { job } = component.props;
+  const confirmation = job && job._id ? 'Job updated!' : 'Job added!';
   const upsert = {
+    idUser: Meteor.userId(),
     category: document.querySelector('[name="category"]').value,
     jobTitle: document.querySelector('[name="jobTitle"]').value,
     overview: document.querySelector('[name="overview"]').value,
@@ -21,11 +22,13 @@ const handleUpsert = () => {
     screenQuestions: document.querySelector('[name="screenQuestions"]').value,
   };
 
-  if (trainer && trainer._id) upsert._id = trainer._id;
+  if (job && job._id) upsert._id = job._id;
 
-  upsertTrainer.call(upsert, (error, response) => {
+  upsertJob.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
+      console.log(upsert);
+      console.log(response);
     } else {
       component.clientJobEditorForm.reset();
       Bert.alert(confirmation, 'success');
@@ -44,22 +47,22 @@ const validate = () => {
         required: true
       },
       overview: {
-        required: true
+        required: false
       },
       typeProject: {
-        required: true
+        required: false
       },
       payType: {
-        required: true
+        required: false
       },
       experienceLevel: {
-        required: true
+        required: false
       },
       jobLength: {
-        required: true
+        required: false
       },
       screenQuestions: {
-        required: true
+        required: false
       }
     },
     messages: {
@@ -85,14 +88,14 @@ const validate = () => {
         required: 'Please select the job length.',
       },
       screenQuestions: {
-        required: 'Please add some screening questions.',
+        required: 'Please add some screening questions',
       }
     },
     submitHandler() { handleUpsert(); },
   });
 };
 
-export default function trainerExperienceEditor(options) {
+export default function clientJobEditor(options) {
   component = options.component;
   validate();
 }

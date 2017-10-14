@@ -79,7 +79,7 @@ export default class NewClientJobEditor extends React.Component {
   componentDidMount() {
     clientJobEditor({component: this});
     setTimeout(() => {
-      document.querySelector('[name="professionalTitle"]').focus();
+      document.querySelector('[name="category"]').focus();
     }, 0);
   }
 
@@ -173,7 +173,7 @@ export default class NewClientJobEditor extends React.Component {
               <FormControl componentClass="select" placeholder="select"
                            ref="typeProject"
                            defaultValue={ doc && doc.typeProject }
-                           name="englishProficiency">
+                           name="typeProject">
                 <option value="">Please select</option>
                 <option value="1">One-time project</option>
                 <option value="2">Ongoing project</option>
@@ -192,6 +192,7 @@ export default class NewClientJobEditor extends React.Component {
                            ref="payType"
                            defaultValue={ doc && doc.payType }
                            name="payType">
+                <option value="">Please select</option>
                 <option value="1">Pay by the hour</option>
                 <option value="2">Pay a fixed hour</option>
               </FormControl>
@@ -257,7 +258,7 @@ export default class NewClientJobEditor extends React.Component {
 
 
 NewClientJobEditor.propTypes = {
-  trainer: React.PropTypes.object,
+  job: React.PropTypes.object,
   hourlyRateProp: React.PropTypes.object,
 
 };
