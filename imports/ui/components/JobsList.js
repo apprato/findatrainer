@@ -3,7 +3,8 @@ import { browserHistory } from 'react-router';
 import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 
 const handleNav = (_id) => {
-  browserHistory.push(`/client/jobs/${_id}/edit/`);
+  //browserHistory.push(`/client/jobs/${_id}/edit/`);
+  window.location.href = `/client/jobs/${_id}/edit/`;
 }
 
 const JobsList = ({ jobs }) => (

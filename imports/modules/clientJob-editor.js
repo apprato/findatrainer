@@ -27,12 +27,10 @@ const handleUpsert = () => {
   upsertJob.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
-      console.log(upsert);
-      console.log(response);
     } else {
       component.clientJobEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push('/');
+      browserHistory.push('/client/jobs');
     }
   });
 };
