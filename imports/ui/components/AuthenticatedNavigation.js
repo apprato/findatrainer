@@ -16,7 +16,7 @@ const AuthenticatedNavigation = () => (
   <div>
     <Nav pullLeft>
       <NavDropdown eventKey={ 1 } title="Jobs" id="basic-nav-dropdown">
-        <MenuItem eventKey={ 2.3 } href="/client/browse/jobs">Find Jobs</MenuItem>
+        <MenuItem eventKey={ 2.3 } href="/jobs">Find Jobs</MenuItem>
         <MenuItem eventKey={ 1.1 } href="/client/jobs">My Jobs</MenuItem>
         <MenuItem eventKey={ 2.2 } href="/client/new/job">Post a Job</MenuItem>
       </NavDropdown>
@@ -28,7 +28,7 @@ const AuthenticatedNavigation = () => (
     </Nav>
     <Nav pullLeft>
       <NavDropdown eventKey={ 1 } title="Clients" id="basic-nav-dropdown">
-        <MenuItem eventKey={ 1.1 } href="/trainers">Find Clients</MenuItem>
+        <MenuItem eventKey={ 1.1 } href="/clients">Find Clients</MenuItem>
       </NavDropdown>
     </Nav>
     <Nav pullRight>

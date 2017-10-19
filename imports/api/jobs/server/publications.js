@@ -2,16 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Jobs from '../jobs';
 
-Meteor.publish('jobs.list', () => Jobs.find());
-/*
-Meteor.publish('jobs.list', () => {
-  var jobsQuery  = Jobs.find({"idUser": String(Meteor.userId())}).fetch();
-
-  //var jobsQuery = Meteor.users.find( { _id: idUser}  );
-
+Meteor.publish('jobs.list', (idUser) => {
+  check (idUser, String);
+  var jobsQuery  = Jobs.find({"idUser": idUser});
   return jobsQuery;
 });
-*/
+
 
 Meteor.publish('jobs.list.user', (idUser) => {
   check(idUser, String);

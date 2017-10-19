@@ -5,7 +5,7 @@ import JobsList from '../components/JobsList.js';
 import Loading from '../components/Loading.js';
 
 const composer = (params, onData) => {
-  const subscription = Meteor.subscribe('jobs.list');
+  const subscription = Meteor.subscribe('jobs.list', String(Meteor.userId()));
   if (subscription.ready()) {
     const jobs = Jobs.find().fetch();
     onData(null, { jobs });
