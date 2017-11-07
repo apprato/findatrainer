@@ -22,17 +22,8 @@ export const upsertJob = new ValidatedMethod({
     screenQuestions: {type: String, optional: true}
   }).validator(),
   run(job) {
-    return Jobs.upsert({ _id: job._id }, { $set: job });
-
-    /*
     var userFound;
-    var userJob = Jobs.find(
-      {
-        "idUser": String(Meteor.userId()),
-        "_id": job._id
-      }).fetch();
-
-    return userJob;
+    var userJob = Jobs.find({"idUser": String(Meteor.userId())}).fetch();
 
     userJob.every(function (elem) {
       if (typeof(elem) !== 'undefined') {
@@ -50,8 +41,6 @@ export const upsertJob = new ValidatedMethod({
       Jobs.upsert({_id: job._id}, {$set: job} );
       return false
     }
-    //*/
-
   },
 });
 

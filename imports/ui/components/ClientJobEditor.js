@@ -266,6 +266,5 @@ export default class NewClientJobEditor extends React.Component {
 
 NewClientJobEditor.propTypes = {
   job: React.PropTypes.object,
-  hourlyRateProp: React.PropTypes.object,
-
+  hourlyRateProp: React.PropTypes.object
 };

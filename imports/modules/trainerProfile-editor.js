@@ -9,6 +9,7 @@ let component;
 
 const handleUpsert = () => {
   const { trainer } = component.props;
+  console.log(trainer);
   const confirmation = trainer && trainer._id ? 'Trainer Profile updated!' : 'Trainer Profile added!';
   const upsert = {
     professionalTitle: document.querySelector('[name="professionalTitle"]').value,

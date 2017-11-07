@@ -8,7 +8,7 @@ import './validation.js';
 let component;
 
 const handleUpsert = () => {
-  const { job } = component.props;
+  const job = component.props;
   const confirmation = job && job._id ? 'Job updated!' : 'Job added!';
   const upsert = {
     idUser: Meteor.userId(),
@@ -16,11 +16,17 @@ const handleUpsert = () => {
     jobTitle: document.querySelector('[name="jobTitle"]').value,
     overview: document.querySelector('[name="overview"]').value,
     typeProject: document.querySelector('[name="typeProject"]').value,
+    budget: document.querySelector('[name="budget"]').value,
     payType: document.querySelector('[name="payType"]').value,
     experienceLevel: document.querySelector('[name="experienceLevel"]').value,
     jobLength: document.querySelector('[name="jobLength"]').value,
     screenQuestions: document.querySelector('[name="screenQuestions"]').value,
   };
+
+  console.log(job);
+  console.log(confirmation);
+  console.log(component.props);
+  console.log(upsert);
 
   if (job && job._id) upsert._id = job._id;
 
