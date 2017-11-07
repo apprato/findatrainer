@@ -8,8 +8,9 @@ import './validation.js';
 let component;
 
 const handleUpsert = () => {
-  const job = component.props;
-  const confirmation = job && job._id ? 'Job updated!' : 'Job added!';
+  console.log(component.props.doc);
+
+  const confirmation = component.props.doc && component.props.doc._id ? 'Job updated!' : 'Job added!';
   const upsert = {
     idUser: Meteor.userId(),
     category: document.querySelector('[name="category"]').value,
@@ -23,12 +24,7 @@ const handleUpsert = () => {
     screenQuestions: document.querySelector('[name="screenQuestions"]').value,
   };
 
-  console.log(job);
-  console.log(confirmation);
-  console.log(component.props);
-  console.log(upsert);
-
-  if (job && job._id) upsert._id = job._id;
+  if (component.props.doc && component.props.doc._id) upsert._id = component.props.doc._id;
 
   upsertJob.call(upsert, (error, response) => {
     if (error) {

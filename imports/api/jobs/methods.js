@@ -22,25 +22,8 @@ export const upsertJob = new ValidatedMethod({
     screenQuestions: {type: String, optional: true}
   }).validator(),
   run(job) {
-    var userFound;
-    var userJob = Jobs.find({"idUser": String(Meteor.userId())}).fetch();
+    return Jobs.upsert({ _id: job._id }, { $set: job });
 
-    userJob.every(function (elem) {
-      if (typeof(elem) !== 'undefined') {
-        userFound = true;
-        return false;
-      }
-      return true;
-    });
-
-    if (typeof(userFound) !== 'undefined') {
-      Jobs.update({idUser: Meteor.userId()}, {$set: job} );
-      return true;
-    }
-    else {
-      Jobs.upsert({_id: job._id}, {$set: job} );
-      return false
-    }
   },
 });
 
