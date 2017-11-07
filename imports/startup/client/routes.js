@@ -7,6 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import App from '../../ui/layouts/App.js';
 import ClientJobs from '../../ui/pages/ClientJobs.js';
 import Jobs from '../../ui/containers/JobsList.js';
+import ViewJob from '../../ui/containers/ViewJob.js';
 import EditJob from '../../ui/containers/EditJob.js';
 import Documents from '../../ui/pages/Documents.js';
 import NewDocument from '../../ui/pages/NewDocument.js';
@@ -35,7 +36,6 @@ import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
 import ViewTrainer from '../../ui/containers/ViewTrainer.js';
 import ViewClient from '../../ui/containers/ViewClient.js';
 import NewClient from '../../ui/pages/NewClient.js';
-
 
 const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -74,7 +74,9 @@ Meteor.startup(() => {
         <Route name="EditTrainerProfile" path="/trainer/edit/profile" component={ EditTrainerProfile } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerExperience" path="/myaccount/trainer/edit/experience" component={ MyAccountEditTrainerExperience } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerProfile" path="/myaccount/trainer/edit/profile" component={ MyAccountEditTrainerProfile } onEnter={ authenticate } />
-
+        <Route name="jobs" path="/jobs" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="viewJobsPagination" path="/jobs/page/:_id" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="viewJob" path="/jobs/:_id" component={ ViewJob } onEnter={ authenticate } />
         <Route name="clientJobs" path="/client/jobs" component={ ClientJobs } onEnter={ authenticate } />
         <Route name="editJob" path="/client/jobs/:_id/edit" component={ EditJob } onEnter={ authenticate } />
         <Route name="newClientJob" path="/client/new/job" component={ NewClientJob } onEnter={ authenticate } />

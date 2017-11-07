@@ -1,15 +1,15 @@
 import { composeWithTracker } from 'react-komposer';
 import { Meteor } from 'meteor/meteor';
 import Jobs from '../../api/jobs/jobs.js';
-import JobsList from '../components/JobsList.js';
+import ClientJobsList from '../components/ClientJobsList.js';
 import Loading from '../components/Loading.js';
 
 const composer = (params, onData) => {
-  const subscription = Meteor.subscribe('jobs.list', String(Meteor.userId()));
+  const subscription = Meteor.subscribe('jobs.client.list', String(Meteor.userId()));
   if (subscription.ready()) {
     const jobs = Jobs.find().fetch();
     onData(null, { jobs });
   }
 };
 
-export default composeWithTracker(composer, Loading)(JobsList);
+export default composeWithTracker(composer, Loading)(ClientJobsList);

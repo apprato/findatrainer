@@ -14,6 +14,7 @@ export const upsertJob = new ValidatedMethod({
     category: {type: String, optional: true},
     jobTitle: {type: String, optional: true},
     overview: {type: String, optional: true},
+    budget: {type: String, optional: true},
     typeProject: {type: String, optional: true},
     payType: {type: String, optional: true},
     experienceLevel: {type: String, optional: true},

@@ -2,3 +2,4 @@ import { BrowserPolicy } from 'meteor/browser-policy-common';
 // e.g., BrowserPolicy.content.allowOriginForAll( 's3.amazonaws.com' );
 BrowserPolicy.content.allowFontOrigin("data:");
 BrowserPolicy.content.allowOriginForAll('*.ssl-images-amazon.com');
+BrowserPolicy.content.allowOriginForAll('https://fonts.gstatic.com');

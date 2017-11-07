@@ -181,9 +181,6 @@ export default class NewClientJobEditor extends React.Component {
               </FormControl>
             </FormGroup>
           </Col>
-
-
-
           <Col xs={ 8 } sm={ 8 } md={ 8 }>
             <h2>Rate and Availability</h2>
             <FormGroup controlId="payType">
@@ -196,6 +193,16 @@ export default class NewClientJobEditor extends React.Component {
                 <option value="1">Pay by the hour</option>
                 <option value="2">Pay a fixed hour</option>
               </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <ControlLabel>Budget</ControlLabel>
+              <FormControl
+                type="text"
+                ref="budget"
+                name="budget"
+                placeholder="Fixed price budget"
+                defaultValue={ doc && doc.budget }
+              />
             </FormGroup>
             <FormGroup controlId="experienceLevel">
               <ControlLabel>What is your work experience level?</ControlLabel>

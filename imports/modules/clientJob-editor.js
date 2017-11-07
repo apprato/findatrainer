@@ -53,6 +53,9 @@ const validate = () => {
       payType: {
         required: false
       },
+      budget: {
+        required: false
+      },
       experienceLevel: {
         required: false
       },
@@ -78,6 +81,9 @@ const validate = () => {
       },
       payType: {
         required: 'Please select how you would like to pay.'
+      },
+      budget: {
+        required: 'Please select your budget.'
       },
       experienceLevel: {
         required: 'Please select desired experience level.',

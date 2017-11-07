@@ -40,6 +40,11 @@ Jobs.schema = new SimpleSchema({
     label: 'The overview of the document.',
     optional: true
   },
+  budget: {
+    type: String,
+    label: 'The budget of the document.',
+    optional: true
+  },
   typeProject: {
     type: [String],
     label: 'The typeProject of the document.',
