@@ -47,25 +47,25 @@ const validate = () => {
         required: true
       },
       overview: {
-        required: false
+        required: true
       },
       typeProject: {
-        required: false
+        required: true
       },
       payType: {
-        required: false
+        required: true
       },
       budget: {
         required: false
       },
       experienceLevel: {
-        required: false
+        required: true
       },
       jobLength: {
-        required: false
+        required: true
       },
       screenQuestions: {
-        required: false
+        required: true
       }
     },
     messages: {
