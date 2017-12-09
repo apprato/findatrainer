@@ -33,10 +33,12 @@ class JobsList extends React.Component {
   }
 
   handleSearchClick(event) {
+    this.props.searchQuery = 'asdfs';
+    console.log(this.props);
 
-    console.log(this.getState({}));
-    console.log('this.state.stateTerm' + this.state.stateTerm);
-    console.log('this.state.searchTerm' + this.state.searchTerm);
+    //console.log(this.getState({}));
+    console.log('this.state.stateTerm' + this.state);
+    console.log('this.state.searchTerm' + this.state);
 
     //const searchTerm = event.target.value;
     //this.setState({searchTerm});
@@ -74,17 +76,25 @@ class JobsList extends React.Component {
   }
 
   handleStateChange (element) {
-    if(element===null || element.value===undefined || element.value===false)
+    console.log(element);
+    if(element===null || element.value===undefined || element.value===false) {
       this.setState({stateTerm: null});
-    else
+    }
+    else {
+      console.log('handleStateChange');
       this.setState({stateTerm: element.value});
+    }
   }
 
   handleCategoryChange (element) {
-    if(element===null || element.value===undefined || element.value===false)
+    console.log(element);
+    if(element===null || element.value===undefined || element.value===false) {
       this.setState({categoryTerm: null});
-    else
+    }
+    else {
+      console.log('handleCategoryChange');
       this.setState({categoryTerm: element.value});
+    }
   }
 
 
