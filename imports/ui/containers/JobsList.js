@@ -18,21 +18,22 @@ const composer = ({ params }, onData) => {
   const search = params.search;
   const skipCount = ( currentPage - 1)   * 5;
   const pageCount = Math.ceil(Session.get('jobCount') / 5);
+  const subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), skipCount, parseInt(currentPage));
 
-  const subscription = Meteor.subscribe('jobs.list', skipCount, parseInt(currentPage));
   if (subscription.ready()) {
     const jobs = Jobs.find().fetch(); // Converts MongoDB data into an array rather than cursor
 
     // Get the users details (firstname, lastname etc from users collection.O
+    /*
     _.forEach(jobs, function(item){
       var userSubscription = Meteor.subscribe('jobs.list.user', item.idUser);
       if (userSubscription.ready()) {
         var user = Meteor.users.find({ "_id" : item.idUser }).fetch();
         item.firstName = user[0].profile.name.first;
         item.lastName= user[0].profile.name.last;
-        console.log(user);
       }
     });
+    */
     onData(null, { jobs, searchQuery, pageCount, currentPage });
   }
 };

@@ -2,8 +2,77 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Jobs from '../jobs';
 
-Meteor.publish('jobs.list', (skipCount, _id) => {
 
+Meteor.publish('jobs.list.search', (searchTerm, skipCount, _id) => {
+
+  check(skipCount, Number);
+  check(_id, Number);
+  check(searchTerm, Match.OneOf(String, null));
+  check(searchTerm, Match.OneOf(String, null, undefined));
+  console.log(searchTerm);
+
+  let query = {};
+  const projection = {limit: 10, sort: {title: 1}};
+
+  if (searchTerm) {
+    const regex = new RegExp(searchTerm, 'i');
+
+    query = {
+      $or: [
+        {jobTitle: regex},
+        {year: regex},
+        {rated: regex},
+        {plot: regex},
+      ],
+    };
+    projection.limit = 100;
+  }
+
+  return Jobs.find(query, projection);
+
+
+
+  /*
+   const query = {};
+   var jobsQuery = Jobs.find(
+   query,
+   {
+   limit: 5,
+   skip: skipCount,
+   }
+   );
+   return jobsQuery;
+   */
+
+
+
+  /*
+   check(searchTerm, Match.OneOf(String, null, undefined));
+
+   let query = {};
+   const projection = { limit: 10, sort: { title: 1 } };
+
+   if (searchTerm) {
+   const regex = new RegExp(searchTerm, 'i');
+
+   query = {
+   $or: [
+   { title: regex },
+   { year: regex },
+   { rated: regex },
+   { plot: regex },
+   ],
+   };
+
+   projection.limit = 100;
+   }
+
+   return Clients.find(query, projection);
+   */
+});
+
+
+Meteor.publish('jobs.list', (skipCount, _id) => {
   check(skipCount, Number);
   check(_id, Number);
 
