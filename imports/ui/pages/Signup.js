@@ -316,6 +316,15 @@ export default class Signup extends React.Component {
                   placeholder="Password"
                 />
               </FormGroup>
+              <FormGroup>
+                <ControlLabel>Username</ControlLabel>
+                <FormControl
+                  type="username"
+                  ref="username"
+                  name="username"
+                  placeholder="Password"
+                />
+              </FormGroup>
               <FormGroup controlId="hearAbout">
                 <ControlLabel>How did you hear about findatrainer?</ControlLabel>
                 <FormControl componentClass="select" placeholder="select" ref="hearAbout" name="hearAbout">

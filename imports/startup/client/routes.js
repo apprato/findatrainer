@@ -23,6 +23,7 @@ import VerifyEmail from '../../ui/pages/VerifyEmail.js';
 import Signup from '../../ui/pages/Signup.js';
 import GetStarted from '../../ui/pages/GetStarted.js';
 import Clients from '../../ui/containers/ClientsList.js';
+import Messages from '../../ui/containers/MessagesList.js';
 import Trainers from '../../ui/containers/TrainersList.js';
 import NewClientMeasurement from '../../ui/pages/NewClientMeasurement.js';
 import EditClientMeasurement from '../../ui/containers/EditClientMeasurement.js';
@@ -35,6 +36,7 @@ import NewTrainerProfile from '../../ui/pages/NewTrainerProfile.js';
 import EditTrainerProfile from '../../ui/containers/EditTrainerProfile.js';
 import ViewTrainer from '../../ui/containers/ViewTrainer.js';
 import ViewClient from '../../ui/containers/ViewClient.js';
+import ViewChannel from '../../ui/containers/ViewChannel.js';
 import NewClient from '../../ui/pages/NewClient.js';
 
 const authenticate = (nextState, replace) => {
@@ -83,6 +85,10 @@ Meteor.startup(() => {
         <Route name="newClient" path="/clients/new" component={ NewClient } onEnter={ authenticate } />
         <Route name="viewClient" path="/clients/:_id" component={ ViewClient } onEnter={ authenticate } />
         <Route name="viewTrainer" path="/trainers/:_id" component={ ViewTrainer } onEnter={ authenticate } />
+        <Route name="messages" path="/messages" component={ Messages } onEnter={ authenticate } />
+        <Route name="viewChannel" path="/messages/:channel" component={ ViewChannel } onEnter={ authenticate } />
+        <Route name="viewChannel" path="/messages/general" component={ ViewChannel } onEnter={ authenticate } />
+        <Route name="viewChannel" path="/messages/:username" component={ ViewChannel } onEnter={ authenticate } />
         <Route name="getStarted" path="/getstarted" component={ GetStarted } />
         <Route name="contactUs" path="/contactus" component={ ContactUs } />
         <Route path="*" component={ NotFound } />

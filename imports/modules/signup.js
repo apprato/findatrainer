@@ -11,6 +11,7 @@ let component;
 
 const getUserData = () => ({
   email: document.querySelector('[name="emailAddress"]').value,
+  username: template.find( '[name="username"]').value,
   password: document.querySelector('[name="password"]').value,
   profile: {
     name: {
@@ -72,6 +73,11 @@ const validate = () => {
         required: true,
         minlength: 6,
       },
+      username: {
+        required: true,
+        minlength: 6,
+        maxlength: 20
+      },
       hearAbout: {
         required: true
       },
@@ -93,6 +99,9 @@ const validate = () => {
       password: {
         required: 'Please enter a password here.',
         minlength: 'Use at least six characters, please.',
+      },
+      username: {
+        required: 'What username would you like?.'
       },
       hearAbout: {
         required: 'Please select how you heard about us.',
