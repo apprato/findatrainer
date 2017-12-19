@@ -3,16 +3,16 @@ import { check } from 'meteor/check';
 import Jobs from '../jobs';
 
 
-Meteor.publish('jobs.list.search', (searchTerm, skipCount, _id) => {
+Meteor.publish('jobs.list.search', (searchTerm, stateTerm, categoryTerm, skipCount, _id) => {
 
   check(skipCount, Number);
   check(_id, Number);
-  check(searchTerm, Match.OneOf(String, null));
   check(searchTerm, Match.OneOf(String, null, undefined));
-  console.log(searchTerm);
+  check(stateTerm, Match.OneOf(String, null, undefined));
+  check(categoryTerm, Match.OneOf(String, null, undefined));
 
   let query = {};
-  const projection = {limit: 10, sort: {title: 1}};
+  const projection = {limit: 5, sort: {title: 1}, skip: skipCount};
 
   if (searchTerm) {
     const regex = new RegExp(searchTerm, 'i');
@@ -21,14 +21,25 @@ Meteor.publish('jobs.list.search', (searchTerm, skipCount, _id) => {
       $or: [
         {jobTitle: regex},
         {year: regex},
-        {rated: regex},
-        {plot: regex},
       ],
+
     };
-    projection.limit = 100;
+    //projection.limit = 100;
   }
 
   return Jobs.find(query, projection);
+
+
+  /*
+  var jobsQuery = Jobs.find(
+    query,
+    {
+      limit: 5,
+      skip: skipCount,
+    }
+  );
+
+
 
 
 
@@ -45,30 +56,6 @@ Meteor.publish('jobs.list.search', (searchTerm, skipCount, _id) => {
    */
 
 
-
-  /*
-   check(searchTerm, Match.OneOf(String, null, undefined));
-
-   let query = {};
-   const projection = { limit: 10, sort: { title: 1 } };
-
-   if (searchTerm) {
-   const regex = new RegExp(searchTerm, 'i');
-
-   query = {
-   $or: [
-   { title: regex },
-   { year: regex },
-   { rated: regex },
-   { plot: regex },
-   ],
-   };
-
-   projection.limit = 100;
-   }
-
-   return Clients.find(query, projection);
-   */
 });
 
 

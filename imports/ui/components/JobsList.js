@@ -11,7 +11,8 @@ const handleNavigation = (_id) => {
 }
 
 const handleNavigationPager = (selected) => {
-  window.location.href = '/jobs/page/' + selected;
+  browserHistory.push('/jobs/page/' + selected);
+  //window.location.href = '/jobs/page/' + selected;
 }
 
 class JobsList extends React.Component {
@@ -21,6 +22,7 @@ class JobsList extends React.Component {
     this.state = {
       searchTerm: null,
       stateTerm: null,
+      categoryTerm: null
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -33,16 +35,11 @@ class JobsList extends React.Component {
   }
 
   handleSearchClick(event) {
-    this.props.searchQuery = 'asdfs';
+    //this.props.searchQuery = 'asdfs';
     console.log(this.props);
-
-    //console.log(this.getState({}));
+    browserHistory.push('/jobs/page/' + selected);
     console.log('this.state.stateTerm' + this.state);
     console.log('this.state.searchTerm' + this.state);
-
-    //const searchTerm = event.target.value;
-    //this.setState({searchTerm});
-    //this.props.searchQuery.set(searchTerm);
   }
 
   getCategoryName(categoryValue) {
@@ -227,6 +224,8 @@ class JobsList extends React.Component {
 JobsList.propTypes = {
   jobs: React.PropTypes.array,
   searchQuery: React.PropTypes.object,
+  stateQuery: React.PropTypes.object,
+  categoryQuery: React.PropTypes.object,
 };
 
 export default JobsList;

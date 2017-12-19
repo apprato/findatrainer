@@ -147,9 +147,46 @@ export const removeJobEmployment = new ValidatedMethod({
 
 
 Meteor.methods({
+  getJobsCountSearch(searchTerm, stateTerm, categoryTerm, skipCount, _id) {
+    return Jobs.find(query).count();
+    console.log('searchTerm: ' + searchTerm);
+    console.log('stateTerm: ' + stateTerm);
+    console.log('categoryTerm: ' + categoryTerm);
+    console.log('skipCount: ' + skipCount);
+    console.log('_id: ' + _id);
+
+
+    check(skipCount, Number);
+    check(_id, Number);
+    check(searchTerm, Match.OneOf(String, null, undefined));
+    check(stateTerm, Match.OneOf(String, null, undefined));
+    check(categoryTerm, Match.OneOf(String, null, undefined));
+
+    let query = {};
+    const projection = {limit: 5, sort: {title: 1}, skip: skipCount};
+
+    if (searchTerm) {
+      const regex = new RegExp(searchTerm, 'i');
+
+      query = {
+        $or: [
+          {jobTitle: regex},
+          {year: regex},
+          {rated: regex},
+          {plot: regex},
+        ],
+      };
+      projection.limit = 100;
+    }
+    return Jobs.find(query, projection);
+  },
+
+
   getJobsCount() {
     return Jobs.find().count();
   },
+
+
   getJobsAreaCount() {
     const query = {
       $and: [

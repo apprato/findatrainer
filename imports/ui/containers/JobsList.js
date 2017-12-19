@@ -5,26 +5,31 @@ import JobsList from '../components/JobsList.js';
 import Loading from '../components/Loading.js';
 
 const searchQuery = new ReactiveVar(null);
+const stateQuery = new ReactiveVar(null);
+const categoryQuery = new ReactiveVar(null);
 
 const composer = ({ params }, onData) => {
 
-  // Get total count
-  Meteor.apply('getJobsCount', [], true, function(err, result){
-    Session.set('jobCount', result);
-  });
 
   // Fliters
   const currentPage = parseInt(params._id) || 1;
   const search = params.search;
   const skipCount = ( currentPage - 1)   * 5;
   const pageCount = Math.ceil(Session.get('jobCount') / 5);
-  const subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), skipCount, parseInt(currentPage));
+
+  // Get total count
+  Meteor.apply('getJobsCount',[], true, function(err, result){
+    Session.set('jobCount', result);
+  });
+
+  const subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), stateQuery.get(), categoryQuery.get(), skipCount, parseInt(currentPage));
+  //const subscription = Meteor.subscribe('jobs.list', skipCount, parseInt(currentPage));
+
 
   if (subscription.ready()) {
     const jobs = Jobs.find().fetch(); // Converts MongoDB data into an array rather than cursor
 
     // Get the users details (firstname, lastname etc from users collection.O
-    /*
     _.forEach(jobs, function(item){
       var userSubscription = Meteor.subscribe('jobs.list.user', item.idUser);
       if (userSubscription.ready()) {
@@ -33,8 +38,7 @@ const composer = ({ params }, onData) => {
         item.lastName= user[0].profile.name.last;
       }
     });
-    */
-    onData(null, { jobs, searchQuery, pageCount, currentPage });
+    onData(null, { jobs, searchQuery,  pageCount, currentPage });
   }
 };
 

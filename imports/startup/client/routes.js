@@ -77,6 +77,12 @@ Meteor.startup(() => {
         <Route name="MyAccountEditTrainerExperience" path="/myaccount/trainer/edit/experience" component={ MyAccountEditTrainerExperience } onEnter={ authenticate } />
         <Route name="MyAccountEditTrainerProfile" path="/myaccount/trainer/edit/profile" component={ MyAccountEditTrainerProfile } onEnter={ authenticate } />
         <Route name="jobs" path="/jobs" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="jobs" path="/jobs/search/:_search/" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="jobs" path="/jobs/search/:_search/page/:_id" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="jobs" path="/jobs/category/:_category" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="jobs" path="/jobs/search/:_search/category/:_category" component={ Jobs } onEnter={ authenticate }  />
+        <Route name="jobs" path="/jobs/search/:_search/category/:_category/page/:id" component={ Jobs } onEnter={ authenticate }  />
+
         <Route name="viewJobsPagination" path="/jobs/page/:_id" component={ Jobs } onEnter={ authenticate }  />
         <Route name="viewJob" path="/jobs/:_id" component={ ViewJob } onEnter={ authenticate } />
         <Route name="clientJobs" path="/client/jobs" component={ ClientJobs } onEnter={ authenticate } />
