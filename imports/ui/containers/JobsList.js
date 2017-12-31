@@ -22,8 +22,11 @@ const composer = ({ params }, onData) => {
     Session.set('jobCount', result);
   });
 
-  const subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), stateQuery.get(), categoryQuery.get(), skipCount, parseInt(currentPage));
-  //const subscription = Meteor.subscribe('jobs.list', skipCount, parseInt(currentPage));
+  if (params._category)
+    var subscription = Meteor.subscribe('jobs.list.category', skipCount, params._category);
+  else
+    var subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), stateQuery.get(), categoryQuery.get(), skipCount, parseInt(currentPage));
+    //const subscription = Meteor.subscribe('jobs.list', skipCount, parseInt(currentPage));
 
 
   if (subscription.ready()) {

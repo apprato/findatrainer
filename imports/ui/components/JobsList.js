@@ -25,22 +25,9 @@ class JobsList extends React.Component {
       categoryTerm: null
     };
 
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
-  handleSearch(event) {
-    const searchTerm = event.target.value;
-    this.setState({searchTerm});
-    this.props.searchQuery.set(searchTerm);
-  }
-
-  handleSearchClick(event) {
-    //this.props.searchQuery = 'asdfs';
-    console.log(this.props);
-    browserHistory.push('/jobs/page/' + selected);
-    console.log('this.state.stateTerm' + this.state);
-    console.log('this.state.searchTerm' + this.state);
-  }
 
   getCategoryName(categoryValue) {
     var categorySelectValues = [
@@ -67,13 +54,27 @@ class JobsList extends React.Component {
   }
 
 
+  handleSearchClick(event) {
+    //this.props.searchQuery = 'asdfs';
+    //console.log(this.state.stateTerm);
+    //console.log(this.state.searchTerm);
+    console.log(this.state);
+
+    //console.log(this);
+    //console.log(this.props);
+    //console.log(this.state);
+    //browserHistory.push('/jobs/page/' + selected);
+    //console.log('this.state.stateTerm' + this.state);
+    //console.log('this.state.searchTerm' + this.state);
+  }
+
+
   handlePageClick(data) {
     let selected = Number(data.selected + 1);
     handleNavigationPager(selected)
   }
 
   handleStateChange (element) {
-    console.log(element);
     if(element===null || element.value===undefined || element.value===false) {
       this.setState({stateTerm: null});
     }
@@ -84,7 +85,6 @@ class JobsList extends React.Component {
   }
 
   handleCategoryChange (element) {
-    console.log(element);
     if(element===null || element.value===undefined || element.value===false) {
       this.setState({categoryTerm: null});
     }
@@ -98,13 +98,15 @@ class JobsList extends React.Component {
   render() {
     const {jobs} = this.props;
     // Listing based switch
-    const area = this.props.area;
-    const page = this.props.page
-    var category = this.props.category;
+    const page = this.props.page;
+    const {stateQuery}= this.props;
+    var {categoryQuery} = this.props;
     var search = this.props.search;
+    var category = this.props.categoryQuery;
 
-    if (area) {
-      var hrefBuilder = '/directory/area/' + area + '/page/' + this.props.skipCount;
+
+    if (stateQuery) {
+      var hrefBuilder = '/directory/area/' + stateQuery + '/page/' + this.props.skipCount;
     }
 
     var stateSelectValues = [
@@ -145,7 +147,7 @@ class JobsList extends React.Component {
             <i className="fa fa-search"/>
             <FormControl
               type="search"
-              onKeyUp={ this.handleSearch }
+              onKeyUp={ this.handleSearchClick() }
               placeholder=""
               className="Search"
             />

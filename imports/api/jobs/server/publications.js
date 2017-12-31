@@ -29,32 +29,33 @@ Meteor.publish('jobs.list.search', (searchTerm, stateTerm, categoryTerm, skipCou
 
   return Jobs.find(query, projection);
 
+});
 
-  /*
+
+Meteor.publish('jobs.list.category', (skipCount, _category) => {
+
+  check(_category, String);
+  check(skipCount, Number);
+
+  const query = {
+    $and: [
+      {
+        category: _category
+      },
+    ],
+  };
+  // query, projection
   var jobsQuery = Jobs.find(
-    query,
     {
-      limit: 5,
+      category: _category
+    },
+    {
+      limit: 10,
       skip: skipCount,
     }
   );
 
-
-
-
-
-  /*
-   const query = {};
-   var jobsQuery = Jobs.find(
-   query,
-   {
-   limit: 5,
-   skip: skipCount,
-   }
-   );
-   return jobsQuery;
-   */
-
+  return jobsQuery;
 
 });
 
