@@ -37,8 +37,8 @@ const composer = ({ params }, onData) => {
       var userSubscription = Meteor.subscribe('jobs.list.user', item.idUser);
       if (userSubscription.ready()) {
         var user = Meteor.users.find({ "_id" : item.idUser }).fetch();
-        item.firstName = user[0].profile.name.first;
-        item.lastName= user[0].profile.name.last;
+        if (typeof user[0].profile.name.first !== 'undefined') { item.firstName = user[0].profile.name.first; }
+        if (typeof user[0].profile.name.last !== 'undefined') { item.lastName= user[0].profile.name.last; }
       }
     });
     onData(null, { jobs, searchQuery,  pageCount, currentPage });

@@ -24,7 +24,6 @@ class JobsList extends React.Component {
       stateTerm: null,
       categoryTerm: null
     };
-
     this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
@@ -55,17 +54,23 @@ class JobsList extends React.Component {
 
 
   handleSearchClick(event) {
-    //this.props.searchQuery = 'asdfs';
-    //console.log(this.state.stateTerm);
-    //console.log(this.state.searchTerm);
-    console.log(this.state);
 
-    //console.log(this);
-    //console.log(this.props);
-    //console.log(this.state);
+    if(this.state.categoryTerm !==null  ) {
+      browserHistory.push('/jobs/category/' + this.state.categoryTerm);
+    }
+
+    if(this.state.categoryTerm !==null && this.state.stateTerm !==null  ) {
+    }
+
     //browserHistory.push('/jobs/page/' + selected);
-    //console.log('this.state.stateTerm' + this.state);
-    //console.log('this.state.searchTerm' + this.state);
+    /*
+     <Route name="jobs" path="/jobs" component={ Jobs } onEnter={ authenticate }  />
+     <Route name="jobs" path="/jobs/search/:_search/" component={ Jobs } onEnter={ authenticate }  />
+     <Route name="jobs" path="/jobs/search/:_search/page/:_id" component={ Jobs } onEnter={ authenticate }  />
+     <Route name="jobs" path="/jobs/category/:_category" component={ Jobs } onEnter={ authenticate }  />
+     <Route name="jobs" path="/jobs/search/:_search/category/:_category" component={ Jobs } onEnter={ authenticate }  />
+     <Route name="jobs" path="/jobs/search/:_search/category/:_category/page/:id" component={ Jobs } onEnter={ authenticate }  />
+     */
   }
 
 
@@ -79,8 +84,12 @@ class JobsList extends React.Component {
       this.setState({stateTerm: null});
     }
     else {
-      console.log('handleStateChange');
+      console.log(element);
+
+      console.log(element.value);
+      console.log(element.label);
       this.setState({stateTerm: element.value});
+      console.log(stateTerm);
     }
   }
 
@@ -89,8 +98,7 @@ class JobsList extends React.Component {
       this.setState({categoryTerm: null});
     }
     else {
-      console.log('handleCategoryChange');
-      this.setState({categoryTerm: element.value});
+      //this.setState({categoryTerm: element.value});
     }
   }
 
@@ -215,7 +223,7 @@ class JobsList extends React.Component {
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}
-            disableInitialCallback="false"
+            //disableInitialCallback="false"
           />
         </Row>
       </div>

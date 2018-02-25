@@ -11,7 +11,7 @@ let component;
 
 const getUserData = () => ({
   email: document.querySelector('[name="emailAddress"]').value,
-  username: template.find( '[name="username"]').value,
+  username: document.querySelector('[name="firstName"]').value, //template.find( '[name="username"]').value,
   password: document.querySelector('[name="password"]').value,
   profile: {
     name: {
