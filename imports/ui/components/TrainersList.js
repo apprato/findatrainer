@@ -135,25 +135,10 @@ class TrainersList extends React.Component {
       <div className="TrainerSearch">
         <Row>
           <Col xs={ 12 } sm={ 4 }>
-            <i className="fa fa-search"/>
-            <FormControl
-              type="search"
-              onKeyUp={ this.handleSearch }
-              placeholder="Find Trainers"
-              className="Search"
-            />
           </Col>
-          <Col xs={ 12 } sm={ 3 }>
-            <div>
-              <Select
-                name="state"
-                value={this.state.stateTerm}
-                options={stateSelectValues}
-                onChange={this.handleStateChange.bind(this)}
-              />
-            </div>
+          <Col xs={ 12 } sm={ 4 }>
           </Col>
-          <Col xs={ 12 } sm={ 3 }>
+          <Col xs={ 12 } sm={ 4 }>
             <div>
               <Select
                 name="category"
@@ -162,15 +147,6 @@ class TrainersList extends React.Component {
                 onChange={this.handleCategoryChange.bind(this)}
               />
             </div>
-          </Col>
-          <Col xs={ 12 } sm={ 2 }>
-            <ButtonToolbar>
-              <Button
-                bsStyle="primary"
-                bsSize="large"
-                onClick={this.handleSearchClick}
-                active> SEARCH </Button>
-            </ButtonToolbar>
           </Col>
         </Row>
       </div>

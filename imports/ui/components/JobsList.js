@@ -13,7 +13,6 @@ const handleNavigation = (_id) => {
 const handleNavigationPager = (selected, filterCategory) => {
   if (filterCategory) {
     browserHistory.push('/jobs/category/' + filterCategory + '/page/' + selected);
-    //window.location.href = '/jobs/category/' + filterCategory + '/page/' + selected;
   }
   else {
     browserHistory.push('/jobs/page/' + selected);
@@ -147,34 +146,19 @@ class JobsList extends React.Component {
       <div className="JobSearch">
         <Row>
           <Col xs={ 12 } sm={ 4 }>
-            <i className="fa fa-search"/>
-            <FormControl
-              type="search"
-              onKeyUp={ this.handleSearchClick() }
-              placeholder=""
-              className="Search"
-            />
+
           </Col>
-          <Col xs={ 12 } sm={ 3 }>
+          <Col xs={ 12 } sm={ 4 }>
           </Col>
-          <Col xs={ 12 } sm={ 3 }>
+          <Col xs={ 12 } sm={ 4 }>
             <div>
               <Select
                 name="category"
-                value={this.state.categoryTerm}
+                value={this.props.category}
                 options={categorySelectValues}
                 onChange={this.handleCategoryChange.bind(this)}
               />
             </div>
-          </Col>
-          <Col xs={ 12 } sm={ 2 }>
-            <ButtonToolbar>
-              <Button
-                bsStyle="primary"
-                bsSize="large"
-                onClick={this.handleSearchClick}
-                active> SEARCH </Button>
-            </ButtonToolbar>
           </Col>
         </Row>
       </div>
@@ -211,7 +195,7 @@ class JobsList extends React.Component {
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}
             filterCategory={this.props.category}
-            //disableInitialCallback="false"
+            disableInitialCallback="true"
           />
         </Row>
       </div>

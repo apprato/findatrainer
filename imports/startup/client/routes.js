@@ -83,9 +83,7 @@ Meteor.startup(() => {
         <Route name="jobs" path="/jobs/search/:_search/category/:_category/page/:id" component={ Jobs } onEnter={ authenticate }  />
         <Route name="jobs" path="/jobs/category/:_category" component={ Jobs } onEnter={ authenticate }  />
         <Route name="jobs" path="/jobs/category/:_category/page/:_id" component={ Jobs } onEnter={ authenticate }  />
-
         <Route name="jobs" path="/jobs/category/:_category/state/:_state" component={ Jobs } onEnter={ authenticate }  />
-
         <Route name="viewJobsPagination" path="/jobs/page/:_id" component={ Jobs } onEnter={ authenticate }  />
         <Route name="viewJob" path="/jobs/:_id" component={ ViewJob } onEnter={ authenticate } />
         <Route name="clientJobs" path="/client/jobs" component={ ClientJobs } onEnter={ authenticate } />
