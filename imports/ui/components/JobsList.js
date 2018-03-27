@@ -10,9 +10,12 @@ const handleNavigation = (_id) => {
   browserHistory.push(`/jobs/${_id}`);
 }
 
-const handleNavigationPager = (selected, filterCategory) => {
+const handleNavigationPager = (selected, filterSearch, filterCategory,) => {
   if (filterCategory) {
     browserHistory.push('/jobs/category/' + filterCategory + '/page/' + selected);
+  }
+  else if (filterSearch) {
+    browserHistory.push('/jobs/search/' + filterSearch + '/page/' + selected);
   }
   else {
     browserHistory.push('/jobs/page/' + selected);
@@ -23,12 +26,12 @@ class JobsList extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleSearchEnter = this.handleSearchEnter.bind(this);
     this.state = {
       searchTerm: null,
       stateTerm: null,
       categoryTerm: null
     };
-    this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
 
@@ -57,20 +60,21 @@ class JobsList extends React.Component {
   }
 
 
+  handleSearchEnter(event) {
+    if (event.key === 'Enter') {
+      browserHistory.push('/jobs/search/' + event.target.value );
+    }
+  }
+
+
   handleSearchClick(event) {
-
-    if(this.state.categoryTerm !==null  ) {
-      browserHistory.push('/jobs/category/' + this.state.categoryTerm);
-    }
-
-    if(this.state.categoryTerm !==null && this.state.stateTerm !==null  ) {
-    }
   }
 
 
   handlePageClick(event) {
     let selected = Number(event.selected + 1);
-    handleNavigationPager(selected, this.filterCategory)
+    console.log(this.filterSearch);
+    handleNavigationPager(selected, this.filterSearch, this.filterCategory)
   }
 
   handleStateChange (element) {
@@ -146,7 +150,13 @@ class JobsList extends React.Component {
       <div className="JobSearch">
         <Row>
           <Col xs={ 12 } sm={ 4 }>
-
+            <FormControl
+              type="search"
+              onKeyPress={ this.handleSearchEnter}
+              onClick={ this.handleSearchClick }
+              placeholder="Search Jobs"
+              className="Search"
+            />
           </Col>
           <Col xs={ 12 } sm={ 4 }>
           </Col>
@@ -195,6 +205,7 @@ class JobsList extends React.Component {
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}
             filterCategory={this.props.category}
+            filterSearch={this.props.search}
             disableInitialCallback="true"
           />
         </Row>

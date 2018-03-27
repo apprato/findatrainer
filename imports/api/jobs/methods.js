@@ -182,8 +182,9 @@ Meteor.methods({
   },
 
 
-  getJobsCountList(skipCount, _category, jobsPerPage) {
+  getJobsCountList(skipCount, _search, _category, jobsPerPage) {
     check(skipCount, Match.OneOf(Number, null, undefined));
+    check(_search, Match.OneOf(String, null, undefined));
     check(_category, Match.OneOf(String, null, undefined));
     check(jobsPerPage, Match.Maybe(Number, null, undefined));
 
@@ -206,7 +207,22 @@ Meteor.methods({
         }
       );
     }
-    // /jobs/*
+    else if (_search) {
+      const regex = new RegExp(_search, 'i');
+      const query = {
+        $or: [
+          {jobTitle: regex},
+          {overview: regex},
+        ],
+      };
+      var jobsQuery = Jobs.find(
+        query,
+        {
+          limit: jobsPerPage,
+          skip: skipCount,
+        }
+      );
+    }
     else {
       const query = {};
       var jobsQuery = Jobs.find(
@@ -218,8 +234,6 @@ Meteor.methods({
       );
     }
 
-    //console.log('jobsQuery.count()' + jobsQuery.count());
-    //console.log('skipCount' + skipCount);
     return jobsQuery.count();
   },
 

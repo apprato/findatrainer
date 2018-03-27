@@ -59,9 +59,19 @@ Meteor.publish('jobs.list.category', (skipCount, _category) => {
 });
 
 
-Meteor.publish('jobs.list.filter', (skipCount, _category, jobsPerPage) => {
+/*
+ * Jobs Page - jobs/*, jobs/search/*, jobs/category/&
+ *
+ * @param skipCount
+ * @param _search
+ * @param _category
+ * @param jobsPerPage
+ * @return jobsQuery
+ */
+Meteor.publish('jobs.list.filter', (skipCount, _search, _category, jobsPerPage) => {
 
   check(skipCount, Match.Maybe(Number, null, undefined));
+  check(_search, Match.Maybe(String, null, undefined));
   check(_category, Match.Maybe(String, null, undefined));
   check(jobsPerPage, Match.Maybe(Number, null, undefined));
 
@@ -84,7 +94,23 @@ Meteor.publish('jobs.list.filter', (skipCount, _category, jobsPerPage) => {
       }
     );
   }
-  // /jobs/*
+  else if (_search) {
+    const regex = new RegExp(_search, 'i');
+    const query = {
+      $or: [
+        {jobTitle: regex},
+        {overview: regex},
+      ],
+    };
+    // query, projection
+    var jobsQuery = Jobs.find(
+      query,
+      {
+        limit: jobsPerPage,
+        skip: skipCount,
+      }
+    );
+  }
   else {
     const query = {};
     var jobsQuery = Jobs.find(
@@ -96,7 +122,7 @@ Meteor.publish('jobs.list.filter', (skipCount, _category, jobsPerPage) => {
     );
   }
   console.log('skipCount' + skipCount);
-
+  console.log(jobsQuery.count());
 
   return jobsQuery;
 
@@ -117,6 +143,7 @@ Meteor.publish('jobs.list', (skipCount, _id) => {
   );
   return jobsQuery;
 });
+
 
 Meteor.publish('jobs.client.list', (idUser) => {
   check (idUser, String);
