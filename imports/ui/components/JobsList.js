@@ -10,9 +10,14 @@ const handleNavigation = (_id) => {
   browserHistory.push(`/jobs/${_id}`);
 }
 
-const handleNavigationPager = (selected) => {
-  browserHistory.push('/jobs/page/' + selected);
-  //window.location.href = '/jobs/page/' + selected;
+const handleNavigationPager = (selected, filterCategory) => {
+  if (filterCategory) {
+    browserHistory.push('/jobs/category/' + filterCategory + '/page/' + selected);
+    //window.location.href = '/jobs/category/' + filterCategory + '/page/' + selected;
+  }
+  else {
+    browserHistory.push('/jobs/page/' + selected);
+  }
 }
 
 class JobsList extends React.Component {
@@ -61,22 +66,12 @@ class JobsList extends React.Component {
 
     if(this.state.categoryTerm !==null && this.state.stateTerm !==null  ) {
     }
-
-    //browserHistory.push('/jobs/page/' + selected);
-    /*
-     <Route name="jobs" path="/jobs" component={ Jobs } onEnter={ authenticate }  />
-     <Route name="jobs" path="/jobs/search/:_search/" component={ Jobs } onEnter={ authenticate }  />
-     <Route name="jobs" path="/jobs/search/:_search/page/:_id" component={ Jobs } onEnter={ authenticate }  />
-     <Route name="jobs" path="/jobs/category/:_category" component={ Jobs } onEnter={ authenticate }  />
-     <Route name="jobs" path="/jobs/search/:_search/category/:_category" component={ Jobs } onEnter={ authenticate }  />
-     <Route name="jobs" path="/jobs/search/:_search/category/:_category/page/:id" component={ Jobs } onEnter={ authenticate }  />
-     */
   }
 
 
-  handlePageClick(data) {
-    let selected = Number(data.selected + 1);
-    handleNavigationPager(selected)
+  handlePageClick(event) {
+    let selected = Number(event.selected + 1);
+    handleNavigationPager(selected, this.filterCategory)
   }
 
   handleStateChange (element) {
@@ -200,7 +195,7 @@ class JobsList extends React.Component {
               </Col>
             </Row>
           </Panel>
-        )) : <Alert>Sorry there are no listings found for '{ this.state.searchTerm }.'</Alert> }
+        )) : <Alert>Sorry there are no listings found for '{ this.props.category }.'</Alert> }
         <Row>
           <ReactPaginate
             pageCount={this.props.pageCount}
@@ -210,11 +205,12 @@ class JobsList extends React.Component {
             nextLabel={">"}
             pageNum={this.props.currentPage - 1}
             initialPage={this.props.currentPage - 1}
-            hrefBuilder={(page) => hrefBuilder + page }
+            //hrefBuilder={(page) => hrefBuilder + page }
             onPageChange={this.handlePageClick}
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}
+            filterCategory={this.props.category}
             //disableInitialCallback="false"
           />
         </Row>

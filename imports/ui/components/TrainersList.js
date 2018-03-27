@@ -195,21 +195,6 @@ class TrainersList extends React.Component {
           </Panel>
         )) : <Alert>Sorry there are no listings found for '{ this.state.searchTerm }.'</Alert> }
         <Row>
-          <ReactPaginate
-            pageCount={this.props.pageCount}
-            pageRangeDisplayed={1}
-            marginPagesDisplayed={3}
-            previousLabel={"<"}
-            nextLabel={">"}
-            pageNum={this.props.currentPage - 1}
-            initialPage={this.props.currentPage - 1}
-            hrefBuilder={(page) => hrefBuilder + page }
-            onPageChange={this.handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-            disableInitialCallback="false"
-          />
         </Row>
       </div>
     </div>);

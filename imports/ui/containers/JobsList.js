@@ -10,23 +10,19 @@ const categoryQuery = new ReactiveVar(null);
 
 const composer = ({ params }, onData) => {
 
-
   // Fliters
+  const jobsPerPage = 1;
   const currentPage = parseInt(params._id) || 1;
   const search = params.search;
-  const skipCount = ( currentPage - 1)   * 5;
-  const pageCount = Math.ceil(Session.get('jobCount') / 5);
+  const skipCount = ( currentPage - 1)   * jobsPerPage;
+  const pageCount = Math.ceil(Session.get('jobCount') / jobsPerPage);
+  const category = params._category;
 
-  // Get total count
-  Meteor.apply('getJobsCount',[], true, function(err, result){
+  // Get jobs total count (/jobs, /jobs/category, /jobs/category/search
+  Meteor.apply('getJobsCountList',[skipCount, params._category, jobsPerPage],true,function(err,result){
     Session.set('jobCount', result);
   });
-
-  if (params._category)
-    var subscription = Meteor.subscribe('jobs.list.category', skipCount, params._category);
-  else
-    var subscription = Meteor.subscribe('jobs.list.search', searchQuery.get(), stateQuery.get(), categoryQuery.get(), skipCount, parseInt(currentPage));
-    //const subscription = Meteor.subscribe('jobs.list', skipCount, parseInt(currentPage));
+  var subscription = Meteor.subscribe('jobs.list.filter', skipCount, params._category, jobsPerPage);
 
 
   if (subscription.ready()) {
@@ -41,7 +37,7 @@ const composer = ({ params }, onData) => {
         if (typeof user[0].profile.name.last !== 'undefined') { item.lastName= user[0].profile.name.last; }
       }
     });
-    onData(null, { jobs, searchQuery,  pageCount, currentPage });
+    onData(null, { jobs, searchQuery, category, pageCount, currentPage }); // Props to pass to JobsList component
   }
 };
 

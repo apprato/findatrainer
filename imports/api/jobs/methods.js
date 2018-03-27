@@ -182,6 +182,49 @@ Meteor.methods({
   },
 
 
+  getJobsCountList(skipCount, _category, jobsPerPage) {
+    check(skipCount, Match.OneOf(Number, null, undefined));
+    check(_category, Match.OneOf(String, null, undefined));
+    check(jobsPerPage, Match.Maybe(Number, null, undefined));
+
+    if (_category) {
+      const query = {
+        $and: [
+          {
+            category: _category
+          },
+        ],
+      };
+      // query, projection
+      var jobsQuery = Jobs.find(
+        {
+          category: _category
+        },
+        {
+          limit: jobsPerPage,
+          skip: skipCount,
+        }
+      );
+    }
+    // /jobs/*
+    else {
+      const query = {};
+      var jobsQuery = Jobs.find(
+        query,
+        {
+          limit: jobsPerPage,
+          skip: skipCount,
+        }
+      );
+    }
+
+    //console.log('jobsQuery.count()' + jobsQuery.count());
+    //console.log('skipCount' + skipCount);
+    return jobsQuery.count();
+  },
+
+
+
   getJobsCount() {
     return Jobs.find().count();
   },
