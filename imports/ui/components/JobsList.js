@@ -85,7 +85,6 @@ class JobsList extends React.Component {
     }
     else {
       console.log(element);
-
       console.log(element.value);
       console.log(element.label);
       this.setState({stateTerm: element.value});
@@ -98,6 +97,7 @@ class JobsList extends React.Component {
       this.setState({categoryTerm: null});
     }
     else {
+      browserHistory.push('/jobs/category/' + element.value);
       //this.setState({categoryTerm: element.value});
     }
   }
@@ -161,14 +161,6 @@ class JobsList extends React.Component {
             />
           </Col>
           <Col xs={ 12 } sm={ 3 }>
-            <div>
-              <Select
-                name="state"
-                value={this.state.stateTerm}
-                options={stateSelectValues}
-                onChange={this.handleStateChange.bind(this)}
-              />
-            </div>
           </Col>
           <Col xs={ 12 } sm={ 3 }>
             <div>
