@@ -44,16 +44,6 @@ Clients.schema = new SimpleSchema({
     label: 'heightMetric of individual.',
     optional: true
   },
-  state: {
-    type: String,
-    label: 'State of individual.',
-    optional: true
-  },
-  postCode: {
-    type: String,
-    label: 'Post Code of individual.',
-    optional: true
-  },
   dob: {
     type: String,
     label: 'D.O.B. of individual.',

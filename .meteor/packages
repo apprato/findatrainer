@@ -26,13 +26,14 @@ fourseven:scss
 aldeed:collection2
 alanning:roles
 themeteorchef:bert
+static-html@1.1.11
 xolvio:cleaner
 practicalmeteor:mocha
 xolvio:backdoor
 mdg:validated-method
 dburles:factory@1.0.0
 ddp-rate-limiter@1.0.6
-#shell-server@0.2.1
+shell-server@0.2.1
 email
 meteorhacks:ssr
 bootstrp:tagsinput
@@ -40,21 +41,3 @@ ajduke:bootstrap-tagsinput
 meteorhacks:aggregate
 adain:meteor-ses-email
 react-meteor-data
-
-
-
-blaze-html-templates    # Compile .html files into Meteor Blaze views
-jquery                  # Helpful client-side library
-kadira:flow-router
-kadira:react-layout
-fortawesome:fontawesome
-twbs:bootstrap
-okgrow:analytics
-shell-server@0.2.3
-deligencetechnologies:default-template
-deligencetechnologies:htmlblock
-deligencetechnologies:menumodule
-deligencetechnologies:panoplycms-core
-deligencetechnologies:panoplycms-tag
-deligencetechnologies:sample-data
-deligencetechnologies:slidermodule

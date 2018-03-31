@@ -18,8 +18,6 @@ const handleUpsert = () => {
     weightMetric: document.querySelector('[name="weightMetric"]').value,
     height: document.querySelector('[name="height"]').value,
     heightMetric: document.querySelector('[name="heightMetric"]').value,
-    state: document.querySelector('[name="state"]').value,
-    postCode: document.querySelector('[name="postCode"]').value,
     skills: $("select.skills").tagsinput('items')
   };
 

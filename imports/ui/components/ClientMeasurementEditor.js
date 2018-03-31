@@ -57,36 +57,6 @@ export default class ClientMeasurementEditor extends React.Component {
             <Row>
               <Col xs={ 6 } sm={ 8 } md={ 6 }>
                 <h3></h3>
-                <FormGroup controlId="state">
-                  <ControlLabel>State:</ControlLabel>
-                  <p>Help us match you with trainers in your region</p>
-                  <FormControl
-                    componentClass="select"
-                    ref="state"
-                    name="state"
-                    defaultValue={ doc && doc.state }
-                  >
-                    <option value=""></option>
-                    <option value="ACT">Australian Capital Territory</option>
-                    <option value="NSW">New South Wales</option>
-                    <option value="NT">Northern Territory</option>
-                    <option value="QLD">Queensland</option>
-                    <option value="SA">South Australia</option>
-                    <option value="TAS">Tasmania</option>
-                    <option value="VIC">Victoria</option>
-                    <option value="WA">Western Australia</option>
-                  </FormControl>
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Post Code</ControlLabel>
-                  <FormControl
-                    type="text"
-                    ref="postCode"
-                    name="postCode"
-                    defaultValue={ doc && doc.postCode }
-                    placeholder=""
-                  />
-                </FormGroup>
                 <FormGroup>
                   <ControlLabel>Date of Birth</ControlLabel>
                   <br />
