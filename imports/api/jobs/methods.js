@@ -149,12 +149,6 @@ export const removeJobEmployment = new ValidatedMethod({
 Meteor.methods({
   getJobsCountSearch(searchTerm, stateTerm, categoryTerm, skipCount, _id) {
     return Jobs.find(query).count();
-    console.log('searchTerm: ' + searchTerm);
-    console.log('stateTerm: ' + stateTerm);
-    console.log('categoryTerm: ' + categoryTerm);
-    console.log('skipCount: ' + skipCount);
-    console.log('_id: ' + _id);
-
 
     check(skipCount, Number);
     check(_id, Number);

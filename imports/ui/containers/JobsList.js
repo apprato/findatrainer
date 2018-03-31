@@ -11,7 +11,7 @@ const categoryQuery = new ReactiveVar(null);
 const composer = ({ params }, onData) => {
 
   // Fliters
-  const jobsPerPage = 1;
+  const jobsPerPage = 3;
   const currentPage = parseInt(params._id) || 1;
   const skipCount = ( currentPage - 1)   * jobsPerPage;
   const pageCount = Math.ceil(Session.get('jobCount') / jobsPerPage);
