@@ -47,6 +47,7 @@ deployStaging() {
 
 deployLocalToStaging() {
   cd /Users/stephengoudie/Sites/meteor/fitmatch.com/.deploy
+  mup --config mup.js.local --settings settings-staging.json setup
   mup --config mup.js.local --settings settings-staging.json deploy
 }
 
@@ -96,9 +97,11 @@ sh /home/ubuntu/findatrainer/bin/deploy.sh deployStaging
 sh /home/ubuntu/findatrainer/bin/deploy.sh deployLocalToStaging
 
 NOTES
-With installing sometimes it gets stuck on the target
+With installing sometimes it gets stuck on the target or runs out of space.
 If so start again on the host:
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+docker system prune
+docker rmi $(docker images -a -q)
 sudo rm -Rf /opt/findatrainer/ /opt/mongodb/
 Deploying form local to staing use mup.js.local
 "

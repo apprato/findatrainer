@@ -3,7 +3,7 @@ module.exports = {
     one: {
       host: '13.55.200.242',
       username: "ubuntu",
-      pem: "/home/ubuntu/magescale.pem"
+      pem: "~/.ssh/aws/magescale.pem"
       // pem:
       // password:
       // or leave blank for authenticate from ssh-agent
