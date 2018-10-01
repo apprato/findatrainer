@@ -8,8 +8,8 @@ import DirectMessageItems from "./items";
 class DirectMessagesList extends React.Component {
   render() {
     return (
-      <div>
-        <div className="col s12 m4">
+      <div className="chatMessenger2">
+        <div className="col-xs-12 col-md-8">
           <DirectMessageItems
             usersAllLoaded={this.props.usersAllLoaded}
             usersAll={this.props.usersAll}
@@ -17,7 +17,7 @@ class DirectMessagesList extends React.Component {
           />
         </div>
 
-        <div className="col s12 m6">
+        <div className="col-xs-12 col-md-8">
           <p className="tx-grey">Select a user to send direct messages.</p>
         </div>
       </div>
