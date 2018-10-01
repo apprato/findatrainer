@@ -10,18 +10,17 @@ import ChatRoomItems from "./items";
 class ChatRoomsList extends React.Component {
   render() {
     return (
-      <div className="chatMessenger">
-        <div className="col s12 m4">
+      <div className="row">
+        <div className="col-xs-12 col-md-12" />
+        <h1>Messages</h1>
+
+        <div className="col-xs-12 col-md-8">
           <ChatRoomItems
             publicChatRoomsLoaded={this.props.publicChatRoomsLoaded}
             publicChatRooms={this.props.publicChatRooms}
           />
 
           <ChatRoomsCreate user={this.props.user} />
-        </div>
-
-        <div className="col s12 m6">
-          <p className="tx-grey">Select a chat room to begin.</p>
         </div>
       </div>
     );

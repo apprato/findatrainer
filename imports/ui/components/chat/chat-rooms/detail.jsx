@@ -66,7 +66,7 @@ class ChatRoomsDetail extends React.Component {
 
     if (this.props.chatRoomLoaded) {
       chatRoomDetails = (
-        <p className="chat-room-header">{this.props.chatRoom.title}</p>
+        <h2 className="chat-room-header">{this.props.chatRoom.title}</h2>
       );
     }
 
@@ -111,16 +111,18 @@ class ChatRoomsDetail extends React.Component {
   render() {
     return (
       <div>
-        <div className="col s12 m4">
+        <div className="col-xs-12 col-md-4">
+          <h2>Messages</h2>
           <ChatRoomsItems
             publicChatRoomsLoaded={this.props.publicChatRoomsLoaded}
             publicChatRooms={this.props.publicChatRooms}
           />
-
-          <ChatRoomsCreate user={this.props.user} />
+          <div className="hidden">
+            <ChatRoomsCreate user={this.props.user} />
+          </div>
         </div>
 
-        <div className="col s12 m6">
+        <div className="col-xs-12 col-md-8">
           {this.state.error ? (
             <p className="alert alert-danger">{this.state.error}</p>
           ) : (
