@@ -3,8 +3,8 @@ import ClientMeasurementEditor from '../components/ClientMeasurementEditor.js';
 
 const EditClientMeasurement = ({ doc }) => (
   <div className="clientMeasurementEditor">
-    <h1 className="page-header">Welcome to Findatrainer…</h1>
-    <ClientMeasurementEditor doc={ doc }  />
+    <h1 className="page-header">Enter your Measurements</h1>
+    <ClientMeasurementEditor doc={doc} />
   </div>
 );
 
