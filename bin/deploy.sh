@@ -21,12 +21,11 @@
 
 installDeployLibraries () {
   sudo apt-get update
-  sudo apt-get install python-software-properties
-  sudo apt-get install npm
+  sudo apt-get install -y npm
   curl https://raw.githubusercontent.com/creationix/nvm/v0.11.1/install.sh | bash
   nvm install 4.4.7
   nvm use 4.4.7
-  sudo apt-get install awscli
+  sudo apt-get install -y awscli
   sudo npm install -g mupx
   sudo npm install -g mupx-letsencrypt
   sudo npm install mup
@@ -47,8 +46,8 @@ deployStaging() {
 
 deployLocalToStaging() {
   cd /Users/stephengoudie/Sites/meteor/fitmatch.com/.deploy
-  mup --config mup.js.local --settings settings-staging.json setup
-  mup --config mup.js.local --settings settings-staging.json deploy
+  mup --config mup.js.local.staging --settings settings-staging.json setup
+  mup --config mup.js.local.staging --settings settings-staging.json deploy
 }
 
 case "$1" in
