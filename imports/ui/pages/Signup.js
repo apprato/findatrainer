@@ -16,7 +16,7 @@ export default class Signup extends React.Component {
     return (
       <div className="Signup">
         <Row>
-          <Col xs={12} sm={6} md={4}>
+          <Col className="col-centered" xs={12} sm={6} md={5}>
             <h2 className="page-header">Sign Up</h2>
             <form
               ref={form => (this.signupForm = form)}
