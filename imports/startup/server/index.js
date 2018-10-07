@@ -1,17 +1,23 @@
-import './accounts/email-templates';
-import './browser-policy';
-import './fixtures';
-import './api';
-import './methods';
+var basicAuth = new HttpBasicAuth("gymeed", "findatrainer");
+basicAuth.protect();
 
+import "./accounts/email-templates";
+import "./browser-policy";
+import "./fixtures";
+import "./api";
+import "./methods";
 
 // Environmental Variables which should be in the hosting providers configuration or settings-development.json
 //process.env.MAIL_URL = "smtp://postmaster@sandbox6cbe15e186864785b3d3243494543ba6.mailgun.org:1193c7cd15d4ebe8a58e07c28b5dc33e@smtp.mailgun.org:587";
-var AWSScretUserSes ="AKIAI3VWXELJBD5USHXA";
-var AWSScretPassSes =  "Ak8D5vUhOkxcknJkkqJokk/k5DXxyZe5/302LnmYm62r";
-process.env.MAIL_URL = 'smtp://'+ encodeURIComponent(AWSScretUserSes) +':'+ encodeURIComponent(AWSScretPassSes) +'@email-smtp.us-west-2.amazonaws.com:587 ';
+var AWSScretUserSes = "AKIAI3VWXELJBD5USHXA";
+var AWSScretPassSes = "Ak8D5vUhOkxcknJkkqJokk/k5DXxyZe5/302LnmYm62r";
+process.env.MAIL_URL =
+  "smtp://" +
+  encodeURIComponent(AWSScretUserSes) +
+  ":" +
+  encodeURIComponent(AWSScretPassSes) +
+  "@email-smtp.us-west-2.amazonaws.com:587 ";
 //Accounts.emailTemplates.from = "Fit4all Accounts <support@magescale.com>";
-
 
 /*
  * If you want to send emails via SES but not through accounts for example
