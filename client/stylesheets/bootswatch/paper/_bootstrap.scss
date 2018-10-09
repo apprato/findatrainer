@@ -3115,7 +3115,7 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 16px;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.846;
   border-radius: 3px;
   -webkit-user-select: none;
@@ -4273,7 +4273,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   min-height: 64px;
   margin-bottom: 23px;
-  border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -7486,11 +7485,12 @@ button.close {
   transition: 0s;
 }
 .btn {
-  text-transform: uppercase;
+  text-transform: capitalize;
   border: none;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+  
 }
 .btn-link {
   border-radius: 3px;

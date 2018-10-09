@@ -6,9 +6,9 @@ import ClientJobsList from '../containers/ClientJobsList.js';
 const Jobs = () => (
   <div className="Jobs">
     <Row>
-      <Col xs={ 12 }>
+      <Col className="col-centered" xs={12} sm={8} md={8}>
         <div className="page-header clearfix">
-          <h4 className="pull-left">My Jobs</h4>
+          <h2 className="pull-left">My Jobs</h2>
           <Link to="/client/new/job">
             <Button
               bsStyle="success"

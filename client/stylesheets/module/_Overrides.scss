@@ -1,0 +1,30 @@
+/* Overrides which are hard to adjust in the _bootstrap.scss file */
+
+.btn, .btn-primary, .btn-success { 
+  border-radius: 0px!important;
+  padding-left: 50px!important;
+  padding-right: 50px!important;
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+  font-family: "proxima_nova_altbold", sans-serif !important;
+  border-radius: 3px!important;
+}
+body { background-color: #f6f6f6!important; }
+.container {
+/*
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+  */
+}
+.index { background-image: url("active-adult-athlete-416778.jpg"); }
+.jumbotron { background-image: none!important; }
+
+
+
+/* Utilities */
+
+.col-centered {
+  float: none!important;
+  margin: 0 auto!important;
+}
+

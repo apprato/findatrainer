@@ -5,3 +5,13 @@ form label.error {
   font-weight: normal;
   color: lighten( red, 20% );
 }
+
+form input {
+  padding: 15px!important;
+  margin-right: 15px!important;
+}
+
+.Login button {
+  width: 100%;
+  font-family: "proxima_nova_altbold", sans-serif !important;
+}

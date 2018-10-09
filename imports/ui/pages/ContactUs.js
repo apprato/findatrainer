@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, ControlLabel, Button } from 'react-bootstrap';
+import { Row, Col, FormGroup, ControlLabel, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { $ } from 'meteor/jquery';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -61,39 +61,43 @@ class ContactUs extends React.Component {
   render() {
     return (
       <div className="ContactUs">
-        <h4 className="page-header">Contact Us!</h4>
-        <form
-          ref={contactForm => (this.contactForm = contactForm)}
-          onSubmit={event => event.preventDefault()}
-        >
-          <FormGroup>
-            <ControlLabel>Your Name</ControlLabel>
-            <input
-              ref={name => (this.name = name)}
-              type="text"
-              name="name"
-              className="form-control"
-            />
-          </FormGroup>
-          <FormGroup>
-            <ControlLabel>Your Email</ControlLabel>
-            <input
-              ref={email => (this.email = email)}
-              type="email"
-              name="email"
-              className="form-control"
-            />
-          </FormGroup>
-          <FormGroup>
-            <ControlLabel>Your Message</ControlLabel>
-            <textarea
-              ref={message => (this.message = message)}
-              name="message"
-              className="form-control"
-            />
-          </FormGroup>
-          <Button type="submit" bsStyle="success">Send Message</Button>
-        </form>
+        <Row>
+          <Col className="col-centered" xs={12} sm={8} md={8}>
+            <h2 className="page-header">Contact Us</h2>
+            <form
+              ref={contactForm => (this.contactForm = contactForm)}
+              onSubmit={event => event.preventDefault()}
+            >
+              <FormGroup>
+                <ControlLabel>Your Name</ControlLabel>
+                <input
+                  ref={name => (this.name = name)}
+                  type="text"
+                  name="name"
+                  className="form-control"
+                />
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>Your Email</ControlLabel>
+                <input
+                  ref={email => (this.email = email)}
+                  type="email"
+                  name="email"
+                  className="form-control"
+                />
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>Your Message</ControlLabel>
+                <textarea
+                  ref={message => (this.message = message)}
+                  name="message"
+                  className="form-control"
+                />
+              </FormGroup>
+              <Button type="submit" bsStyle="success">Send Message</Button>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }

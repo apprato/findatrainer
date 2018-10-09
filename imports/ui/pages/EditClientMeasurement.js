@@ -9,7 +9,7 @@ import {
 const EditClientMeasurement = ({ doc }) => (
   <div className="clientMeasurementEditor">
     <Row>
-      <Col className="col-centered" xs={8} sm={8} md={8}>
+      <Col className="col-centered" xs={12} sm={8} md={8}>
         <h1 className="page-header">Enter your Measurements</h1>
       </Col>
     </Row>

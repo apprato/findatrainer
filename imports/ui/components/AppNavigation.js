@@ -10,12 +10,12 @@ const AppNavigation = ({ hasUser }) => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/">Findatrainer</Link>
+        <Link to="/">GYMEED</Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      { renderNavigation(hasUser) }
+      {renderNavigation(hasUser)}
     </Navbar.Collapse>
   </Navbar>
 );

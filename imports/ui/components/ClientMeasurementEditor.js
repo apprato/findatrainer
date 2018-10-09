@@ -44,7 +44,7 @@ export default class ClientMeasurementEditor extends React.Component {
       ref={form => (this.clientMeasurementEditorForm = form)}
       onSubmit={event => event.preventDefault()}>
       <Row>
-        <Col className="col-centered" xs={8} sm={8} md={8}>
+        <Col className="col-centered" xs={12} sm={8} md={8}>
           <p>In order to track your health and fitness levels, we have provided a number of measurements below for you
             to complete. These are totally optional and you can complete these at any time in your profile
               settings.</p>
@@ -53,9 +53,9 @@ export default class ClientMeasurementEditor extends React.Component {
           <p>You have an option within findatrainer to give your trainers access to this information so they can help
               you achieve your goals and view your progress. You can remove this permission at any time.</p>
         </Col>
-        <Col className="col-centered" xs={8} sm={8} md={8}>
+        <Col className="col-centered" xs={12} sm={8} md={8}>
           <Row>
-            <Col xs={6} sm={8} md={6}>
+            <Col xs={8} sm={8} md={6}>
               <h3></h3>
               <FormGroup>
                 <ControlLabel>Date of Birth</ControlLabel>
@@ -100,7 +100,7 @@ export default class ClientMeasurementEditor extends React.Component {
                 </Col>
                 <Col xs={6} sm={6} md={6}>
                   <FormGroup controlId="weightMetric">
-                    <ControlLabel>Measurement System</ControlLabel>
+                    <ControlLabel>Metric</ControlLabel>
                     <FormControl
                       componentClass="select"
                       ref="weightMetric"
@@ -129,7 +129,7 @@ export default class ClientMeasurementEditor extends React.Component {
                 </Col>
                 <Col xs={6} sm={6} md={6}>
                   <FormGroup controlId="heightMetric">
-                    <ControlLabel>Measurement System</ControlLabel>
+                    <ControlLabel>Metric</ControlLabel>
                     <FormControl
                       componentClass="select"
                       ref="heightMetric"

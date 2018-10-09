@@ -1,4 +1,33 @@
 .GetStarted  {
-  h2 { text-align: center; margin-bottom: 2.5em; }
+  h1 { text-align: center; margin-bottom: 2.0em; }
+  h2 { text-align: center; margin-bottom: 0.50em; }
   h3, p, button { text-align: center; margin-bottom: 1.5em; }
+  .clients, .trainers { 
+    background-color: #FFFFFF; 
+    padding-top: 2.0em;
+    border: 1px solid $lightgrey;
+    border-radius: 3px;
+    width: 85%;  
+  }
+  .clients p, .trainers p {
+    max-width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    color: $grey;
+  }
+}
+
+.Index h2, .Index p {
+  color: #FFFFFF;
+}
+.Index .jumbotron {
+  background: url('/active-adult-athlete-416778.jpg') no-repeat center center fixed!important ; 
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cove!important;
+  background-size: cover!important;
+  /* background-size: contain!important; */
+  height: 80vh;
+  padding-top: 25vh!important;
 }

@@ -6,7 +6,7 @@ import JobsList from '../containers/JobsList.js';
 const Jobs = () => (
   <div className="Jobs">
     <Row>
-      <Col xs={ 12 }>
+      <Col xs={12}>
         <div className="page-header clearfix">
           <h4 className="pull-left">My Jobs</h4>
           <Link to="/client/new/job">

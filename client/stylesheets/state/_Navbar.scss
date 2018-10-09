@@ -9,8 +9,12 @@
   font-weight: bold;
   background-color: #000000!important;
 }
-.navbar-brand { font-weight: bolder; }
+.navbar-brand { font-weight: bolder; font-size: 28px!important; }
 .navbar-default { background-color: #000000!important; }
 body {
   font-family: "proxima_nova_altbold", sans-serif !important;
+}
+.navbar-default { 
+  border: 0px!important; 
+  box-shadow: none;
 }

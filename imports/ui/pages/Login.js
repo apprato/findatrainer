@@ -16,12 +16,12 @@ export default class Login extends React.Component {
     return (
       <div className="Login">
         <Row>
-          <Col xs={ 12 } sm={ 6 } md={ 4 }>
-            <h4 className="page-header">Login</h4>
+          <Col className="col-centered" xs={12} sm={6} md={5} lg={4}>
+            <h2 className="page-header">Login</h2>
             <form
-              ref={ form => (this.loginForm = form) }
+              ref={form => (this.loginForm = form)}
               className="login"
-              onSubmit={ this.handleSubmit }
+              onSubmit={this.handleSubmit}
             >
               <FormGroup>
                 <ControlLabel>Email Address</ControlLabel>
@@ -44,7 +44,7 @@ export default class Login extends React.Component {
                   placeholder="Password"
                 />
               </FormGroup>
-              <Button type="submit" bsStyle="success">Login</Button>
+              <Button className="pull-right" type="submit" bsStyle="success">Login</Button>
             </form>
           </Col>
         </Row>

@@ -115,13 +115,13 @@ export default class TrainerProfileEditor extends React.Component {
             footer={ modalFooter }
             onHide={ this.modal.close }
           />
-          <Col xs={ 12 } sm={ 12 } md={ 12 }>
+          <Col className="col-centered" xs={12} sm={8} md={8}>
             <p>This will help us connect you with the right clients and help you grow your business through
               findatrainer.
               We’ll ask you to select tasks of interest and complete a profile for review. Remember, you can always come
               back and edit this information later.</p>
           </Col>
-          <Col xs={ 8 } sm={ 8 } md={ 8 }>
+          <Col className="col-centered" xs={12} sm={8} md={8}>
             <FormGroup>
               <ControlLabel>Add a professional title that describes the work you do:</ControlLabel>
               <FormControl
@@ -149,7 +149,7 @@ If you’re looking to get started in either of these disciplines or have been d
           </Col>
         </Row>
         <Row>
-          <Col xs={ 8 } sm={ 8 } md={ 8 }>
+          <Col className="col-centered" xs={12} sm={8} md={8}>
             <h3>Education</h3>
             <p>Tell us about your education history.</p>
             <div>
@@ -535,15 +535,19 @@ If you’re looking to get started in either of these disciplines or have been d
             </FormGroup>
           </Col>
         </Row>
-        <p>See what your profile will look like to prospective clients. <a href="/help/trainer/profile">learn more</a>
-        </p>
-        <br />
-        <br />
-        <Button type="submit" bsStyle="success">
-          { doc && doc._id ? 'Save Experience' : 'Save & Create Profile' }
-        </Button>
-        <br />
-        <br />
+        <Row>
+          <Col className="col-centered" xs={12} sm={8} md={8}>
+          <p>See what your profile will look like to prospective clients. <a href="/help/trainer/profile">learn more</a>
+          </p>
+          <br />
+          <br />
+          <Button type="submit" bsStyle="success">
+            { doc && doc._id ? 'Save Experience' : 'Save & Create Profile' }
+          </Button>
+          <br />
+          <br />
+          </Col>
+        </Row>
       </form>
     );
   }
