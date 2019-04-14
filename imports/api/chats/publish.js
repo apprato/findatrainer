@@ -9,13 +9,12 @@ Meteor.publishComposite("chats-publication", chatRoomId => {
   check(chatRoomId, String);
 
   return {
-    find: function() {
+    find: function () {
       return Chats.find({ chatRoomId }, { sort: { createdAt: -1 } });
     },
     children: [
-      ,
       {
-        find: function(chat) {
+        find: function (chat) {
           check(chat, Object);
           return Meteor.users.find(chat.userId, {
             fields: { _id: 1, username: 1, createdAt: 1 }

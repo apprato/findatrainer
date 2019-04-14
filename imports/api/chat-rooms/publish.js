@@ -11,7 +11,6 @@ Meteor.publishComposite("public-chat-rooms-publication", () => {
       return ChatRooms.find({ isPubic: true }, { sort: { createdAt: -1 } });
     },
     children: [
-      ,
       {
         find: function (chatRoom) {
           return Meteor.users.find(chatRoom.userId, {
