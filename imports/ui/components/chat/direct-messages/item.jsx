@@ -10,20 +10,17 @@ import * as ChatRoomMethods from '../../../../api/chat-rooms/methods';
 class DirectMessageItem extends React.Component {
 
     startChatWithUser(id) {
-        console.log(id);
-
         let input = {};
         input.friendUserId = id;
 
         ChatRoomMethods.getDirectMessageRoom.call(input, (error, response) => {
             console.log('M - ChatRoomMethods.getDirectMessageRoom / callback');
-
             this.setState({ isLoading: false });
 
-            if(error) {
+            if (error) {
                 this.setState({ error: error.reason });
             } else {
-                this.context.router.push(`/direct-message/${ response.data.chatRoomId }`);
+                this.context.router.push(`/direct-message/${response.data.chatRoomId}`);
             }
         });
     }
@@ -32,13 +29,13 @@ class DirectMessageItem extends React.Component {
         const { _id, username, createdAt } = this.props.user;
 
         return (
-            <div className="card" onClick={ this.startChatWithUser.bind(this, _id) }>
+            <div className="card" onClick={this.startChatWithUser.bind(this, _id)}>
                 <div className="card-header">
-                    { username }
+                    {username}
                 </div>
 
                 <div className="card-footer">
-                    Joined { moment(createdAt).fromNow() }
+                    Joined {moment(createdAt).fromNow()}
                 </div>
             </div>
         )

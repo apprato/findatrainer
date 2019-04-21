@@ -1,11 +1,26 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import { Alert, Row, Col, Button } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
+import * as ChatRoomMethods from '../../api/chat-rooms/methods';
 
 
-const handleContact = (_id) => {
-  alert(_id);
+const handleChatUser = (_id) => {
 
+  let input = {};
+  input.trainerId = _id;
+
+  ChatRoomMethods.addDirectMessageRoom.call(input, (error, response) => {
+    console.log('M - ChatRoomMethods.getDirectMessageRoom / callback');
+    //this.setState({ isLoading: false });
+
+    if (error) {
+      //this.setState({ error: error.reason });
+    } else {
+      browserHistory.push(`/chat-room/${response.data.chatRoomId}`);
+      window.location.href = (`/chat-room/${response.data.chatRoomId}`);
+    }
+  });
 }
 
 
@@ -66,7 +81,7 @@ const ViewTrainer = ({ trainer }) => (
         <h2>Rate</h2>
         <p>${trainer.hourlyRate} / hour</p>
         <h2>Contact</h2>
-        <Button onClick={() => handleContact(trainer._id)} variant="light">Message</Button>
+        <Button onClick={() => handleChatUser(trainer._id)} variant="light">Message</Button>
       </Col>
     </Row>
   </div>

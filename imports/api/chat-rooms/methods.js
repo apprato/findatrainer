@@ -6,6 +6,7 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 // App Imports
 import ChatRoomMembers from '../chat-room-members/collection';
 import ChatRooms from './collection';
+import Trainers from '../../api/trainers/trainers';
 
 export const add = new ValidatedMethod({
     name: 'ChatRooms.add',
@@ -137,19 +138,20 @@ export const getDirectMessageRoom = new ValidatedMethod({
 });
 
 
-
+/*
+ * addDirectMessageRoom
+ * Add Chat room if it doesn't exist or redirect to existing direct message chat room with trainer
+ */
 export const addDirectMessageRoom = new ValidatedMethod({
     name: 'ChatRooms.addDirectMessageRoom',
-
     validate: new SimpleSchema({
-        friendUserId: {
+        trainerId: {
             type: String
         }
     }).validator(),
 
-    run({ friendUserId }) {
+    run({ trainerId }) {
         console.log('M - ChatRooms.addDirectMessageRoom / run');
-
         let response = {
             success: false,
             message: 'There was some sever error.',
@@ -159,6 +161,11 @@ export const addDirectMessageRoom = new ValidatedMethod({
         };
 
         if (Meteor.userId()) {
+
+            // Get userId which belongs to trainer listng
+            const userTrainer = Trainers.findOne({ '_id': trainerId });
+            let friendUserId = userTrainer.idUser;
+
             if (friendUserId != '') {
                 // Check if both user have already started chatting (chat room exists) or chatting for first time (create new chat room)
                 let commonChatRoom = false;
