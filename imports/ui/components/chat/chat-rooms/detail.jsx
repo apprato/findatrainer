@@ -2,6 +2,9 @@
 import { Meteor } from "meteor/meteor";
 import React from "react";
 import { Link } from "react-router";
+import { browserHistory } from 'react-router';
+import { Alert, Row, Col, Button } from 'react-bootstrap';
+
 
 // App Imports
 import * as ChatRoomMemberMethods from "../../../../api/chat-room-members/methods";
@@ -110,53 +113,56 @@ class ChatRoomsDetail extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="col-xs-12 col-md-4">
-          <h2>Messages</h2>
-          <ChatRoomsItems
-            publicChatRoomsLoaded={this.props.publicChatRoomsLoaded}
-            publicChatRooms={this.props.publicChatRooms}
-          />
-          <div className="hidden">
-            <ChatRoomsCreate user={this.props.user} />
-          </div>
-        </div>
+      <div class="ViewChatRoomDetails">
+        <Row>
+          <Col className="col-centered" xs={12} md={8}>
+            <Col xs={12} md={4}>
+              <h2>Messages</h2>
+              <ChatRoomsItems
+                publicChatRoomsLoaded={this.props.publicChatRoomsLoaded}
+                publicChatRooms={this.props.publicChatRooms}
+              />
+              <div className="hidden">
+                <ChatRoomsCreate user={this.props.user} />
+              </div>
+            </Col>
+            <Col xs={12} md={8}>
+              {this.state.error ? (
+                <p className="alert alert-danger">{this.state.error}</p>
+              ) : (
+                  ""
+                )}
+              {this.state.isLoading ? (
+                <p className="alert alert-info">Please wait...</p>
+              ) : (
+                  ""
+                )}
 
-        <div className="col-xs-12 col-md-8">
-          {this.state.error ? (
-            <p className="alert alert-danger">{this.state.error}</p>
-          ) : (
-            ""
-          )}
-          {this.state.isLoading ? (
-            <p className="alert alert-info">Please wait...</p>
-          ) : (
-            ""
-          )}
+              {this.renderChatRoomDetails()}
 
-          {this.renderChatRoomDetails()}
+              {this.renderChats()}
 
-          {this.renderChats()}
-
-          {this.props.chatRoomMembersLoaded &&
-          this.state.currentUserIsAMember ? (
-            <SendChat chatRoomId={this.state.chatRoomId} />
-          ) : this.props.user._id ? (
-            <button
-              type="submit"
-              className="width100"
-              onClick={this.joinRoom.bind(this)}
-            >
-              Join this room
+              {this.props.chatRoomMembersLoaded &&
+                this.state.currentUserIsAMember ? (
+                  <SendChat chatRoomId={this.state.chatRoomId} />
+                ) : this.props.user._id ? (
+                  <button
+                    type="submit"
+                    className="width100"
+                    onClick={this.joinRoom.bind(this)}
+                  >
+                    Join this room
             </button>
-          ) : (
-            <Link to="/login">
-              <button type="button" className="mt1 width100">
-                Join this room
+                ) : (
+                    <Link to="/login">
+                      <button type="button" className="mt1 width100">
+                        Join this room
               </button>
-            </Link>
-          )}
-        </div>
+                    </Link>
+                  )}
+            </Col>
+          </Col>
+        </Row>
       </div>
     );
   }
