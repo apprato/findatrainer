@@ -40,8 +40,8 @@ import ViewChannel from "../../ui/containers/ViewChannel.js";
 import NewClient from "../../ui/pages/NewClient.js";
 import PublicChatRoomsListContainer from "../../ui/components/chat/chat-rooms/list-container";
 import PublicChatRoomsDetailContainer from "../../ui/components/chat/chat-rooms/detail-container";
-//import DirectMessagesListContainer from "../../ui/components/chat/direct-messages/list-container";
-//import DirectMessagesDetailContainer from "../../ui/components/chat/direct-messages/detail-container";
+import DirectMessagesListContainer from "../../ui/components/chat/direct-messages/list-container";
+import DirectMessagesDetailContainer from "../../ui/components/chat/direct-messages/detail-container";
 
 const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -303,6 +303,12 @@ Meteor.startup(() => {
           path="chat-room/:chatRoomId"
           component={PublicChatRoomsDetailContainer}
         />
+        <Route path="direct-message" component={DirectMessagesListContainer} />
+        <Route
+          path="direct-message/:chatRoomId"
+          component={DirectMessagesDetailContainer}
+        />
+
         <Route path="*" component={NotFound} />
       </Route>
     </Router>,
