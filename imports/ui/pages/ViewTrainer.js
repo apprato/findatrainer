@@ -23,7 +23,7 @@ const ViewTrainer = ({ trainer }) => (
         <br />
         <div className="Trainers-Education">
           <h2>Education</h2>
-          {trainer.education.length > 0 ? trainer.education.map(({ school, dateFrom, dateTo, tertiaryEducation, areaOfStudy }) => (
+          {trainer.education ? trainer.education.map(({ school, dateFrom, dateTo, tertiaryEducation, areaOfStudy }) => (
             <Row>
               <Col xs={12} sm={12}>
                 <h3>{school}</h3>
@@ -37,7 +37,7 @@ const ViewTrainer = ({ trainer }) => (
         </div>
         <div className="Trainers-Employment">
           <h2>Employment</h2>
-          {trainer.employment.length > 0 ? trainer.employment.map(({ company, location, title, fromMonth, fromYear, toMonth, toYear, description }) => (
+          {trainer.employment ? trainer.employment.map(({ company, location, title, fromMonth, fromYear, toMonth, toYear, description }) => (
             <Row>
               <Col xs={12} sm={12}>
                 <h3>{company}</h3>
