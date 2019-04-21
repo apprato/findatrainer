@@ -3,6 +3,8 @@ import React from "react";
 
 // App Imports
 import * as ChatMethods from "../../../api/chats/methods";
+import { Alert, Row, Col } from 'react-bootstrap';
+
 
 // Send Chat Component
 class SendChat extends React.Component {
@@ -63,35 +65,34 @@ class SendChat extends React.Component {
           {this.state.error ? (
             <p className="alert alert-danger">{this.state.error}</p>
           ) : (
-            ""
-          )}
+              ""
+            )}
           {this.state.isLoading ? (
             <p className="alert alert-info">Please wait...</p>
           ) : (
-            ""
-          )}
+              ""
+            )}
 
-          <div className="row">
-            <div className="col s8 m10 p0">
+          <Row>
+            <Col xs={12} sm={10} md={10} className="left">
               <input
                 type="text"
                 name="message"
                 id="message"
-                className="font-handwriting"
+                className="sendInput"
                 placeholder="Type your message here..."
                 autoComplete="off"
                 required="required"
                 onChange={this.onChange.bind(this)}
                 value={this.state.message}
               />
-            </div>
-
-            <div className="col s4 m2 p0">
-              <button type="submit" className="width100">
+            </Col>
+            <Col xs={12} sm={2} md={2} className="left  submitButtonContainer">
+              <button type="submit" className="submitButton clearfix">
                 Send
               </button>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </form>
       </div>
     );

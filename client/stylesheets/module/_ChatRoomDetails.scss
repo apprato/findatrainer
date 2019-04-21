@@ -1,0 +1,67 @@
+.ChatRoomDetails .chatContainer {
+  background-color: #FFFFFF;
+  border-top: 1px solid #ddd!important;
+  border-bottom: 1px solid #ddd!important;
+  border-right: 1px solid #ddd!important;
+  border-left: 1px solid #ddd!important;
+  padding: 0px;
+
+  h4 { font-weight: bold; }
+  .panel {
+    margin-bottom: -1px;
+    border-radius: 0px;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  .sendInput {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #F8F8F8;
+  }
+  .submitButtonContainer { 
+    background-color: #3366FF;
+
+  }
+  .submitButton {
+    width: 100%;
+    color: #FFFFFF;
+    margin-bottom: 13px!important;
+  }
+
+
+  .left {
+  }
+  .right {
+    border-left: 1px solid #ddd!important;
+  }
+
+  .list{
+    .listHeader {
+      margin-bottom: 0px;
+
+    }
+  
+    margin-bottom: 15px;
+    &:nth-of-type(odd){
+      margin-right: 30px; 
+      border-radius: 10px;
+      padding: 10px;   
+      background-color: #3366FF;
+      color: #FFFFFF;
+    }
+    &:nth-of-type(even){
+      margin-left: 30px; 
+      border-radius: 10px;
+      padding: 10px; 
+      background: #e0e0e0;
+    }
+    .listFooter {
+      margin-bottom: 0px;
+    }    
+  }
+
+
+
+}
+

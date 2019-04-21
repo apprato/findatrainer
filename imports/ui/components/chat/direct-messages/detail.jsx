@@ -6,6 +6,7 @@ import * as ChatMethods from "../../../../api/chats/methods";
 import ChatItem from "../chat-item";
 import DirectMessageItems from "./items";
 
+
 // Direct Message Component
 class DirectMessage extends React.Component {
   constructor(props) {
@@ -107,13 +108,13 @@ class DirectMessage extends React.Component {
         {this.state.error ? (
           <p className="alert alert-danger">{this.state.error}</p>
         ) : (
-          ""
-        )}
+            ""
+          )}
         {this.state.isLoading ? (
           <p className="alert alert-info">Please wait...</p>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         <div className="col s12 m4">
           <DirectMessageItems
@@ -130,7 +131,7 @@ class DirectMessage extends React.Component {
 
           <form className="mt1" onSubmit={this.onSubmitSendChat.bind(this)}>
             <div className="row">
-              <div className="col s8 m10 p0">
+              <div className="sendMessage">
                 <input
                   type="text"
                   name="message"

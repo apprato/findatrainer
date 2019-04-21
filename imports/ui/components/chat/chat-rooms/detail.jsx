@@ -3,7 +3,7 @@ import { Meteor } from "meteor/meteor";
 import React from "react";
 import { Link } from "react-router";
 import { browserHistory } from 'react-router';
-import { Alert, Row, Col, Button } from 'react-bootstrap';
+import { Alert, Row, Col } from 'react-bootstrap';
 
 
 // App Imports
@@ -69,7 +69,7 @@ class ChatRoomsDetail extends React.Component {
 
     if (this.props.chatRoomLoaded) {
       chatRoomDetails = (
-        <h2 className="chat-room-header">{this.props.chatRoom.title}</h2>
+        <h4 className="chat-room-header">{this.props.chatRoom.title}</h4>
       );
     }
 
@@ -113,11 +113,11 @@ class ChatRoomsDetail extends React.Component {
 
   render() {
     return (
-      <div class="ViewChatRoomDetails">
+      <div className="ChatRoomDetails">
         <Row>
-          <Col className="col-centered" xs={12} md={8}>
-            <Col xs={12} md={4}>
-              <h2>Messages</h2>
+          <Col className="chatContainer clearfix col-centered" xs={12} md={12}>
+            <Col xs={12} sm={4} md={4} className="left">
+              <h4>Conversations</h4>
               <ChatRoomsItems
                 publicChatRoomsLoaded={this.props.publicChatRoomsLoaded}
                 publicChatRooms={this.props.publicChatRooms}
@@ -126,7 +126,7 @@ class ChatRoomsDetail extends React.Component {
                 <ChatRoomsCreate user={this.props.user} />
               </div>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} sm={8} md={8} className="right">
               {this.state.error ? (
                 <p className="alert alert-danger">{this.state.error}</p>
               ) : (

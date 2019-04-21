@@ -10,14 +10,14 @@ class ChatItem extends React.Component {
         const chat = this.props.chat;
 
         return (
-            <div className="list">
-                <div className="list-body font-handwriting font-size-1-3">
-                    { chat.message }
+            <div className="list clearfix">
+                <p className="listHeader">{chat.user.username}</p>
+                <div className="listBody font-handwriting font-size-1-3">
+                    {chat.message}
                 </div>
-
-                <div className="list-footer">
-                    { chat.user.username } &bull; { moment(chat.createdAt).fromNow() }
-                </div>
+                <p className="listFooter pull-right">
+                    {moment(chat.createdAt).fromNow()}
+                </p>
             </div>
         )
     }
