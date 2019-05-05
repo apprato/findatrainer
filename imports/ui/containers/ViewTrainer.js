@@ -9,6 +9,14 @@ const composer = ({ params }, onData) => {
 
   if (subscription.ready()) {
     const trainer = Trainers.findOne();
+
+    var userSubscription = Meteor.subscribe('trainers.list.user', trainer.idUser);
+    if (userSubscription.ready()) {
+      var user = Meteor.users.find({ "_id": trainer.idUser }).fetch();
+      trainer.firstName = user[0].profile.name.first;
+      trainer.lastName = user[0].profile.name.last;
+    }
+
     onData(null, { trainer });
   }
 };

@@ -5,18 +5,23 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import * as ChatRoomMethods from '../../api/chat-rooms/methods';
 
 
-const handleChatUser = (_id) => {
+const handleChatUser = (_id, firstName, lastName) => {
 
   let input = {};
   input.trainerId = _id;
+  input.firstName = firstName;
+  input.lastName = lastName;
 
   ChatRoomMethods.addDirectMessageRoom.call(input, (error, response) => {
     console.log('M - ChatRoomMethods.getDirectMessageRoom / callback');
-    //this.setState({ isLoading: false });
 
     if (error) {
+      console.log(error);
       //this.setState({ error: error.reason });
     } else {
+      console.log(response);
+
+      console.log('....');
       browserHistory.push(`/chat-room/${response.data.chatRoomId}`);
       window.location.href = (`/chat-room/${response.data.chatRoomId}`);
     }
@@ -27,7 +32,7 @@ const handleChatUser = (_id) => {
 const ViewTrainer = ({ trainer }) => (
 
   <div className="ViewTrainer">
-    <h1>{trainer.professionalTitle}</h1>
+    <h1>{trainer.firstName} {trainer.lastName} ({trainer.professionalTitle})</h1>
     <Row>
       <Col xs={12} sm={8}>
         <h2>Overview</h2>
@@ -81,7 +86,7 @@ const ViewTrainer = ({ trainer }) => (
         <h2>Rate</h2>
         <p>${trainer.hourlyRate} / hour</p>
         <h2>Contact</h2>
-        <Button onClick={() => handleChatUser(trainer._id)} variant="light">Message</Button>
+        <Button key={trainer._id} onClick={() => handleChatUser(trainer._id, trainer.firstName, trainer.lastName)} variant="light">Message</Button>
       </Col>
     </Row>
   </div>

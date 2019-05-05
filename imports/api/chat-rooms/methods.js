@@ -7,6 +7,7 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import ChatRoomMembers from '../chat-room-members/collection';
 import ChatRooms from './collection';
 import Trainers from '../../api/trainers/trainers';
+//import Users from '../../api/users/users';
 
 export const add = new ValidatedMethod({
     name: 'ChatRooms.add',
@@ -147,10 +148,16 @@ export const addDirectMessageRoom = new ValidatedMethod({
     validate: new SimpleSchema({
         trainerId: {
             type: String
+        },
+        firstName: {
+            type: String
+        },
+        lastName: {
+            type: String
         }
     }).validator(),
 
-    run({ trainerId }) {
+    run({ trainerId, firstName, lastName }) {
         console.log('M - ChatRooms.addDirectMessageRoom / run');
         let response = {
             success: false,
@@ -188,19 +195,20 @@ export const addDirectMessageRoom = new ValidatedMethod({
                     chatRoomId = commonChatRoom._id;
                 } else {
                     // Chat room does not exists, create a new chat room
-                    const friendUser = Meteor.users.findOne(friendUserId);
                     chatRoomId = ChatRooms.insert({
-                        title: `${Meteor.user().username} and ${friendUser.username}`,
+                        title: `${Meteor.user().username} and ${firstName} ${lastName}`,
                         description: 'Direct Message',
                         userId: Meteor.userId(),
                         isPubic: false
                     });
-
+                    console.log('M - ChatRooms.insert / run');
+                    console.log(chatRoomId);
                     // Add chat room members
                     if (chatRoomId) {
                         ChatRoomMembers.insert({ chatRoomId: chatRoomId, userId: Meteor.userId() });
                         ChatRoomMembers.insert({ chatRoomId: chatRoomId, userId: friendUserId });
                     }
+                    console.log('end: ' + chatRoomId);
                 }
 
                 if (chatRoomId) {
@@ -214,5 +222,15 @@ export const addDirectMessageRoom = new ValidatedMethod({
         }
 
         return response;
+    }
+});
+
+
+
+
+Meteor.methods({
+    getUserIdById: function (id) {
+        var user = Meteor.users.find({ 'id': id });
+        return user;
     }
 });
