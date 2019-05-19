@@ -4,20 +4,22 @@ import { Bert } from 'meteor/themeteorchef:bert';
 
 const ViewClient = ({ client }) => (
   <div className="ViewClient">
-    <Panel header={ client.title + " - " + client.sex }>
-      <Row>
-        <Col xs={ 12 } sm={ 3 }>
-          <Image src={ "/" + client.image } alt={ client.title } responsive />
-        </Col>
-        <Col xs={ 12 } sm={ 9 }>
-          <p><strong>Description:</strong> { client.description }</p>
-          <p>{ client.height }</p>
-          <p>{ client.weight }</p>
-          <p>{ client.sex }</p>
-        </Col>
-      </Row>
-    </Panel>
-  </div>
+    <Row>
+      <Col xs={12}>
+        <h1>{client.title}</h1>
+      </Col>
+      <Col xs={12} sm={8}>
+        <h2>Description</h2>
+        <p>{client.description}</p>
+      </Col>
+      <Col xs={12} sm={4}>
+        <h2>Metrics</h2>
+        <p>{client.height}</p>
+        <p>{client.weight}</p>
+        <p>{client.sex}</p>
+      </Col>
+    </Row>
+  </div >
 );
 
 ViewClient.propTypes = {
