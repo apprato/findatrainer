@@ -40,6 +40,13 @@ if (!Meteor.isProduction) {
         userId = Accounts.createUser({ email, password, profile });
         Roles.addUsersToRoles(userId, roles);
         idUser = userId;
+        // Verify all users so we can log in with the dummy users and there client accounts
+        Meteor.users.update(userId, {
+          $set:
+          {
+            "emails.0.verified": true
+          }
+        });
 
         const clients = [{
           title: faker.random.words,
@@ -89,6 +96,13 @@ if (!Meteor.isProduction) {
       if (!userExists) {
         userId = Accounts.createUser({ email, password, profile });
         Roles.addUsersToRoles(userId, roles);
+        // Verify all users so we can log in with the dummy users and there client accounts
+        Meteor.users.update(userId, {
+          $set:
+          {
+            "emails.0.verified": true
+          }
+        });
         idUser = userId;
 
         const trainers = [
