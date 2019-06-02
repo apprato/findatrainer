@@ -68,7 +68,7 @@ case "$1" in
     ;;
   deployLocalToStaging)
     echo 'Deploy to Staging'
-    deployStaging
+    deployLocalToStaging
     echo 'Finished deploying to staging'
     ;;
   *)
