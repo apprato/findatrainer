@@ -195,8 +195,13 @@ export const addDirectMessageRoom = new ValidatedMethod({
                     chatRoomId = commonChatRoom._id;
                 } else {
                     // Chat room does not exists, create a new chat room
+                    console.log('Meteor.user');
+                    var uniqueID = Meteor.userId();
+                    var firstNameUserLoggedIn = Meteor.users.findOne({ _id: uniqueID }).profile.name.first;
+                    var lastNameUserLoggedIn = Meteor.users.findOne({ _id: uniqueID }).profile.name.last;
+
                     chatRoomId = ChatRooms.insert({
-                        title: `${Meteor.user().username} and ${firstName} ${lastName}`,
+                        title: `${firstNameUserLoggedIn} ${lastNameUserLoggedIn} and ${firstName} ${lastName}`,
                         description: 'Direct Message',
                         userId: Meteor.userId(),
                         isPubic: false
