@@ -79,55 +79,21 @@ class ChatRoomsCreate extends React.Component {
             {this.state.error ? (
               <p className="alert alert-danger">{this.state.error}</p>
             ) : (
-              ""
-            )}
+                ""
+              )}
             {this.state.isLoading ? (
               <p className="alert alert-info">Please wait...</p>
             ) : (
-              ""
-            )}
-
-            <div className="row">
-              <div className="col s12 p0">
-                <input
-                  type="text"
-                  name="roomTitle"
-                  id="room-title"
-                  placeholder="Room title"
-                  autoComplete="off"
-                  required="required"
-                  onChange={this.onChange.bind(this)}
-                  value={this.state.roomTitle}
-                />
-              </div>
-
-              <div className="col s12 p0">
-                <input
-                  type="text"
-                  name="roomDescription"
-                  id="room-description"
-                  placeholder="Room description"
-                  autoComplete="off"
-                  required="required"
-                  onChange={this.onChange.bind(this)}
-                  value={this.state.roomDescription}
-                />
-              </div>
-
-              <div className="col s12 p0">
-                <button type="submit" className="width100">
-                  Create Room
-                </button>
-              </div>
-            </div>
+                ""
+              )}
           </form>
         ) : (
-          <Link to="/login">
-            <button type="button" className="mt1 width100">
-              Create Room
+            <Link to="/login">
+              <button type="button" className="mt1 width100">
+                Create Room
             </button>
-          </Link>
-        )}
+            </Link>
+          )}
       </div>
     );
   }

@@ -11,10 +11,10 @@ class ChatRoomItems extends React.Component {
         let chatRoomsList;
 
         if (this.props.publicChatRoomsLoaded) {
-            if(this.props.publicChatRooms.length > 0) {
+            if (this.props.publicChatRooms.length > 0) {
                 chatRoomsList = (
                     this.props.publicChatRooms.map((chatRoom) => (
-                        <ChatRoomsItem chatRoom={ chatRoom } key={ chatRoom._id }/>
+                        <ChatRoomsItem chatRoom={chatRoom} key={chatRoom._id} />
                     ))
                 )
             } else {
@@ -36,7 +36,7 @@ class ChatRoomItems extends React.Component {
     render() {
         return (
             <div>
-                { this.renderChatRooms() }
+                {this.renderChatRooms()}
             </div>
         )
     }

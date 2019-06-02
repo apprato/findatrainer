@@ -9,7 +9,8 @@ Meteor.publishComposite("public-chat-rooms-publication", () => {
   return {
     find: function () {
       return ChatRooms.find(
-        { isPubic: false, userId: Meteor.userId() },
+        { $or: [{ userId: Meteor.userId() }, { friendUserId: Meteor.userId() }] },
+        { isPubic: false },
         { sort: { createdAt: -1 } }
       );
     },

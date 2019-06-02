@@ -204,6 +204,7 @@ export const addDirectMessageRoom = new ValidatedMethod({
                         title: `${firstNameUserLoggedIn} ${lastNameUserLoggedIn} and ${firstName} ${lastName}`,
                         description: 'Direct Message',
                         userId: Meteor.userId(),
+                        friendUserId: friendUserId,
                         isPubic: false
                     });
                     console.log('M - ChatRooms.insert / run');

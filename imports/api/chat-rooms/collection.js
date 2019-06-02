@@ -14,6 +14,11 @@ ChatRooms.schema = new SimpleSchema({
         type: String
     },
 
+    // Chat room friend
+    friendUserId: {
+        type: String
+    },
+
     // Chat room title
     title: {
         type: String
@@ -31,11 +36,11 @@ ChatRooms.schema = new SimpleSchema({
     // Chat room created at date time
     createdAt: {
         type: Date,
-        autoValue: function() {
+        autoValue: function () {
             if (this.isInsert) {
                 return new Date();
             } else if (this.isUpsert) {
-                return {$setOnInsert: new Date()};
+                return { $setOnInsert: new Date() };
             } else {
                 this.unset();
             }
@@ -45,7 +50,7 @@ ChatRooms.schema = new SimpleSchema({
     // Chat room updated at date time
     updatedAt: {
         type: Date,
-        autoValue: function() {
+        autoValue: function () {
             if (this.isUpdate) {
                 return new Date();
             }
