@@ -20,7 +20,7 @@ class ChatRoomItems extends React.Component {
             } else {
                 chatRoomsList = (
                     <div className="card tx-grey">
-                        No chat rooms available. Why don't you create one?
+                        You have no messages
                     </div>
                 )
             }
