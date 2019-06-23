@@ -2,14 +2,14 @@
 
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertProduct } from '../api/products/methods';
+import { upsertProduct } from '../api/products/methods.js';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
-  //console.log(component.props.doc);
-  const confirmation = component.props.doc && component.props.doc._id ? 'Job updated!' : 'Job added!';
+  const { doc } = component.props;
+  const confirmation = doc && doc._id ? 'Product updated!' : 'Product added!';
   const upsert = {
     idUser: Meteor.userId(),
     name: document.querySelector('[name="name"]').value,
@@ -19,15 +19,14 @@ const handleUpsert = () => {
     upload: document.querySelector('[name="upload"]').value,
   };
 
-  if (component.props.doc && component.props.doc._id) upsert._id = component.props.doc._id;
+  if (doc && doc._id) upsert._id = doc._id;
 
   upsertProduct.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      component.trainerProductEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push('/trainer/products');
+      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
     }
   });
 };

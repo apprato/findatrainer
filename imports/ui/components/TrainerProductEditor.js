@@ -9,8 +9,6 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
-import Modal from '../components/modals/Modal';
-import modals from '../../modules/modals';
 import trainerProductEditor from '../../modules/trainerProduct-editor.js';
 
 
@@ -20,59 +18,7 @@ export default class NewTrainerProductEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hourlyRate: null };
-    this.handleHourlyRate = this.handleHourlyRate.bind(this);
     const component = this;
-
-    component.state = {
-      modalShow: false,
-      modalClasses: null,
-      modalTitle: null,
-      modalForm: null,
-      modalBody: null,
-      modalFooter: null,
-    };
-
-    component.modal = {
-      open(modal, modalProps) {
-        component.setModal({ modal, show: true, props: modalProps });
-      },
-      close() {
-        component.setModal({ show: false });
-      },
-    };
-
-    component.resetModal = component.resetModal.bind(component);
-    component.setModal = component.setModal.bind(component);
-  }
-
-  resetModal() {
-    this.setState({
-      modalClasses: null,
-      modalTitle: null,
-      modalForm: null,
-      modalBody: null,
-      modalFooter: null,
-    });
-  }
-
-  setModal({ modal, show, props }) {
-    const modalToSet = modal ? modals[modal](props, this.modal) : {};
-    this.setState(Object.assign({ modalShow: show }, modalToSet), () => {
-      if (!show) setTimeout(() => {
-        this.resetModal();
-      }, 300);
-    });
-  }
-
-  handleHourlyRate(event) {
-    /*
-    First $500	20%
-    $500.01 - $10,000	10%
-    Over $10,000	5%
-    */
-    const hourlyRate = event.target.value;
-    this.setState({ hourlyRate });
-    document.querySelector('[name="paidRate"]').value = hourlyRate * 0.8;
   }
 
   /* React Mounts */
@@ -87,28 +33,11 @@ export default class NewTrainerProductEditor extends React.Component {
   /* Form Render */
   render() {
     const { doc } = this.props;
-    const {
-      modalShow,
-      modalClasses,
-      modalTitle,
-      modalForm,
-      modalBody,
-      modalFooter,
-    } = this.state;
 
     return (<form
       ref={form => (this.trainerProductEditorForm = form)}
       onSubmit={event => event.preventDefault()}>
       <Row>
-        <Modal
-          show={modalShow}
-          className={modalClasses}
-          title={modalTitle}
-          form={modalForm}
-          body={modalBody}
-          footer={modalFooter}
-          onHide={this.modal.close}
-        />
         <Col className="col-centered" xs={12} sm={8} md={8}>
           <p>Be part of the gymeed marketplace where you can seel your digital downloadable products.</p>
           <FormGroup>
@@ -181,6 +110,7 @@ export default class NewTrainerProductEditor extends React.Component {
 
 
 NewTrainerProductEditor.propTypes = {
+  doc: React.PropTypes.object,
   job: React.PropTypes.object,
   hourlyRateProp: React.PropTypes.object
 };

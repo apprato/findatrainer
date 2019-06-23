@@ -12,17 +12,16 @@ export default class DocumentEditor extends React.Component {
 
   render() {
     const { doc } = this.props;
-2
     return (<form
-      ref={ form => (this.documentEditorForm = form) }
-      onSubmit={ event => event.preventDefault() }
+      ref={form => (this.documentEditorForm = form)}
+      onSubmit={event => event.preventDefault()}
     >
       <FormGroup>
         <ControlLabel>Title</ControlLabel>
         <FormControl
           type="text"
           name="title"
-          defaultValue={ doc && doc.title }
+          defaultValue={doc && doc.title}
           placeholder="Oh, The Places You'll Go!"
         />
       </FormGroup>
@@ -31,12 +30,12 @@ export default class DocumentEditor extends React.Component {
         <FormControl
           componentClass="textarea"
           name="body"
-          defaultValue={ doc && doc.body }
+          defaultValue={doc && doc.body}
           placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
         />
       </FormGroup>
       <Button type="submit" bsStyle="success">
-        { doc && doc._id ? 'Save Changes' : 'Add Document' }
+        {doc && doc._id ? 'Save Changes' : 'Add Document'}
       </Button>
     </form>);
   }

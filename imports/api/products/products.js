@@ -50,10 +50,3 @@ Products.schema = new SimpleSchema({
 Products.attachSchema(Products.schema);
 
 
-Factory.define('product', Products, {
-  category: () => 'Factory category',
-  skills: () => 'Factory skillTags',
-  experienceLevel: () => 'Factory experienceLevel',
-});
-
-
