@@ -125,8 +125,7 @@ export default class NewTrainerProductEditor extends React.Component {
             <ControlLabel>Description</ControlLabel>
             <FormControl
               className="description"
-              componentClass="textarea"
-              type="textarea"
+              type="text"
               ref="description"
               name="description"
               placeholder="Add you product description."
@@ -137,8 +136,7 @@ export default class NewTrainerProductEditor extends React.Component {
             <ControlLabel>Price</ControlLabel>
             <FormControl
               className="price"
-              componentClass="textarea"
-              type="textarea"
+              type="text"
               ref="price"
               name="price"
               placeholder="Set price"
@@ -149,8 +147,7 @@ export default class NewTrainerProductEditor extends React.Component {
             <ControlLabel>Image</ControlLabel>
             <FormControl
               className="image"
-              componentClass="textarea"
-              type="textarea"
+              type="text"
               ref="image"
               name="image"
               placeholder="Upload Image."
@@ -161,12 +158,11 @@ export default class NewTrainerProductEditor extends React.Component {
             <ControlLabel>Upload Digital Product</ControlLabel>
             <FormControl
               className="upload"
-              componentClass="textarea"
-              type="textarea"
+              type="text"
               ref="upload"
               name="upload"
               placeholder="Upload Product."
-              defaultValue={doc && doc.product_upload}
+              defaultValue={doc && doc.upload}
             />
           </FormGroup>
         </Col>
