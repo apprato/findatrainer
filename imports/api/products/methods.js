@@ -26,7 +26,7 @@ export const upsertProduct = new ValidatedMethod({
 
 Meteor.methods({
   getProductsCount() {
-    return Clients.find().count();
+    return Products.find().count();
   }
 });
 

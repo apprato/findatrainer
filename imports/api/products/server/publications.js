@@ -8,6 +8,30 @@ Meteor.publish('products.trainer.list', (idUser) => {
   return productsQuery;
 });
 
+Meteor.publish('products.list', (skipCount, _id) => {
+  check(skipCount, Number);
+  check(_id, Number);
+
+  const query = {};
+  var productsQuery = Products.find(
+    query,
+    {
+      limit: 5,
+      skip: skipCount,
+    }
+  );
+
+  return productsQuery;
+});
+
+Meteor.publish('products.list.user', (idUser) => {
+  check(idUser, String);
+  var usersQuery = Meteor.users.find({ _id: idUser });
+
+  return usersQuery;
+});
+
+
 
 Meteor.publish('products.view', (_id) => {
   check(_id, String);

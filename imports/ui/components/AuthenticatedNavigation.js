@@ -31,6 +31,12 @@ const AuthenticatedNavigation = () => (
         <MenuItem eventKey={1.1} href="/clients">Find Clients</MenuItem>
       </NavDropdown>
     </Nav>
+    <Nav pullLeft>
+      <NavDropdown eventKey={1} title="Marketplace" id="basic-nav-dropdown">
+        <MenuItem eventKey={1.1} href="/marketplace">Find Products</MenuItem>
+        <MenuItem eventKey={1.2} href="/trainer/products">Add Products</MenuItem>
+      </NavDropdown>
+    </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={3} title={userName()} id="basic-nav-dropdown">
         <MenuItem eventKey={3.1} href="/client/edit/measurement">Edit Measurements</MenuItem>
