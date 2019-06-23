@@ -2,7 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import Products from '../products';
 
-Meteor.publish('products.list', () => Products.find());
+Meteor.publish('products.trainer.list', (idUser) => {
+  check(idUser, String);
+  var productsQuery = Products.find({ "idUser": idUser });
+  return productsQuery;
+});
+
 
 Meteor.publish('products.view', (_id) => {
   check(_id, String);

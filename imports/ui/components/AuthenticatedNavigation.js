@@ -37,6 +37,7 @@ const AuthenticatedNavigation = () => (
         <MenuItem eventKey={3.2} href="/trainer/edit/experience">Edit Experience</MenuItem>
         <MenuItem eventKey={3.3} href="/trainer/edit/profile">Edit Profile</MenuItem>
         <MenuItem eventKey={3.4} href="/chat-room">Messages</MenuItem>
+        <MenuItem eventKey={3.4} href="/trainer/products">Products</MenuItem>
         <MenuItem eventKey={3.4} href="/contactus">Contact Us</MenuItem>
         <MenuItem eventKey={3.5} onClick={handleLogout}>Logout</MenuItem>
       </NavDropdown>

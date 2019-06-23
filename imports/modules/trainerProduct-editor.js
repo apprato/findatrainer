@@ -26,7 +26,7 @@ const handleUpsert = () => {
       Bert.alert(error.reason, 'danger');
     } else {
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
+      browserHistory.push(`/trainer/products`);
     }
   });
 };

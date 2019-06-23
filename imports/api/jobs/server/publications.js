@@ -12,15 +12,15 @@ Meteor.publish('jobs.list.search', (searchTerm, stateTerm, categoryTerm, skipCou
   check(categoryTerm, Match.OneOf(String, null, undefined));
 
   let query = {};
-  const projection = {limit: 5, sort: {title: 1}, skip: skipCount};
+  const projection = { limit: 5, sort: { title: 1 }, skip: skipCount };
 
   if (searchTerm) {
     const regex = new RegExp(searchTerm, 'i');
 
     query = {
       $or: [
-        {jobTitle: regex},
-        {year: regex},
+        { jobTitle: regex },
+        { year: regex },
       ],
 
     };
@@ -98,8 +98,8 @@ Meteor.publish('jobs.list.filter', (skipCount, _search, _category, jobsPerPage) 
     const regex = new RegExp(_search, 'i');
     const query = {
       $or: [
-        {jobTitle: regex},
-        {overview: regex},
+        { jobTitle: regex },
+        { overview: regex },
       ],
     };
     // query, projection
@@ -146,15 +146,15 @@ Meteor.publish('jobs.list', (skipCount, _id) => {
 
 
 Meteor.publish('jobs.client.list', (idUser) => {
-  check (idUser, String);
-  var jobsQuery  = Jobs.find({"idUser": idUser});
+  check(idUser, String);
+  var jobsQuery = Jobs.find({ "idUser": idUser });
   return jobsQuery;
 });
 
 
 Meteor.publish('jobs.list.user', (idUser) => {
   check(idUser, String);
-  var usersQuery = Meteor.users.find( { _id: idUser}  );
+  var usersQuery = Meteor.users.find({ _id: idUser });
 
   return usersQuery;
 });
