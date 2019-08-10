@@ -1,48 +1,24 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import { Alert, Row, Col, Button, Panel } from 'react-bootstrap';
+import { Alert, Row, Col, Button, Panel, Image } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
-import * as ChatRoomMethods from '../../api/chat-rooms/methods';
-
-
-const handleChatUser = (_id, firstName, lastName) => {
-
-  let input = {};
-  input.trainerId = _id;
-  input.firstName = firstName;
-  input.lastName = lastName;
-
-  ChatRoomMethods.addDirectMessageRoom.call(input, (error, response) => {
-    console.log('M - ChatRoomMethods.getDirectMessageRoom / callback');
-
-    if (error) {
-      console.log(error);
-      //this.setState({ error: error.reason });
-    } else {
-      console.log(response);
-
-      console.log('....');
-      browserHistory.push(`/chat-room/${response.data.chatRoomId}`);
-      window.location.href = (`/chat-room/${response.data.chatRoomId}`);
-    }
-  });
-}
 
 
 const ViewProduct = ({ product }) => (
 
   <div className="ViewProduct">
-    <h1>{product.firstName} {product.lastName} ({product.professionalTitle})</h1>
     <Panel>
       <Row>
         <Col xs={12} sm={8}>
-          <h2>Overview</h2>
-          <p>{product.overview}</p>
-          <p><strong>Category: </strong>{product.category}</p>
-          <p><strong>Experience Level: </strong>{product.experienceLevel}</p>
-          <p><strong>English Proficiency:</strong>{product.englishProficiency}</p>
+          <Image src="http://placehold.it/1600x900" responsive />
+          <h3>Overview</h3>
+          <div>
+            <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
+            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+            <p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+          </div>
           <br />
-          <div className="Products-Education">
+          <div className="Products-Education hidden">
             <h2>Education</h2>
             {product.education ? product.education.map(({ school, dateFrom, dateTo, tertiaryEducation, areaOfStudy }) => (
               <Row>
@@ -56,7 +32,7 @@ const ViewProduct = ({ product }) => (
               </Row>
             )) : <Alert>No education listed.'</Alert>}
           </div>
-          <div className="Products-Employment">
+          <div className="Products-Employment hidden">
             <h2>Employment</h2>
             {product.employment ? product.employment.map(({ company, location, title, fromMonth, fromYear, toMonth, toYear, description }) => (
               <Row>
@@ -72,22 +48,26 @@ const ViewProduct = ({ product }) => (
               </Row>
             )) : <Alert>No education listed.'</Alert>}
           </div>
-
         </Col>
         <Col xs={12} sm={4}>
-          <h2>Location</h2>
-          <p>
-            {product.address1}<br />
-            {product.address2}<br />
-            {product.city}<br />
-            {product.country}<br />
-            {product.postCode}<br />
-            {product.phoneNumber}<br />
-          </p>
-          <h2>Rate</h2>
-          <p>${product.hourlyRate} / hour</p>
-          <h2>Contact</h2>
-          <Button key={product._id} onClick={() => handleChatUser(product._id, product.firstName, product.lastName)} variant="light">Message</Button>
+          <h1>{product.name}</h1>
+          <p>By {product.firstName} {product.lastName}</p>
+          <Button className="btn btn-primary btn-block" key={product._id} onClick={() => handleChatUser(product._id, product.firstName, product.lastName)} variant="light">Purchase - $19.95</Button>
+          <div className="hidden">
+            <p>
+              {product.address1}<br />
+              {product.address2}<br />
+              {product.city}<br />
+              {product.country}<br />
+              {product.postCode}<br />
+              {product.phoneNumber}<br />
+            </p>
+            <h2>Rate</h2>
+            <p><strong>Category: </strong>{product.category}</p>
+            <p><strong>Experience Level: </strong>{product.experienceLevel}</p>
+            <p><strong>English Proficiency:</strong>{product.englishProficiency}</p>
+            <p>${product.hourlyRate} / hour</p>
+          </div>
         </Col>
       </Row>
     </Panel>

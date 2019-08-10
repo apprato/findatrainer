@@ -14,6 +14,10 @@ meteor add ajduke:bootstrap-tagsinput # typeahead: enabled
 meteor add bootstrp:tagsinput
 meteor npm install react-datepicker --save # datepicker
 
+
+#### Browser Policy
+See imports/startup/server/browser-policy.js
+
 ## Staging
 
 TBC
