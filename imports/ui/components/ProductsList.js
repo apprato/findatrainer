@@ -145,8 +145,8 @@ class ProductsList extends React.Component {
       <div className="Products-list clearfix">
         <Col>
           <h1> &nbsp;&nbsp;Fitness Marketplace</h1>
+          <br />
         </Col>
-
         {products.length > 0 ? products.map(({ _id, name, description, image, firstName, lastName }) => (
           <Col xs={12} sm={6} md={4} lg={4} className="clearfix">
             <Panel>
@@ -161,7 +161,7 @@ class ProductsList extends React.Component {
                   <p>{description}</p>
                 </Col>
                 <Col xs={12} sm={12} md={3}>
-                  <h4>$19</h4>
+                  <h4 className="pull-right">$19</h4>
                 </Col>
               </Row>
             </Panel>
