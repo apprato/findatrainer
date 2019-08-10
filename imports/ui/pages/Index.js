@@ -88,7 +88,7 @@ const Index = () => (
         </Col>
         <Col sm={6}>
           <br /><br />
-          <p><a className="btn btn-success" href="/getstarted" role="button">Find a program</a></p>
+          <p><a className="btn btn-success" href="/marketplace" role="button">Find a program</a></p>
         </Col>
       </Col>
     </Row>
@@ -105,6 +105,39 @@ const Index = () => (
     </Row>
     <Row className="text-center">
       <p><a className="btn btn-success" href="/signup/trainer" role="button">Become a coach</a></p>
+    </Row>
+
+
+    <Row className="hidden">
+      <Col lg={4} >
+        <ul>
+          <li>COMPANY</li>
+          <li>About Us</li>
+          <li>Trust & Saftey</li>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Blog</li>
+          <li>Conact Us</li>
+        </ul>
+      </Col>
+      <Col lg={4} >
+        <ul>
+          <li>DISCOVER</li>
+          <li>How It Works</li>
+          <li>Earn Money</li>
+          <li>New Users FAQ</li>
+          <li>Find Work</li>
+          <li>Support Center</li>
+        </ul>
+      </Col>
+      <Col lg={4} >
+        <ul>
+          <li>BROWSE</li>
+          <li>Coaches by Speciality</li>
+          <li>Coaches by Australia</li>
+          <li>Coaches by New Zealand</li>
+        </ul>
+      </Col>
     </Row>
     <br />
     <br />

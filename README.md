@@ -59,6 +59,13 @@ sudo visudo
   %sudo ALL=(ALL) NOPASSWD:ALL
   mup --config mup.js.local.staging --settings settings-staging.json setup
 
+### Deploy from local to server
+
+$  cd .deploy
+$  DEBUG=* mup --config mup.js.local.staging --settings settings-staging.json deploy
+
+
+
 ## Production
 
 ....
