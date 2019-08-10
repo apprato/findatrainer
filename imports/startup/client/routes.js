@@ -34,6 +34,7 @@ import MyAccountEditTrainerProfile from "../../ui/containers/MyAcocuntEditTraine
 import NewTrainerProduct from "../../ui/pages/NewTrainerProduct.js";
 import TrainerProducts from "../../ui/pages/TrainerProducts.js";
 import Products from "../../ui/containers/ProductsList.js";
+import ViewProduct from "../../ui/containers/ViewProduct";
 import NewClientJob from "../../ui/pages/NewClientJob.js";
 import NewTrainerProfile from "../../ui/pages/NewTrainerProfile.js";
 import EditTrainerProfile from "../../ui/containers/EditTrainerProfile.js";
@@ -270,9 +271,15 @@ Meteor.startup(() => {
           onEnter={authenticate}
         />
         <Route
-          name="markekplace"
+          name="marketplace"
           path="/marketplace"
           component={Products}
+          onEnter={authenticate}
+        />
+        <Route
+          name="viewMarketplace"
+          path="/marketplace/:_id"
+          component={ViewProduct}
           onEnter={authenticate}
         />
         <Route
