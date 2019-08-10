@@ -7,7 +7,7 @@ import 'react-select/dist/react-select.css';
 
 
 const handleNavigation = (_id) => {
-  browserHistory.push(`/trainers/${_id}`);
+  browserHistory.sh(`/trainers/${_id}`);
 }
 
 const handleNavigationPager = (selected) => {
@@ -142,43 +142,54 @@ class ProductsList extends React.Component {
           </Col>
         </Row>
       </div>
-      <div className="Products-list">
+      <div className="Products-list clearfix">
+        <Col>
+          <h1> &nbsp;&nbsp;Fitness Marketplace</h1>
+        </Col>
+
         {products.length > 0 ? products.map(({ _id, name, description, image, firstName, lastName }) => (
-          <Panel>
-            <Row>
-              <Col xs={8} sm={9}>
-                <a href={"/marketplace/" + _id} key={_id} onClick={() => handleNavigation(_id)}>
-                  <h2>{name}</h2>
-                </a>
-                <p>{description}</p>
-              </Col>
-              <Col xs={12} sm={3}>
-                <br />
-                <p>{this.getCategoryName(category)}</p>
-                {image ? <Image src={'/' + 'logos' + '/' + image} alt={name} responsive /> : ''}
-              </Col>
-            </Row>
-          </Panel>
+          <Col xs={12} sm={6} md={4} lg={4} className="clearfix">
+            <Panel>
+              <Row>
+                <Col xs={12}>
+                  <Image src="http://placehold.it/1600x900" responsive />
+                </Col>
+                <Col xs={8} sm={12} md={9}>
+                  <a href={"/marketplace/" + _id} key={_id} onClick={() => handleNavigation(_id)}>
+                    <h5><strong>{name}</strong></h5>
+                  </a>
+                  <p>{description}</p>
+                </Col>
+                <Col xs={12} sm={12} md={3}>
+                  <h4>$19</h4>
+                </Col>
+              </Row>
+            </Panel>
+          </Col>
         )) : <Alert>Sorry there are no listings found for '{this.state.searchTerm}.'</Alert>}
-        <Row>
-          <ReactPaginate
-            pageCount={this.props.pageCount}
-            pageRangeDisplayed={1}
-            marginPagesDisplayed={3}
-            previousLabel={"<"}
-            nextLabel={">"}
-            pageNum={this.props.currentPage - 1}
-            initialPage={this.props.currentPage - 1}
-            hrefBuilder={(page) => hrefBuilder + page}
-            onPageChange={this.handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-            disableInitialCallback="false"
-          />
-        </Row>
       </div>
-    </div>);
+      <Row>
+        <ReactPaginate
+          pageCount={this.props.pageCount}
+          pageRangeDisplayed={1}
+          marginPagesDisplayed={3}
+          previousLabel={"<"}
+          nextLabel={">"}
+          pageNum={this.props.currentPage - 1}
+          initialPage={this.props.currentPage - 1}
+          hrefBuilder={(page) => hrefBuilder + page}
+          onPageChange={this.handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+          disableInitialCallback="false"
+        />
+      </Row>
+    </div>
+
+
+
+    );
   }
 }
 
