@@ -118,13 +118,11 @@ Meteor.startup(() => {
           name="trainers"
           path="/trainers"
           component={Trainers}
-          onEnter={authenticate}
         />
         <Route
           name="listTrainersPagination"
           path="/trainers/page/:_id"
           component={Trainers}
-          onEnter={authenticate}
         />
         <Route
           name="listClientsPagination"
@@ -262,7 +260,6 @@ Meteor.startup(() => {
           name="trainerProducts"
           path="/trainer/products"
           component={TrainerProducts}
-          onEnter={authenticate}
         />
         <Route
           name="newTrainerProduct"
@@ -274,13 +271,11 @@ Meteor.startup(() => {
           name="marketplace"
           path="/marketplace"
           component={Products}
-          onEnter={authenticate}
         />
         <Route
           name="viewMarketplace"
           path="/marketplace/:_id"
           component={ViewProduct}
-          onEnter={authenticate}
         />
         <Route
           name="newClient"
@@ -298,7 +293,6 @@ Meteor.startup(() => {
           name="viewTrainer"
           path="/trainers/:_id"
           component={ViewTrainer}
-          onEnter={authenticate}
         />
         <Route
           name="messages"
