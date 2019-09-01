@@ -16,6 +16,62 @@ const Index = () => (
         </Col>
       </Row>
     </Jumbotron>
+
+
+    <Row>
+      <h1>What do you need help with?</h1>
+      <p>Ever wondered what it takes to look a certain away?<br />
+        Or thought some people must be blessed with superhuman genetics? Here's your chance to find out.
+      </p>
+      <Row>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <Image className="col-centered" src="svg/37_weight_loss.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Weight Loss</p>
+        </Col>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <Image className="col-centered" src="svg/38_muscle_gain.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Muscle Gain</p>
+        </Col>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <Image className="col-centered" src="svg/08_athletics.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Athletics</p>
+        </Col>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <br />
+            <Image className="col-centered" src="svg/09_yoga.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Yoga</p>
+        </Col>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <Image className="col-centered" src="svg/49_nutrition.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Nutrition</p>
+        </Col>
+        <Col xs={6} sm={4} lg={2}>
+          <div className="col-centered circle">
+            <Image className="col-centered" src="svg/47_supplements.svg" responsive />
+          </div>
+          <br />
+          <p className="col-centered">Supplements</p>
+        </Col>
+      </Row>
+    </Row>
+
+
+
     <Row>
       <h1>How do they do it?</h1>
       <p>Ever wondered what it takes to look a certain away?<br />
