@@ -5,7 +5,7 @@ import Clients from '../containers/Clients.js';
 
 const Index = () => (
   <div className="Index">
-    <section>
+    <section className="banner">
       <Jumbotron className="text-center banner">
         <Row className="col-centered clearfix">
           <Col lg={6} className="text-left">
