@@ -1,8 +1,8 @@
 import React from 'react';
-import {Grid} from 'react-bootstrap';
-import {Alert, Button, Row} from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
+import { Alert, Button, Row } from 'react-bootstrap';
 import AppNavigation from '../containers/AppNavigation.js';
-import {createContainer} from 'meteor/react-meteor-data';
+import { createContainer } from 'meteor/react-meteor-data';
 
 
 const getUserName = name => ({
@@ -39,10 +39,10 @@ const handleResendVerificationEmail = (emailAddress) => {
 };
 
 
-const App = ({children, loading, userId, name, emailAddress, emailVerified}) => (
+const App = ({ children, loading, userId, name, emailAddress, emailVerified }) => (
   <div>
     <AppNavigation />
-    <Grid>
+    <Grid fluid>
       {
         userId && !emailVerified ?
           <Row>
