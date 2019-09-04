@@ -7,7 +7,7 @@ import AuthenticatedNavigation from './AuthenticatedNavigation.js';
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
 const AppNavigation = ({ hasUser }) => (
-  <Navbar fluid>
+  <Navbar fluid className="navbar-fixed-top">
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">GYMEED</Link>

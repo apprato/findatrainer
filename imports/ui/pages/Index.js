@@ -9,8 +9,8 @@ const Index = () => (
       <Jumbotron className="text-center banner">
         <Row className="col-centered clearfix">
           <Col lg={6} className="text-left">
-            <h1>Find a trainer<br />Get results</h1>
-            <p>Submit your profile and metrics and a<br />trainer will contact you.</p>
+            <h1><i>FIND A TRAINER & GET RESULTS</i></h1>
+            <p>Submit your profile to find your ideal trainer through the gymeed platform.</p>
             <p><a className="btn btn-success" href="/getstarted" role="button">Get Started</a></p>
           </Col>
           <Col lg={6}>

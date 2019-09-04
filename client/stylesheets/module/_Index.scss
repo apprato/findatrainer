@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.Index body {
+  /* @TODO - crop this image to fix and add mobile image */
+
+}
+
 .Index .circle {
 
   width: 10em;
@@ -20,4 +25,15 @@
 
 .Index section.banner {
   h1,p { color: #FFF; }
+}
+
+.Index .jumbotron { 
+  margin-top: -4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background: white url("abdominal-exercise-abdominal-trainer-action-416747.jpg") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
